@@ -1,4 +1,7 @@
 (function(){
-    let el = $('.o_record_cover_component.o_record_cover_image').first();
+    let el = $('#o_wblog_post_top .o_record_cover_image').first();
+    let width = el.width();
+    let height = width * 0.5874;
+    console.log(width, height);
+    el.height(height+'px');
 })();
-console.log('news');
