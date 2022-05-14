@@ -8,13 +8,33 @@
             </div>
         </template>
 
-        <template id="post_top">
+        <template id="news.record_cover">
+            <t t-set="_cp" t-value="_cp or json.loads(_record.cover_properties)"/>
+            <t t-set="_name" t-value="_name or _record._name"/>
+            <t t-set="_id" t-value="_id or _record.id"/>
+            <t t-set="_bg" t-value="_bg or _record._get_background(height=_resize_height, width=_resize_width)"/>
+            <t t-set="default_cover_name">Cover</t>
+            <div t-att-me="sami" t-att-data-name="display_opt_name or default_cover_name"
+                 t-att-style="_cp.get('background_color_style')"
+                 t-att-data-use_size="use_size"
+                 t-att-data-use_filters="use_filters"
+                 t-att-data-use_text_align="use_text_align"
+                 t-att-data-res-model="request.env.user.has_group('website.group_website_publisher') and _name"
+                 t-att-data-res-id="request.env.user.has_group('website.group_website_publisher') and _id"
+                 t-attf-class="o_record_cover_container d-flex flex-column h-100 o_colored_level o_cc #{_cp.get('background_color_class')} #{use_size and _cp.get('resize_class')} #{use_text_align and _cp.get('text_align_class')} #{additionnal_classes}">
+                <div t-attf-class="o_record_cover_component o_record_cover_image #{snippet_autofocus and 'o_we_snippet_autofocus'}" t-attf-style="background-image: #{_bg};"/>
+                <div t-if="use_filters" t-attf-class="o_record_cover_component o_record_cover_filter oe_black" t-attf-style="opacity: #{_cp.get('opacity', 0.0)};"/>
+                <t t-out="0"/>
+            </div>
+        </template>
+
+        <template id="news.post_top">
             <section id="o_wblog_post_top">
                 <div id="title" class="blog_header" t-ignore="True">
                     <div t-attf-class="o_wblog_post_title #{opt_blog_post_select_to_tweet and 'js_tweet'} #{opt_blog_post_select_to_comment and 'js_comment'}">
                         <div t-field="blog_post.name" id="o_wblog_post_name" class="o_editable_no_shadow" data-oe-expression="blog_post.name" t-att-data-blog-id="blog_post.id" placeholder="Blog Post Title"/>
                     </div>
-                    <t t-call="website.record_cover">
+                    <t t-call="news.record_cover">
                         <t t-set="_record" t-value="blog_post"/>
                         <t t-set="snippet_autofocus" t-value="True"/>
                         <t t-set="use_filters" t-value="True"/>
@@ -29,52 +49,40 @@
                                 class="css_editable_mode_hidden justify-content-center align-items-center rounded-circle mx-auto mb-5 text-decoration-none">
                                 <i class="fa fa-angle-down fa-3x text-white" aria-label="To blog content" title="To blog content"/>
                             </a>
-                            <div t-field="blog_post.subtitle" id="o_wblog_post_subtitle" class="o_editable_no_shadow" placeholder="Subtitle"/>
                         </div>
                     </t>
+                    <div t-field="blog_post.subtitle" id="o_wblog_post_subtitle" class="o_editable_no_shadow" placeholder="Subtitle"/>
                 </div>
             </section>
         </template>
 
-        <template id="website_blog.blog_post_complete" name="News Blog Post" track="1">
-            <t t-call="website_blog.index">
-
-                <!-- Check for active options: the stored value may be used in sub-templates too  -->
-                <t t-set="opt_blog_post_readable" t-value="is_view_active('website_blog.opt_blog_post_readable')"/>
-                <t t-set="opt_blog_post_sidebar" t-value="is_view_active('website_blog.opt_blog_post_sidebar')"/>
-                <t t-set="opt_blog_post_regular_cover" t-value="is_view_active('website_blog.opt_blog_post_regular_cover')"/>
-                <t t-set="opt_blog_post_breadcrumb" t-value="is_view_active('website_blog.opt_blog_post_breadcrumb')"/>
-                <t t-set="opt_blog_post_select_to_tweet" t-value="is_view_active('website_blog.opt_blog_post_select_to_tweet')"/>
-                <t t-set="opt_blog_post_select_to_comment" t-value="is_view_active('website_blog.opt_blog_post_select_to_comment')"/>
+        <template id="news_blog_post_complete" inherit_id="website_blog.blog_post_complete" name="News Blog Post" track="1">
+            <xpath expr="//section[@id='o_wblog_post_top']" position="replace">
                 <link rel="stylesheet" href="/news/static/src/css/news.css"/>
-
-                <section id="o_wblog_post_main" t-attf-class="container pt-4 pb-5 #{'anim' in request.params and 'o_wblog_post_main_transition'}">
-
-                    <!-- Sidebar-enabled Layout -->
-                    <div t-if="opt_blog_post_sidebar" t-attf-class="mx-auto #{opt_blog_post_readable and 'o_wblog_read_with_sidebar'}">
-                        <t t-call="news.post_top"></t>
-                        <div t-attf-class="d-flex flex-column flex-lg-row #{opt_blog_post_readable and 'justify-content-between'}">
-                            <div id="o_wblog_post_content" t-attf-class="#{opt_blog_post_readable and 'o_container_small mx-0 w-100 flex-shrink-0' or 'w-lg-75'}">
-                                <t t-call="website_blog.blog_post_content"/>
-                            </div>
-                            <div id="o_wblog_post_sidebar_col" t-attf-class="pl-lg-5 #{not opt_blog_post_readable and 'flex-grow-1 w-lg-25'}">
-                                <t t-call="website_blog.blog_post_sidebar"/>
-                            </div>
+            </xpath>
+            <xpath expr="//section[@id='o_wblog_post_main']" position="replace">
+                <div t-if="opt_blog_post_sidebar" t-attf-class="mx-auto #{opt_blog_post_readable and 'o_wblog_read_with_sidebar'}">
+                    <t t-call="news.post_top"></t>
+                    <div t-attf-class="d-flex flex-column flex-lg-row #{opt_blog_post_readable and 'justify-content-between'}">
+                        <div id="o_wblog_post_content" t-attf-class="#{opt_blog_post_readable and 'o_container_small mx-0 w-100 flex-shrink-0' or 'w-lg-75'}">
+                            <t t-call="website_blog.blog_post_content"/>
+                        </div>
+                        <div id="o_wblog_post_sidebar_col" t-attf-class="pl-lg-5 #{not opt_blog_post_readable and 'flex-grow-1 w-lg-25'}">
+                            <t t-call="website_blog.blog_post_sidebar"/>
                         </div>
                     </div>
+                </div>
 
-                    <!-- No-Sidebar Layout -->
-                    <div t-if="not opt_blog_post_sidebar" t-attf-class="#{opt_blog_post_readable and 'o_container_small'}">
-                        <t t-call="news.post_top"></t>
-                        <div class="d-flex flex-column flex-lg-row">
-                            <div id="o_wblog_post_content" t-attf-class=" #{opt_blog_post_readable and 'o_container_small w-100 flex-shrink-0'}">
-                                <t t-call="website_blog.blog_post_content"/>
-                            </div>
+                <!-- No-Sidebar Layout -->
+                <div t-if="not opt_blog_post_sidebar" t-attf-class="#{opt_blog_post_readable and 'o_container_small'}">
+                    <t t-call="news.post_top"></t>
+                    <div class="d-flex flex-column flex-lg-row">
+                        <div id="o_wblog_post_content" t-attf-class=" #{opt_blog_post_readable and 'o_container_small w-100 flex-shrink-0'}">
+                            <t t-call="website_blog.blog_post_content"/>
                         </div>
                     </div>
-                </section>
-                <section id="o_wblog_post_footer"/>
-            </t>
+                </div>
+            </xpath>
         </template>
     </data>
 </odoo>

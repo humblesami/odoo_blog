@@ -24,6 +24,12 @@
     'depends': ['website_blog'],
 
     # always loaded
+    'assets': {
+        'web.assets_frontend': [
+            'news/static/src/js/news.js',
+            'news/static/src/js/options.js'
+        ]
+    },
     'data': [
         # 'security/ir.model.access.csv',
         'views/views.xml',
