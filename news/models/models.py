@@ -11,4 +11,10 @@ class NewsPost(models.Model):
     def _on_name_changed(self):
         if self.name:
             self.website_meta_title = self.name
-    
+            
+    @api.onchange('subtitle')
+    def _on_name_changed(self):
+        if self.name:
+            self.website_meta_description = self.subtitle
+
+        
