@@ -29,6 +29,10 @@
             </div>
         </template>
 
+        <template id="posts_loop" name="Posts List">
+
+        </template>
+
         <template id="news.post_top">
             <t t-if="opt_blog_post_breadcrumb and not opt_blog_post_regular_cover" t-call="website_blog.post_breadcrumbs"></t>
             <section id="o_wblog_post_top">

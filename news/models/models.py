@@ -19,6 +19,8 @@ class CoverProperties(models.AbstractModel):
 class NewsPost(models.Model):
     _inherit = 'blog.post'
     side_bar = fields.Boolean()
+
+    published_date = fields.Datetime('Published Date', default = lambda self: fields.datetime.now())
     
     @api.onchange('name')
     def _on_name_changed(self):
