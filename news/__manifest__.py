@@ -28,7 +28,10 @@
         'web.assets_frontend': [
             'news/static/src/js/news.js',
             'news/static/src/js/options.js'
-        ]
+        ],
+        'web.assets_qweb': [
+            'news/static/src/xml/*',
+        ],
     },
     'data': [
         # 'security/ir.model.access.csv',

@@ -43,3 +43,6 @@
 {
     font-size: 16px;
 }
+.o_thread_window .o_mail_thread .o_mail_thread_content, .o_thread_window .o_thread_composer input.o_composer_text_field{
+    font-size: 16px;
+}
