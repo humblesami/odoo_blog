@@ -29,8 +29,19 @@
             </div>
         </template>
 
-        <template id="posts_loop" name="Posts List">
+        <template id="website_blog.post_cover_image">
+            <t t-if="opt_blog_cards_design and not opt_blog_list_view" t-set="classes" t-value="'card-img-top mb-2'"/>
+            <t t-if="not opt_blog_cards_design and opt_blog_list_view" t-set="classes" t-value="'o_wblog_post_cover_nocard'"/>
 
+            <a t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}"
+               t-attf-class="text-decoration-none d-block #{classes or 'mb-2'}"
+               t-att-style="not blog_post.website_published and 'opacity:0.6;'">
+
+                <t t-call="news.record_cover">
+                    <t t-set="_record" t-value="blog_post"/>
+                    <t t-set="additionnal_classes" t-value="'o_list_cover o_not_editable ' + (not opt_blog_cards_design and ' rounded overflow-hidden shadow mb-3' or '')"/>
+                </t>
+            </a>
         </template>
 
         <template id="news.post_top">
@@ -62,9 +73,13 @@
             </section>
         </template>
 
+        <template id="news.blog_post_short" inherit_id="website_blog.blog_post_short">
+            <xpath expr="//div[@id='o_wblog_blog_top']" position="replace">
+            </xpath>
+        </template>
+
         <template id="news_blog_post_complete" inherit_id="website_blog.blog_post_complete" name="News Blog Post" track="1">
             <xpath expr="//section[@id='o_wblog_post_top']" position="replace">
-                <link rel="stylesheet" href="/news/static/src/css/news.css"/>
             </xpath>
             <xpath expr="//section[@id='o_wblog_post_main']" position="replace">
                 <div t-if="opt_blog_post_sidebar" t-attf-class="mx-auto #{opt_blog_post_readable and 'o_wblog_read_with_sidebar'}">
