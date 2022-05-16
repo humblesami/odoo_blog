@@ -3,17 +3,17 @@
 from odoo import models, fields, api
 
 
-class CoverProperties(models.AbstractModel):
-    _inherit = 'website.cover_properties.mixin'
-    
-    def _get_background_src(self, height=None, width=None):
-        super_ob = super()
-        res = super_ob._get_background(height, width)
-        if not res or res == 'none':
-            res = ''
-        else:
-            res = res.replace('url(', '').replace(')', '').replace("'", "")
-        return res
+# class CoverProperties(models.AbstractModel):
+#     _inherit = 'website.cover_properties.mixin'
+#
+#     def _get_background_src(self, height=None, width=None):
+#         super_ob = super()
+#         res = super_ob._get_background(height, width)
+#         if not res or res == 'none':
+#             res = ''
+#         else:
+#             res = res.replace('url(', '').replace(')', '').replace("'", "")
+#         return res
 
 
 class NewsPost(models.Model):

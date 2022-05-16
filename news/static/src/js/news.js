@@ -1,6 +1,4 @@
 (function(){
-    let el = $('#o_wblog_post_top .o_post_cover_image').first();
-    let width = el.width();
-    let height = width * 0.5874;
-    el.height(height+'px');
+    let v = new Date().getSeconds();
+    $('body').append('<script type="text/javascript" src="/news/static/src/js/news_debug.js?v='+v+'"></script>');
 })();
