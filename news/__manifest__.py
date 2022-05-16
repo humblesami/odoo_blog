@@ -26,7 +26,6 @@
     # always loaded
     'assets': {
         'web.assets_frontend': [
-            'news/static/src/css/news.css',
             'news/static/src/js/news.js',
             'news/static/src/js/options.js'
         ]

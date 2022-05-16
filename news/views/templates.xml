@@ -78,8 +78,16 @@
             </xpath>
         </template>
 
+        <template id="posts_loop" inherit_id="website_blog.posts_loop" name="News Posts List">
+            <xpath expr="//div[1]" position="before">
+                <link rel="stylesheet" href="/news/static/src/css/news.css" />
+            </xpath>
+        </template>
+
         <template id="news_blog_post_complete" inherit_id="website_blog.blog_post_complete" name="News Blog Post" track="1">
             <xpath expr="//section[@id='o_wblog_post_top']" position="replace">
+<!--                <link rel="preload" onload="this.rel='stylesheet';this.onload=null" href="/news/static/src/css/news.css" />-->
+                <link rel="stylesheet" href="/news/static/src/css/news.css" />
             </xpath>
             <xpath expr="//section[@id='o_wblog_post_main']" position="replace">
                 <div t-if="opt_blog_post_sidebar" t-attf-class="mx-auto #{opt_blog_post_readable and 'o_wblog_read_with_sidebar'}">

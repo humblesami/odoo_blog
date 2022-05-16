@@ -39,3 +39,7 @@
 .website_blog #o_wblog_posts_loop .o_record_cover_container{
     padding-top:0;
 }
+.website_blog #o_wblog_posts_loop .o_wblog_normalize_font
+{
+    font-size: 16px;
+}
