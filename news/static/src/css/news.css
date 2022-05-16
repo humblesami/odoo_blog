@@ -17,3 +17,13 @@
     border: 1px solid #eee;
     border-radius: 1px;
 }
+.website_blog .o_wblog_post_title #o_wblog_post_name{
+    line-height: 1;
+}
+#title.blog_header{
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+.breadcrumb_container:first-child{
+    margin: 15px 0 -15px 0;
+}

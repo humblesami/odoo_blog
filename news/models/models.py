@@ -7,7 +7,7 @@ class CoverProperties(models.AbstractModel):
     _inherit = 'website.cover_properties.mixin'
     
     def _get_background_src(self, height=None, width=None):
-        res = super()._get_background()
+        res = super()._get_background(height, width)
         res = res.replace('url(', '').replace(')', '').replace("'", "")
         return res
 
