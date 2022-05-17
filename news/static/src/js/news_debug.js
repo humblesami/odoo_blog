@@ -3,6 +3,9 @@
     function adjust_image_heights(){
         let els = $('.bg_image_div:not(.adjusted)');
         counts += 1;
+        if(counts > 3){
+            $('#o_wblog_posts_loop, .dynamic_snippet_template').css('visibility', 'visible');
+        }
         if(counts >= 10){
             clearInterval(waiter);
         }
@@ -21,6 +24,7 @@
 //            el.parent().removeAttr('class').addClass('o_record_cover_container');
             el.parent().removeClass('o_half_screen_height').removeClass('o_full_screen_height');
         });
+        $('#o_wblog_posts_loop, .dynamic_snippet_template').css('visibility', 'visible');
     }
     adjust_image_heights();
     let waiter = setInterval(adjust_image_heights, 200);

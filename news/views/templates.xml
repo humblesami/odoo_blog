@@ -1,5 +1,10 @@
 <odoo>
     <data>
+        <template id="news.layout" name="News layout" inherit_id="website.layout">
+            <xpath expr="//head" position="inside">
+                <link rel="stylesheet" href="/news/static/src/css/news.css"/>
+            </xpath>
+        </template>
         <template id="news.post_top">
             <t t-if="opt_blog_post_breadcrumb and not opt_blog_post_regular_cover"
                t-call="website_blog.post_breadcrumbs"></t>
@@ -41,6 +46,8 @@
         </template>
 
         <template id="news_blog_post_complete" inherit_id="website_blog.blog_post_complete" name="News Blog Post" track="1">
+            <xpath expr="//section[@id='o_wblog_post_footer']" position="replace">
+            </xpath>
             <xpath expr="//section[@id='o_wblog_post_top']" position="replace">
             </xpath>
             <xpath expr="//section[@id='o_wblog_post_main']" position="replace">

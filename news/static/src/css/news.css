@@ -1,3 +1,9 @@
+#o_wblog_posts_loop, .dynamic_snippet_template{
+    visibility: hidden;
+}
+.blog.container{
+    padding-top: 10px;
+}
 .blog.container .navbar{
     padding: 0;
 }
