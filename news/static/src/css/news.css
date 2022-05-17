@@ -75,3 +75,9 @@ ul.row.blog{
 .o_thread_window .o_mail_thread .o_mail_thread_content, .o_thread_window .o_thread_composer input.o_composer_text_field{
     font-size: 16px;
 }
+.s_dynamic.s_blog_post_card .card .s_blog_posts_post_cover{
+    height: auto;
+}
+.s_blog_posts_post .card-body{
+    padding: 10px;
+}

@@ -1,59 +1,66 @@
 <odoo>
     <data>
-<!--        <template id="website_blog.dynamic_filter_template_blog_post_big_picture" name="Big picture layout">-->
-<!--            <div id="o_wblog_posts_loop" t-att-class="'o_wblog_list_view' if opt_blog_list_view else ''">-->
-<!--                <div t-attf-class="row #{posts and not opt_blog_readable and 'mx-n2'}">-->
-<!--                    <t t-foreach="records" t-as="blog_post">-->
-<!--                        &lt;!&ndash; Assign 'colWidth': 'col-12' is default for List-View and mobile &ndash;&gt;-->
-<!--                        <div t-attf-class="pb-4 col-12 #{colWidth}">-->
-<!--                            <article t-attf-class="o_wblog_post position-relative #{'card h-100' if opt_blog_cards_design else ''}" name="blog_post">-->
-<!--                                &lt;!&ndash; List-View Design &ndash;&gt;-->
-<!--                                <t t-if="opt_blog_list_view">-->
-<!--                                    <div t-att-class="opt_blog_cards_design and 'card-body py-3'">-->
-<!--                                        <t t-call="website_blog.post_heading"/>-->
-<!--                                    </div>-->
-<!--                                    <div t-if="not opt_blog_cards_design" class="py-2">-->
-<!--                                        <t t-call="website_blog.post_info"></t>-->
-<!--                                    </div>-->
-<!--                                    <div t-if="opt_posts_loop_show_cover">-->
-<!--                                        <t t-call="website_blog.post_cover_image"/>-->
-<!--                                    </div>-->
-<!--                                    <div t-if="is_view_active('website_blog.opt_posts_loop_show_teaser')" t-att-class="opt_blog_cards_design and 'card-body pt-0'">-->
-<!--                                        <t t-call="website_blog.post_teaser"/>-->
-<!--                                    </div>-->
-<!--                                    <div t-if="opt_blog_cards_design" t-attf-class="opt_blog_cards_design and 'card-body pt-0 pb-2'}">-->
-<!--                                        <t t-call="website_blog.post_info"></t>-->
-<!--                                    </div>-->
-<!--                                    <div t-else="" class="mt-3">-->
-<!--                                        <a t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" class="btn btn-primary">-->
-<!--                                            Read more <i class="fa fa-chevron-right ml-2"/>-->
-<!--                                        </a>-->
-<!--                                    </div>-->
-<!--                                </t>-->
-<!--                                &lt;!&ndash; Grid-View Design &ndash;&gt;-->
-<!--                                <t t-if="not opt_blog_list_view">-->
-<!--                                    <t t-if="opt_posts_loop_show_cover" t-call="website_blog.post_cover_image"/>-->
-<!--                                    <t t-if="opt_posts_loop_show_cover" t-call="website_blog.post_cover_image"/>-->
-<!--                                    <div t-att-class="opt_blog_cards_design and 'card-body px-2 py-0 mb-2'">-->
-<!--                                        <t t-call="website_blog.post_heading"/>-->
-<!--                                        <div t-if="is_view_active('website_blog.opt_posts_loop_show_teaser')">-->
-<!--                                            <t t-call="website_blog.post_teaser"/>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                    <div t-attf-class="o_wblog_normalize_font #{'card-footer px-2 pb-2' if opt_blog_cards_design else 'pr-2 pb-2'}">-->
-<!--                                        <t t-call="website_blog.post_info"></t>-->
-<!--                                    </div>-->
-<!--                                </t>-->
-<!--                                &lt;!&ndash; Add 'unpublished' badge &ndash;&gt;-->
-<!--                                <span t-if="not blog_post.website_published" class="bg-danger small py-1 px-2 position-absolute o_not_editable" style="top:0; right:0">unpublished</span>-->
-<!--                            </article>-->
-<!--                        </div>-->
-<!--                        &lt;!&ndash; List-View Design, add <hr> after post &ndash;&gt;-->
-<!--                        <div t-if="opt_blog_list_view and not blog_post_last" class="col-12 mt-2 mb-5 px-2"><hr/></div>-->
-<!--                    </t>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </template>-->
+
+        <record id="website.default_website" model="website">
+            <field name="name">News Website</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="user_id" ref="base.public_user"/>
+        </record>
+
+        <template id="news.dynamic_filter_template_blog_post_big_picture" name="Dynamic Blogs">
+            <div id="o_wblog_posts_loop" t-att-class="'o_wblog_list_view' if opt_blog_list_view else ''">
+                <div t-attf-class="row #{posts and not opt_blog_readable and 'mx-n2'}">
+                    <t t-foreach="records" t-as="blog_post">
+                        <!-- Assign 'colWidth': 'col-12' is default for List-View and mobile -->
+                        <div t-attf-class="pb-4 col-12 #{colWidth}">
+                            <article t-attf-class="o_wblog_post position-relative #{'card h-100' if opt_blog_cards_design else ''}" name="blog_post">
+                                <!-- List-View Design -->
+                                <t t-if="opt_blog_list_view">
+                                    <div t-att-class="opt_blog_cards_design and 'card-body py-3'">
+                                        <t t-call="website_blog.post_heading"/>
+                                    </div>
+                                    <div t-if="not opt_blog_cards_design" class="py-2">
+                                        <t t-call="website_blog.post_info"></t>
+                                    </div>
+                                    <div t-if="opt_posts_loop_show_cover">
+                                        <t t-call="website_blog.post_cover_image"/>
+                                    </div>
+                                    <div t-if="is_view_active('website_blog.opt_posts_loop_show_teaser')" t-att-class="opt_blog_cards_design and 'card-body pt-0'">
+                                        <t t-call="website_blog.post_teaser"/>
+                                    </div>
+                                    <div t-if="opt_blog_cards_design" t-attf-class="opt_blog_cards_design and 'card-body pt-0 pb-2'}">
+                                        <t t-call="website_blog.post_info"></t>
+                                    </div>
+                                    <div t-else="" class="mt-3">
+                                        <a t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" class="btn btn-primary">
+                                            Read more <i class="fa fa-chevron-right ml-2"/>
+                                        </a>
+                                    </div>
+                                </t>
+                                <!-- Grid-View Design -->
+                                <t t-if="not opt_blog_list_view">
+                                    <t t-if="opt_posts_loop_show_cover" t-call="website_blog.post_cover_image"/>
+                                    <t t-if="opt_posts_loop_show_cover" t-call="website_blog.post_cover_image"/>
+                                    <div t-att-class="opt_blog_cards_design and 'card-body px-2 py-0 mb-2'">
+                                        <t t-call="website_blog.post_heading"/>
+                                        <div t-if="is_view_active('website_blog.opt_posts_loop_show_teaser')">
+                                            <t t-call="website_blog.post_teaser"/>
+                                        </div>
+                                    </div>
+                                    <div t-attf-class="o_wblog_normalize_font #{'card-footer px-2 pb-2' if opt_blog_cards_design else 'pr-2 pb-2'}">
+                                        <t t-call="website_blog.post_info"></t>
+                                    </div>
+                                </t>
+                                <!-- Add 'unpublished' badge -->
+                                <span t-if="not blog_post.website_published" class="bg-danger small py-1 px-2 position-absolute o_not_editable" style="top:0; right:0">unpublished</span>
+                            </article>
+                        </div>
+                        <!-- List-View Design, add <hr> after post -->
+                        <div t-if="opt_blog_list_view and not blog_post_last" class="col-12 mt-2 mb-5 px-2"><hr/></div>
+                    </t>
+                </div>
+            </div>
+        </template>
 
         <template id="homepage_news" name="News Home">
             <t t-call="website.layout">
@@ -62,7 +69,7 @@
                     <section data-snippet="s_dynamic_snippet"
                              class="s_dynamic_snippet_blog_posts s_blog_post_big_picture s_blog_posts_effect_marley s_dynamic pt16 pb16"
                              data-name="Blog Posts" style="background-image: none;" data-filter-id="3"
-                             data-template-key="website_blog.dynamic_filter_template_blog_post_big_picture"
+                             data-template-key="website.dynamic_filter_template_blog_post_big_picture"
                              data-number-of-elements="4" data-filter-by-blog-id="-1"
                              data-number-of-elements-small-devices="1" data-number-of-records="6">
                         <div class="container o_not_editable">
@@ -86,20 +93,23 @@
             </t>
         </template>
 
-        <record id="menu_blog" model="website.menu">
-            <field name="name">News Home Page</field>
-            <field name="url">/</field>
-            <field name="parent_id" ref="website.main_menu"/>
-            <field name="sequence" type="int">40</field>
-        </record>
-
         <record id="home_page" model="website.page">
             <field name="name">NewsHome</field>
             <field name="url">/</field>
             <field name="is_published">True</field>
             <field name="view_id" ref="homepage_news"/>
+            <field name="website_id" ref="website.default_website"/>
             <field name="cache_time">0</field>
             <field name="track">True</field>
         </record>
+
+        <record id="menu_blog" model="website.menu">
+            <field name="name">News Home Page</field>
+            <field name="url">/</field>
+            <field name="page_id" ref="home_page"/>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">40</field>
+        </record>
+
     </data>
 </odoo>
