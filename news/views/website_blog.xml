@@ -17,33 +17,35 @@
         </template>
 
         <template id="website_blog.blogs_nav" name="News Blog Nav">
-            <nav t-attf-class="navbar navbar-expand-sm navbar-light #{additionnal_classes}" t-if="len(blogs) > 1">
-                <div class="">
-                    <ul class="row blog">
-                        <li class="nav-item">
-                            <span class="nav-link disabled">Blogs:</span>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/blog" t-attf-class="nav-link font-weight-bold #{(not blog) and 'active'}">All</a>
-                        </li>
-                        <li class="nav-item" t-foreach="blogs" t-as="nav_blog">
-                            <a t-attf-href="/blog/#{slug(nav_blog)}"
-                               t-attf-class="nav-link #{(blog and nav_blog.id == blog.id) and 'active' or ''}">
-                                <b t-field="nav_blog.name"/>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- 'Search Box' -->
-                    <t t-call="website.website_search_box_input">
-                        <t t-set="_classes" t-valuef="w-100 w-md-auto pt-2 pt-md-0 d-md-flex"/>
-                        <t t-set="search_type" t-valuef="blogs"/>
-                        <t t-set="action" t-value="blog_url(tag=tag,search=search)"/>
-                        <t t-set="display_description" t-valuef="true"/>
-                        <t t-set="display_detail" t-valuef="false"/>
-                        <input type="hidden" name="tag" t-att-value="tag"/>
-                    </t>
-                </div>
+            <div class="container blog">
+                <nav t-attf-class="navbar navbar-expand-sm navbar-light #{additionnal_classes}" t-if="len(blogs) > 1">
+                    <div class="">
+                        <ul class="row blog">
+                            <li class="nav-item">
+                                <span class="nav-link disabled">Blogs:</span>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/blog" t-attf-class="nav-link font-weight-bold #{(not blog) and 'active'}">All</a>
+                            </li>
+                            <li class="nav-item" t-foreach="blogs" t-as="nav_blog">
+                                <a t-attf-href="/blog/#{slug(nav_blog)}"
+                                   t-attf-class="nav-link #{(blog and nav_blog.id == blog.id) and 'active' or ''}">
+                                    <b t-field="nav_blog.name"/>
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- 'Search Box' -->
+                        <t t-call="website.website_search_box_input">
+                            <t t-set="_classes" t-valuef="w-100 w-md-auto pt-2 pt-md-0 d-md-flex"/>
+                            <t t-set="search_type" t-valuef="blogs"/>
+                            <t t-set="action" t-value="blog_url(tag=tag,search=search)"/>
+                            <t t-set="display_description" t-valuef="true"/>
+                            <t t-set="display_detail" t-valuef="false"/>
+                            <input type="hidden" name="tag" t-att-value="tag"/>
+                        </t>
+                    </div>
             </nav>
+            </div>
         </template>
 
         <template id="website_blog.post_breadcrumbs">

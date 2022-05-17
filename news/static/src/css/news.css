@@ -1,7 +1,16 @@
+.blog.container .navbar{
+    padding: 0;
+}
+.blog.container ul.row.blog{
+    padding: 10px 0;
+}
 ul.row.blog .nav-link{
     padding: 0;
 }
-ul.row.blog li:first-child, ul.row.blog .nav-item a{
+ul.row.blog li:first-child{
+    padding: 0;
+}
+ul.row.blog .nav-item a{
     padding: 0 10px;
 }
 ul.row.blog{
