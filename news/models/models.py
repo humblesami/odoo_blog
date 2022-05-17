@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+from odoo.addons.website_blog.models.website_blog import BlogPost
 from odoo import models, fields, api
 
 
@@ -20,7 +20,11 @@ class NewsPost(models.Model):
     _inherit = 'blog.post'
     side_bar = fields.Boolean()
 
-    published_date = fields.Datetime('Published Date', default = lambda self: fields.datetime.now())
+    published_date = fields.Datetime('Published Date', default=lambda self: fields.datetime.now())
+    
+    def write(self, vals):
+        res = super(NewsPost, self).write(vals)
+        return res
     
     @api.onchange('name')
     def _on_name_changed(self):

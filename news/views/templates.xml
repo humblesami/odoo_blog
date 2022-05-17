@@ -8,7 +8,7 @@
             </div>
         </template>
 
-        <template id="news.record_cover">
+        <template id="website.record_cover">
             <t t-set="_cp" t-value="_cp or json.loads(_record.cover_properties)"/>
             <t t-set="_name" t-value="_name or _record._name"/>
             <t t-set="_id" t-value="_id or _record.id"/>
@@ -37,8 +37,7 @@
             <a t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}"
                t-attf-class="text-decoration-none d-block #{classes or 'mb-2'}"
                t-att-style="not blog_post.website_published and 'opacity:0.6;'">
-
-                <t t-call="news.record_cover">
+                <t t-call="website.record_cover">
                     <t t-set="_record" t-value="blog_post"/>
                     <t t-set="additionnal_classes"
                        t-value="'o_list_cover o_not_editable ' + (not opt_blog_cards_design and ' rounded overflow-hidden shadow mb-3' or '')"/>
@@ -56,7 +55,7 @@
                              data-oe-expression="blog_post.name" t-att-data-blog-id="blog_post.id"
                              placeholder="Blog Post Title"/>
                     </div>
-                    <t t-call="news.record_cover">
+                    <t t-call="website.record_cover">
                         <t t-set="_record" t-value="blog_post"/>
                         <t t-set="snippet_autofocus" t-value="True"/>
                         <t t-set="use_filters" t-value="True"/>
@@ -86,17 +85,8 @@
             </xpath>
         </template>
 
-        <template id="posts_loop" inherit_id="website_blog.posts_loop" name="News Posts List">
-            <xpath expr="//div[1]" position="before">
-                <link rel="stylesheet" href="/news/static/src/css/news.css"/>
-            </xpath>
-        </template>
-
-        <template id="news_blog_post_complete" inherit_id="website_blog.blog_post_complete" name="News Blog Post"
-                  track="1">
+        <template id="news_blog_post_complete" inherit_id="website_blog.blog_post_complete" name="News Blog Post" track="1">
             <xpath expr="//section[@id='o_wblog_post_top']" position="replace">
-                <!--                <link rel="preload" onload="this.rel='stylesheet';this.onload=null" href="/news/static/src/css/news.css" />-->
-                <link rel="stylesheet" href="/news/static/src/css/news.css"/>
             </xpath>
             <xpath expr="//section[@id='o_wblog_post_main']" position="replace">
                 <div t-if="opt_blog_post_sidebar"
@@ -169,7 +159,6 @@
             <t t-call="website.layout">
                 <t t-set="pageName" t-value="'homepage'"/>
                 <div id="wrap" class="oe_structure oe_empty">
-                    <link rel="stylesheet" href="/news/static/src/css/news.css"/>
                     <section data-snippet="s_dynamic_snippet"
                              class="s_dynamic_snippet_blog_posts s_blog_post_big_picture s_blog_posts_effect_marley s_dynamic pt16 pb16"
                              data-name="Blog Posts" style="background-image: none;" data-filter-id="3"

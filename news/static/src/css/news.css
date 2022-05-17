@@ -20,6 +20,9 @@
 }
 .bg_image_div{
     background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .bg_image_div .img_cover_image{
     object-fit:contain;
