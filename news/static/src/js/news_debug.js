@@ -3,7 +3,6 @@
     function adjust_image_heights(){
         let els = $('.bg_image_div:not(.adjusted)');
         counts += 1;
-        console.log(counts, 10, els.length);
         if(counts >= 10){
             clearInterval(waiter);
         }

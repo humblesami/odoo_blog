@@ -1,3 +1,14 @@
+ul.row.blog .nav-link{
+    padding: 0;
+}
+ul.row.blog li:first-child, ul.row.blog .nav-item a{
+    padding: 0 10px;
+}
+ul.row.blog{
+    list-style: none;
+    padding: 0;
+    margin:0;
+}
 #o_wblog_post_content p, #o_wblog_post_content li{
     font-weight: 400;
 }

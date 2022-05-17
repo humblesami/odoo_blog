@@ -35,7 +35,9 @@
     },
     'data': [
         # 'security/ir.model.access.csv',
-        'views/views.xml',
+        'views/website.xml',
+        'views/website_blog.xml',
         'views/templates.xml',
+        'views/views.xml',
     ],
 }

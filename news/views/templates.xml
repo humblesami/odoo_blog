@@ -1,50 +1,5 @@
 <odoo>
     <data>
-        <template id="website_blog.blog_post_sidebar" name="Sidebar - Blog Post">
-            <div id="o_wblog_post_sidebar">
-                <div class="oe_structure" id="oe_structure_blog_post_sidebar_1">
-                    Side Bar in Love
-                </div>
-            </div>
-        </template>
-
-        <template id="website.record_cover">
-            <t t-set="_cp" t-value="_cp or json.loads(_record.cover_properties)"/>
-            <t t-set="_name" t-value="_name or _record._name"/>
-            <t t-set="_id" t-value="_id or _record.id"/>
-            <t t-set="_bg" t-value="_bg or _record._get_background(height=_resize_height, width=_resize_width)"/>
-            <t t-set="_bg1" t-value="_bg1 or _record._get_background_src(height=_resize_height, width=_resize_width)"/>
-            <t t-set="default_cover_name">Cover</t>
-            <div t-att-data-name="display_opt_name or default_cover_name"
-                 t-att-style="_cp.get('background_color_style')"
-                 t-att-data-use_size="use_size"
-                 t-att-data-use_filters="use_filters"
-                 t-att-data-use_text_align="use_text_align"
-                 t-att-data-res-model="request.env.user.has_group('website.group_website_publisher') and _name"
-                 t-att-data-res-id="request.env.user.has_group('website.group_website_publisher') and _id"
-                 t-attf-class="o_record_cover_container d-flex flex-column h-100 o_colored_level o_cc #{_cp.get('background_color_class')} #{use_size and _cp.get('resize_class')} #{use_text_align and _cp.get('text_align_class')} #{additionnal_classes}">
-                <div t-attf-class="bg_image_div o_record_cover_image #{snippet_autofocus and 'o_we_snippet_autofocus'}">
-                    <img class="img_cover_image" t-att-src="_bg1"/>
-                </div>
-            </div>
-        </template>
-
-        <template id="website_blog.post_cover_image">
-            <t t-if="opt_blog_cards_design and not opt_blog_list_view" t-set="classes" t-value="'card-img-top mb-2'"/>
-            <t t-if="not opt_blog_cards_design and opt_blog_list_view" t-set="classes"
-               t-value="'o_wblog_post_cover_nocard'"/>
-
-            <a t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}"
-               t-attf-class="text-decoration-none d-block #{classes or 'mb-2'}"
-               t-att-style="not blog_post.website_published and 'opacity:0.6;'">
-                <t t-call="website.record_cover">
-                    <t t-set="_record" t-value="blog_post"/>
-                    <t t-set="additionnal_classes"
-                       t-value="'o_list_cover o_not_editable ' + (not opt_blog_cards_design and ' rounded overflow-hidden shadow mb-3' or '')"/>
-                </t>
-            </a>
-        </template>
-
         <template id="news.post_top">
             <t t-if="opt_blog_post_breadcrumb and not opt_blog_post_regular_cover"
                t-call="website_blog.post_breadcrumbs"></t>
@@ -117,43 +72,6 @@
             </xpath>
         </template>
 
-        <template id="website_blog.post_breadcrumbs">
-            <div class="breadcrumb_container">
-                <nav aria-label="breadcrumb"
-                     t-attf-class="breadcrumb css_editable_mode_hidden #{additionnal_classes or ''}">
-                    <li t-if="len(blogs) &gt; 1" class="breadcrumb-item">
-                        <a href="/blog">All Blogs</a>
-                    </li>
-                    <li class="breadcrumb-item">
-                        <a t-attf-href="#{blog_url(tag=None, date_begin=None, date_end=None)}" t-esc="blog.name"/>
-                    </li>
-                    <li class="breadcrumb-item text-truncate active">
-                        <span t-esc="blog_post.name"/>
-                    </li>
-                </nav>
-            </div>
-        </template>
-
-        <template id="website_blog.blog_post_content" name="Blog post content">
-            <div t-field="blog_post.content"
-                 data-editor-message="WRITE HERE OR DRAG BUILDING BLOCKS"
-                 t-attf-class="o_wblog_post_content_field #{'js_tweet' if opt_blog_post_select_to_tweet else ''} #{'js_comment' if opt_blog_post_select_to_comment else ''} #{'o_wblog_read_text' if opt_blog_post_readable else ''}"/>
-
-            <div t-if="len(blogs) > 1 or len(blog_post.tag_ids) > 0" class="css_editable_mode_hidden text-muted">
-                <div t-if="len(blogs) > 1">in
-                    <a t-attf-href="#{blog_url(blog=blog_post.blog_id)}">
-                        <b t-field="blog.name"/>
-                    </a>
-                </div>
-                <div t-if="len(blog_post.tag_ids) > 0">#
-                    <t t-foreach="blog_post.tag_ids" t-as="one_tag">
-                        <a class="badge border mr-1 post_link"
-                           t-attf-href="#{blog_url(tag=slug(one_tag), date_begin=False, date_end=False)}"
-                           t-esc="one_tag.name"/>
-                    </t>
-                </div>
-            </div>
-        </template>
 
         <template id="homepage_news" name="News Home">
             <t t-call="website.layout">
