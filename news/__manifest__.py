@@ -39,5 +39,6 @@
         'views/website_blog.xml',
         'views/templates.xml',
         'views/views.xml',
+        'views/records.xml',
     ],
 }
