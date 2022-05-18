@@ -2,6 +2,7 @@
 from odoo import http
 from odoo.http import request
 from odoo.addons.website.controllers.main import Website
+from odoo.addons.website.controllers.main import QueryURL
 from odoo.addons.website_blog.controllers.main import WebsiteBlog
 
 
@@ -28,4 +29,5 @@ class NewsWebsite(Website):
         blogs = Blog.search(request.website.website_domain(), order="create_date asc, id asc")
         obj = WebsiteBlog()
         values = obj._prepare_blog_values(blogs=blogs, page=1)
+        values['blog_url'] = QueryURL('/blog', ['tag'])
         return values
