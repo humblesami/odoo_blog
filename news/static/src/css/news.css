@@ -1,4 +1,4 @@
-#o_wblog_posts_loop, .dynamic_snippet_template{
+#o_wblog_posts_loop, #warp:not(.o_editable) .dynamic_snippet_template{
     visibility: hidden;
 }
 .blog.container{
@@ -36,6 +36,9 @@ ul.row.blog{
 }
 .breadcrumb_container:first-child{
     margin: 15px 0 -15px 0;
+}
+.breadcrumb_container .breadcrumb{
+    background: #e9ebf1;
 }
 
 #o_wblog_post_top .bg_image_div, article.o_wblog_post .bg_image_div{

@@ -1,21 +1,31 @@
 # -*- coding: utf-8 -*-
-# from odoo import http
+from odoo import http
+from odoo.http import request
+from odoo.addons.website.controllers.main import Website
+from odoo.addons.website_blog.controllers.main import WebsiteBlog
 
 
-# class News(http.Controller):
-#     @http.route('/news/news', auth='public')
-#     def index(self, **kw):
-#         return "Hello, world"
+class NewsWebsite(Website):
 
-#     @http.route('/news/news/objects', auth='public')
-#     def list(self, **kw):
-#         return http.request.render('news.listing', {
-#             'root': '/news/news',
-#             'objects': http.request.env['news.news'].search([]),
-#         })
+    @http.route('/', type='http', auth="public", website=True, sitemap=True)
+    def index(self, **kw):
+        homepage = request.website.homepage_id
+        if homepage and (homepage.sudo().is_visible or request.env.user.has_group('base.group_user')) and homepage.url != '/':
+            return request.env['ir.http'].reroute(homepage.url)
+        website_page = request.env['ir.http']._serve_page()
+        if website_page:
+            blog_values = self.get_blog_values()
+            homepage_posts = blog_values.get('posts') or []
+            website_page.qcontext['posts'] = homepage_posts
+            website_page.qcontext['len_posts'] = len(homepage_posts)
+            return website_page
 
-#     @http.route('/news/news/objects/<model("news.news"):obj>', auth='public')
-#     def object(self, obj, **kw):
-#         return http.request.render('news.object', {
-#             'object': obj
-#         })
+        raise request.not_found()
+    
+    def get_blog_values(self):
+        opt = {}
+        Blog = request.env['blog.blog']
+        blogs = Blog.search(request.website.website_domain(), order="create_date asc, id asc")
+        obj = WebsiteBlog()
+        values = obj._prepare_blog_values(blogs=blogs, page=1)
+        return values
