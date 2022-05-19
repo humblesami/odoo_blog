@@ -11,35 +11,9 @@
             <t t-call="website.layout">
                 <t t-set="pageName" t-value="'homepage'"/>
                 <div id="wrap" class="oe_structure oe_empty">
-                    <section data-snippet="s_dynamic_snippet"
-                             class="s_dynamic_snippet_blog_posts s_blog_post_big_picture s_blog_posts_effect_marley s_dynamic pt16 pb16"
-                             data-name="Blog Posts" style="background-image: none;" data-filter-id="3"
-                             data-template-key="website_blog.dynamic_filter_template_blog_post_big_picture"
-                             data-number-of-elements="4" data-filter-by-blog-id="-1"
-                             data-number-of-elements-small-devices="1" data-number-of-records="6">
-                        <div class="container o_not_editable">
-                            <div class="css_non_editable_mode_hidden">
-                                <div class="missing_option_warning alert alert-info rounded-0 fade show d-none d-print-none o_default_snippet_text">
-                                    Your Dynamic Snippet will be displayed here... This message is displayed because you
-                                    did not provide both a filter and a template to use.
-                                    <br/>
-                                </div>
-                            </div>
-                            <div class="dynamic_snippet_template"/>
-                        </div>
-                    </section>
-                    <h2>
-                        <span>Post Count</span>: <input t-att-value="len_posts"/>
-                    </h2>
-                    <t t-call="website_blog.posts_loop">
-                        <t t-if="not blog" t-set="posts_list_show_parent_blog" t-value="True"/>
-                    </t>
-                    <section class="s_text_block pb20 o_colored_level" data-snippet="s_text_block" data-name="Text"
-                             style="background-image: none;">
-                        <div class="s_allow_columns container">
-                            <p class="o_default_snippet_text">This is some real home page without any love</p>
-                        </div>
-                    </section>
+                    <div class="container pt40 s_allow_columns">
+                        <t t-call="website_blog.posts_loop"/>
+                    </div>
                 </div>
             </t>
         </template>
