@@ -84,3 +84,7 @@ ul.row.blog{
 .s_blog_posts_post .card-body{
     padding: 10px;
 }
+.s_dynamic.s_blog_post_big_picture .s_blog_posts_post .s_blog_posts_post_title
+{
+    font-size: inherit;
+}

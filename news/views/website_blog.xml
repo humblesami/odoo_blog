@@ -1,19 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <template id="website_blog.post_cover_image">
-            <t t-if="opt_blog_cards_design and not opt_blog_list_view" t-set="classes" t-value="'card-img-top mb-2'"/>
-            <t t-if="not opt_blog_cards_design and opt_blog_list_view" t-set="classes"
-               t-value="'o_wblog_post_cover_nocard'"/>
-
-            <a t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}"
-               t-attf-class="text-decoration-none d-block #{classes or 'mb-2'}"
-               t-att-style="not blog_post.website_published and 'opacity:0.6;'">
-                <t t-call="website.record_cover">
+        <template id="post_cover_image" inherit_id="website_blog.post_cover_image" name="News Post Image">
+            <xpath expr="//t[@t-call='website.record_cover']" position="replace">
+                <t t-call="news.record_cover">
                     <t t-set="_record" t-value="blog_post"/>
                     <t t-set="additionnal_classes"
                        t-value="'o_list_cover o_not_editable ' + (not opt_blog_cards_design and ' rounded overflow-hidden shadow mb-3' or '')"/>
                 </t>
-            </a>
+            </xpath>
         </template>
 
         <template id="website_blog.blogs_nav" name="News Blog Nav">
@@ -29,24 +24,26 @@
             </div>
         </template>
 
-        <template id="website_blog.post_breadcrumbs">
-            <div class="breadcrumb_container">
-                <nav aria-label="breadcrumb"
-                     t-attf-class="breadcrumb css_editable_mode_hidden #{additionnal_classes or ''}">
-                    <li t-if="len(blogs) &gt; 1" class="breadcrumb-item">
-                        <a href="/blog">All Blogs</a>
-                    </li>
-                    <li class="breadcrumb-item">
-                        <a t-attf-href="#{blog_url(tag=None, date_begin=None, date_end=None)}" t-esc="blog.name"/>
-                    </li>
-                    <li class="breadcrumb-item text-truncate active">
-                        <span t-esc="blog_post.name"/>
-                    </li>
-                </nav>
-            </div>
+        <template id="post_breadcrumbs" inherit_id="website_blog.post_breadcrumbs">
+            <xpath expr="//nav[1]" position="replace">
+                <div class="breadcrumb_container">
+                    <nav aria-label="breadcrumb"
+                         t-attf-class="breadcrumb css_editable_mode_hidden #{additionnal_classes or ''}">
+                        <li t-if="len(blogs) &gt; 1" class="breadcrumb-item">
+                            <a href="/blog">All Blogs</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a t-attf-href="#{blog_url(tag=None, date_begin=None, date_end=None)}" t-esc="blog.name"/>
+                        </li>
+                        <li class="breadcrumb-item text-truncate active">
+                            <span t-esc="blog_post.name"/>
+                        </li>
+                    </nav>
+                </div>
+            </xpath>
         </template>
 
-        <template id="website_blog.blog_post_content" name="Blog post content">
+        <template id="blog_post_content" inherit_id="website_blog.blog_post_content" name="NewsBlog post content">
             <div t-field="blog_post.content"
                  data-editor-message="WRITE HERE OR DRAG BUILDING BLOCKS"
                  t-attf-class="o_wblog_post_content_field #{'js_tweet' if opt_blog_post_select_to_tweet else ''} #{'js_comment' if opt_blog_post_select_to_comment else ''} #{'o_wblog_read_text' if opt_blog_post_readable else ''}"/>
@@ -63,14 +60,6 @@
                            t-attf-href="#{blog_url(tag=slug(one_tag), date_begin=False, date_end=False)}"
                            t-esc="one_tag.name"/>
                     </t>
-                </div>
-            </div>
-        </template>
-
-        <template id="website_blog.blog_post_sidebar" name="Sidebar - Blog Post">
-            <div id="o_wblog_post_sidebar">
-                <div class="oe_structure" id="oe_structure_blog_post_sidebar_1">
-                    Side Bar in Love
                 </div>
             </div>
         </template>
