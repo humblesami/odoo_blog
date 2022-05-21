@@ -27,11 +27,10 @@
     'assets': {
         'web.assets_frontend': [
             'news/static/src/js/news.js',
-            'news/static/src/js/options.js',
             'news/static/src/js/000.js',
         ],
         'web.assets_qweb': [
-            'news/static/src/snippets/000.xml',
+            'news/static/src/snippets/s_dynamic_snippet/000.xml',
             'news/static/src/xml/home.xml',
         ],
     },

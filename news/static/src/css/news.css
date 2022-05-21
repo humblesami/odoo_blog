@@ -88,3 +88,9 @@ ul.row.blog{
 {
     font-size: inherit;
 }
+.dynamic_snippet_template>.my-4{
+    margin-top:0 !important;
+}
+.dynamic_snippet_template>.my-4 .my-3{
+    margin-top:0 !important;
+}

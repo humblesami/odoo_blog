@@ -28,8 +28,7 @@ odoo.define('news.s_dynamic_snippet', function (require) {
             console.log(7888);
         }
     });
-    console.log(777);
-    publicWidget.registry.dynamic_snippet = DynamicSnippet2;
-    return DynamicSnippet2;
+    publicWidget.registry.dynamic_snippet = DynamicSnippet1;
+    return DynamicSnippet1;
 
 });
