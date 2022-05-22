@@ -1,23 +1,23 @@
 <odoo>
     <data>
-        <record id="website_blog.dynamic_snippet_latest_blog_post_filter" model="ir.filters">
-            <field name="name">Latest Blog Posts</field>
-            <field name="model_id">blog.post</field>
-            <field name="user_id" eval="False" />
-<!--            <field name="domain">[("post_date", "&lt;",  (datetime.datetime.combine(context_today() + relativedelta(hours=-7, minutes=30), datetime.time(0,0,0)).to_utc()).strftime(&apos;%Y-%m-%d %H:%M:%S&apos;))]</field>-->
-            <field name="domain">[("post_date", "&lt;",  datetime.datetime.now())]</field>
-            <field name="sort">['post_date desc']</field>
-            <field name="action_id" ref="website.action_website"/>
-        </record>
+<!--        <record id="website_blog.dynamic_snippet_latest_blog_post_filter" model="ir.filters">-->
+<!--            <field name="name">Latest Blog Posts</field>-->
+<!--            <field name="model_id">blog.post</field>-->
+<!--            <field name="user_id" eval="False" />-->
+<!--&lt;!&ndash;            <field name="domain">[("post_date", "&lt;",  (datetime.datetime.combine(context_today() + relativedelta(hours=-7, minutes=30), datetime.time(0,0,0)).to_utc()).strftime(&apos;%Y-%m-%d %H:%M:%S&apos;))]</field>&ndash;&gt;-->
+<!--            <field name="domain">[("post_date", "&lt;",  datetime.datetime.now())]</field>-->
+<!--            <field name="sort">['post_date desc']</field>-->
+<!--            <field name="action_id" ref="website.action_website"/>-->
+<!--        </record>-->
 
-        <record id="website_blog.dynamic_snippet_most_viewed_blog_post_filter" model="ir.filters">
-            <field name="name">Most Viewed Blog Posts</field>
-            <field name="model_id">blog.post</field>
-            <field name="user_id" eval="False" />
-            <field name="domain">[("post_date", "&lt;=", datetime.datetime.now()), ("visits", "!=", False)]</field>
-            <field name="sort">['visits desc']</field>
-            <field name="action_id" ref="website.action_website"/>
-        </record>
+<!--        <record id="website_blog.dynamic_snippet_most_viewed_blog_post_filter" model="ir.filters">-->
+<!--            <field name="name">Most Viewed Blog Posts</field>-->
+<!--            <field name="model_id">blog.post</field>-->
+<!--            <field name="user_id" eval="False" />-->
+<!--            <field name="domain">[("post_date", "&lt;=", datetime.datetime.now()), ("visits", "!=", False)]</field>-->
+<!--            <field name="sort">['visits desc']</field>-->
+<!--            <field name="action_id" ref="website.action_website"/>-->
+<!--        </record>-->
 
         <record id="website.default_website" model="website">
             <field name="name">News Website</field>
