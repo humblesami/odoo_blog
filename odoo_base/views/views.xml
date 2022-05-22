@@ -8,6 +8,7 @@
                 <xpath expr="//filter[@name='extra']" position="after">
                     <separator/>
                     <filter name="visio_apps" string="Visio Apps" domain="[('author', 'like', 'sami')]"/>
+                    <filter name="active_apps" string="Active Apps" domain="[('author', 'like', 'active')]"/>
                 </xpath>
             </field>
         </record>
