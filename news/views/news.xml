@@ -1,0 +1,133 @@
+<odoo>
+    <data>
+
+        <template id="news.post_top">
+            <t t-if="opt_blog_post_breadcrumb and not opt_blog_post_regular_cover"
+               t-call="news.post_breadcrumbs"></t>
+            <section id="o_wblog_post_top">
+                <div id="title" class="blog_header" t-ignore="True">
+                    <div t-attf-class="o_wblog_post_title #{opt_blog_post_select_to_tweet and 'js_tweet'} #{opt_blog_post_select_to_comment and 'js_comment'}">
+                        <div t-field="blog_post.name" id="o_wblog_post_name" class="o_editable_no_shadow"
+                             data-oe-expression="blog_post.name" t-att-data-blog-id="blog_post.id"
+                             placeholder="Blog Post Title"/>
+                    </div>
+                    <t t-call="website.record_cover">
+                        <t t-set="_record" t-value="blog_post"/>
+                        <t t-set="snippet_autofocus" t-value="True"/>
+                        <t t-set="use_filters" t-value="True"/>
+                        <t t-set="use_size" t-value="True"/>
+                        <t t-set="display_opt_name">Blog Post Cover</t>
+                        <t t-set="additionnal_classes" t-value="'o_wblog_post_page_cover'"/>
+
+                        <div class="container text-center position-relative h-100 d-flex flex-column flex-grow-1 justify-content-around">
+                            <t t-set="resize_classes"
+                               t-value="set(json.loads(_record.cover_properties).get('resize_class', '').split(' '))"/>
+                            <a t-if="{'o_full_screen_height', 'o_half_screen_height', 'cover_full', 'cover_mid'}.intersection(resize_classes)"
+                               id="o_wblog_post_content_jump" href="#o_wblog_post_main"
+                               class="css_editable_mode_hidden justify-content-center align-items-center rounded-circle mx-auto mb-5 text-decoration-none">
+                                <i class="fa fa-angle-down fa-3x text-white" aria-label="To blog content"
+                                   title="To blog content"/>
+                            </a>
+                        </div>
+                    </t>
+                    <div t-field="blog_post.subtitle" id="o_wblog_post_subtitle" class="o_editable_no_shadow"
+                         placeholder="Subtitle"/>
+                </div>
+            </section>
+        </template>
+
+        <template id="homepage_news" name="News Home">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty container">
+                    <div class="s_allow_columns pt32 pb32" data-original-title="" title=""
+                         aria-describedby="tooltip40291">
+                        <div class="row">
+                            <div class="col-lg-8 mt-4 mt-lg-0 o_colored_level" data-original-title="" title=""
+                                 aria-describedby="tooltip113132">
+                                <section data-snippet="s_dynamic_snippet"
+                                         class="s_blog_posts s_dynamic_snippet_blog_posts s_blog_post_big_picture s_blog_posts_effect_marley s_dynamic o_colored_level d-none"
+                                         data-name="Blog Posts" style="background-image: none;" data-filter-id="1"
+                                         data-template-key="website_blog.dynamic_filter_template_blog_post_big_picture"
+                                         data-number-of-elements="3" data-filter-by-blog-id="-1"
+                                         data-number-of-elements-small-devices="1" data-number-of-records="6"
+                                         data-original-title="" title="" aria-describedby="tooltip971647">
+                                    <div class="container o_not_editable">
+                                        <div class="css_non_editable_mode_hidden">
+                                            <div class="missing_option_warning alert alert-info rounded-0 fade show d-none d-print-none o_default_snippet_text">
+                                                Your Dynamic Snippet will be displayed here... This message is displayed
+                                                because you did not provided both a filter and a template to use.
+                                                <br/>
+                                            </div>
+                                        </div>
+                                        <div class="dynamic_snippet_template" style="visibility: visible;"/>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="col-lg-4 mt-4 mt-lg-0 o_colored_level">
+                                <h4>Contact sidebar</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <section class="s_title pt40 pb40 o_colored_level" data-vcss="001" data-snippet="s_title"
+                             data-name="Title" style="background-image: none;">
+                        <div class="s_allow_columns container">
+                            <h1 style="text-align: center;">
+                                <font style="font-size: 62px;">Bottom</font>
+                            </h1>
+                        </div>
+                    </section>
+                    <section data-snippet="s_dynamic_snippet"
+                             class="s_blog_posts s_dynamic_snippet_blog_posts s_blog_post_big_picture s_blog_posts_effect_marley s_dynamic pt32 pb32 o_colored_level d-none"
+                             data-name="Blog Posts" style="background-image: none;" data-filter-id="2"
+                             data-template-key="website_blog.dynamic_filter_template_blog_post_big_picture"
+                             data-number-of-elements="3" data-filter-by-blog-id="-1"
+                             data-number-of-elements-small-devices="1" data-number-of-records="6" data-original-title=""
+                             title="" aria-describedby="tooltip630673">
+                        <div class="o_not_editable container">
+                            <div class="css_non_editable_mode_hidden">
+                                <div class="missing_option_warning alert alert-info rounded-0 fade show d-none d-print-none o_default_snippet_text">
+                                    Your Dynamic Snippet will be displayed here... This message is displayed because you
+                                    did not provided both a filter and a template to use.
+                                    <br/>
+                                </div>
+                            </div>
+                            <div class="dynamic_snippet_template" style="visibility: visible;"/>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+
+        <record id="action_ir_filter" model="ir.actions.act_window">
+            <field name="name">Filters Action</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ir.filters</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Filters"
+                  id="menu_website_website_settings"
+                  action="action_ir_filter"
+                  parent="website.menu_website_global_configuration"
+                  sequence="10"/>
+
+        <record id="home_page" model="website.page">
+            <field name="name">NewsHome</field>
+            <field name="url">/</field>
+            <field name="is_published">True</field>
+            <field name="view_id" ref="homepage_news"/>
+            <field name="website_id" ref="website.default_website"/>
+            <field name="cache_time">0</field>
+            <field name="track">True</field>
+        </record>
+
+        <record id="menu_blog" model="website.menu">
+            <field name="name">News Home Page</field>
+            <field name="url">/</field>
+            <field name="page_id" ref="home_page"/>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">9</field>
+        </record>
+
+    </data>
+</odoo>

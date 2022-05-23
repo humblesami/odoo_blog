@@ -1,0 +1,46 @@
+<odoo>
+    <data>
+        <template id="website_blog.blogs_nav" name="News Blog Nav">
+            <div class="container blog">
+                <t t-call="website.website_search_box_input">
+                    <t t-set="_classes" t-valuef="w-100 w-md-auto pt-2 pt-md-0 d-md-flex"/>
+                    <t t-set="search_type" t-valuef="blogs"/>
+                    <t t-set="action" t-value="blog_url(tag=tag,search=search)"/>
+                    <t t-set="display_description" t-valuef="true"/>
+                    <t t-set="display_detail" t-valuef="false"/>
+                    <input type="hidden" name="tag" t-att-value="tag"/>
+                </t>
+            </div>
+        </template>
+        <record id="website_blog.dynamic_snippet_latest_blog_post_filter" model="ir.filters">
+            <field name="name">Latest NewsBlog Posts</field>
+            <field name="model_id">blog.post</field>
+            <field name="user_id" eval="False" />
+            <!-- (
+                datetime.datetime.combine(
+                    context_today() + relativedelta(
+                        hours=-7, minutes=30
+                    ), datetime.time(0,0,0)).to_utc()
+                ).strftime(&apos;%Y-%m-%d %H:%M:%S&apos;)
+            ) -->
+            <field name="domain">["&amp;", ["post_date", "&lt;=", datetime.datetime.now()], ["is_published", "=", True]]</field>
+            <field name="sort">['post_date desc']</field>
+            <field name="action_id" ref="website.action_website"/>
+        </record>
+
+        <record id="website_blog.dynamic_snippet_most_viewed_blog_post_filter" model="ir.filters">
+            <field name="name">Most Viewed Blog Posts</field>
+            <field name="model_id">blog.post</field>
+            <field name="user_id" eval="False" />
+            <field name="domain">[["side_bar","=",True]]</field>
+            <field name="sort">['visits desc']</field>
+            <field name="action_id" ref="website.action_website"/>
+        </record>
+
+        <record id="website.default_website" model="website">
+            <field name="name">News Website</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="user_id" ref="base.public_user"/>
+        </record>
+    </data>
+</odoo>
