@@ -16,11 +16,24 @@ class CoverProperties(models.AbstractModel):
         return res
 
 
+class WebsitePostPublishedButton(models.AbstractModel):
+    _inherit = "website.published.mixin"
+    
+    def open_website_url(self):
+        res= {
+            'type': 'ir.actions.act_url',
+            'url': self.website_url,
+            'target': 'new',
+        }
+        return res
+    
+
 class NewsPost(models.Model):
     _inherit = 'blog.post'
     side_bar = fields.Boolean()
 
     published_date = fields.Datetime('Published Date', default=lambda self: fields.datetime.now())
+    is_click = fields.Boolean('Open Post')
     
     def write(self, vals):
         res = super(NewsPost, self).write(vals)

@@ -3,7 +3,7 @@
     'name': "Customized Base",
 
     'summary': """
-        pos Base app for minor customization in views for ease of use
+        Odoo Base app for minor UI customization
         """,
 
     'description': """
