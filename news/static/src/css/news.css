@@ -94,3 +94,12 @@ ul.row.blog{
 .dynamic_snippet_template>.my-4 .my-3{
     margin-top:0 !important;
 }
+#side_bar_global_social .o_wblog_sidebar_block .o_wblog_social_links > a
+{
+    font-size: 1.5em;
+    padding: 5px;
+}
+.o_wblog_social_links > a.rounded-circle
+{
+    border-radius: 5px !important;
+}
