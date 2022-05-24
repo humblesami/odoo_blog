@@ -3,7 +3,7 @@
 
         <template id="news.post_top">
             <t t-if="opt_blog_post_breadcrumb and not opt_blog_post_regular_cover"
-               t-call="news.post_breadcrumbs"></t>
+               t-call="website_blog.post_breadcrumbs"></t>
             <section id="o_wblog_post_top">
                 <div id="title" class="blog_header" t-ignore="True">
                     <div t-attf-class="o_wblog_post_title #{opt_blog_post_select_to_tweet and 'js_tweet'} #{opt_blog_post_select_to_comment and 'js_comment'}">
@@ -64,7 +64,7 @@
                                 </section>
                             </div>
                             <div class="col-lg-4 mt-4 mt-lg-0 o_colored_level">
-                                <h4>Contact sidebar</h4>
+                                <t t-call="website_blog.sidebar_blog_index"/>
                             </div>
                         </div>
                     </div>
