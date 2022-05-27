@@ -2,5 +2,120 @@ https://www.cloudbooklet.com/how-to-install-odoo-15-on-ubuntu-20-04-with-nginx-a
 https://www.rosehosting.com/blog/how-to-install-odoo-12-on-ubuntu-18-04-with-nginx-as-a-reverse-proxy/
 https://linuxize.com/post/configure-odoo-with-nginx-as-a-reverse-proxy/
 
-
+My Tutorial
 https://docs.google.com/document/d/1OC2-B4k2MtZT3UpUEcMj3b3wds_zK0g3Mog5r0fhig8/edit
+
+sudo apt update
+sudo apt upgrade
+
+sudo apt install zip unzip nginx nodejs npm python3-pip wget postgresql
+sudo apt install wget curl python3-dev libpq-dev python3-lxml
+
+Wget https://nightly.odoo.com/15.0/nightly/src/odoo_15.0.20220430.zip
+unzip odoo_15.0.20220430.zip
+mv odoo_15.0.20220430 odoo15
+Rm odoo_15.0.20220430.zip
+Mv odoo15/setup/odoo odoo15/bin.py
+Nano odoo15/config.conf
+[options]
+addons_path = /path/to/odoo15/blog_addons,/path/to/odoo15/odoo/addons, /path/to/odoo15/active_addons
+admin_passwd = 123
+db_maxconn = 64
+db_password = 123
+db_port = False
+db_user = odoo
+dbfilter = odoo15_com
+
+
+sudo npm install -g rtlcss
+wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.focal_amd64.deb
+sudo apt install ./wkhtmltox_0.12.6-1.focal_amd64.deb
+
+sudo -H pip3 install --upgrade pip
+sudo -H pip3 install virtualenv
+python3 -m pip install --upgrade Pillow
+virualenv /path/to
+source /path/to/bin/activate
+pip install -r odoo15/requirements.txt
+
+sudo -u postgres psql
+CREATE USER obool WITH PASSWORD '123';
+ALTER ROLE obool SET client_encoding TO 'utf8';
+ALTER ROLE obool SET timezone TO 'UTC';
+ALTER USER obool WITH SUPERUSER;
+GRANT ALL PRIVILEGES ON DATABASE o15 TO obool;
+
+sudo nao /etc/postgresql/14/main/pg_hba.conf
+Change
+local all all peer
+To
+local all all md5
+
+Python odoo15/run.py -c doo15/config.conf
+sudo nano /etc/nginx/sites-available/blog.conf
+
+upstream samodooblogs {
+     server 127.0.0.1:8069;
+}
+server {
+     listen 80;
+     server_name growingvision.co;
+
+     access_log /var/log/nginx/odoo_access.log;
+     error_log /var/log/nginx/odoo_error.log;
+
+     proxy_read_timeout 720s;
+     proxy_connect_timeout 720s;
+     proxy_send_timeout 720s;
+
+
+     location / {
+        proxy_pass http://samodooblogs;
+        proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;
+        proxy_redirect off;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        #try_files $uri $uri/ =404;
+     }
+
+     location ~* /web/static/ {
+        proxy_pass http://samodooblogs;
+     }
+
+     gzip_types text/css text/less text/plain text/xml application/xml application/json application/javascript;
+     gzip on;
+ }
+
+
+sudo rm /etc/nginx/sites-enabled/blog.conf
+sudo rm /etc/nginx/sites-enabled/default
+sudo ln -s /etc/nginx/sites-available/blog.conf /etc/nginx/sites-enabled/blog.conf
+sudo nginx-t
+sudo service nginx restart
+sudo apt install python3-certbot-nginx
+sudo certbot --nginx certonly
+sudo nano /etc/systemd/system/odoo1.service
+[Unit]
+Description=Odoo1Service
+Requires=postgresql.service
+After=network.target postgresql.service
+
+[Service]
+Type=simple
+SyslogIdentifier=odoo1
+PermissionsStartOnly=true
+User=ubuntu
+Group=ubuntu
+ExecStart=/home/ubuntu/pyenvs/ol15/bin/python3 /home/ubuntu/odoo15/bin.py -c /home/ubuntu/odoo15/config.conf
+StandardOutput=journal+console
+
+[Install]
+WantedBy=multi-user.target
+
+
+Start Service
+
+sudo systemctl daemon-reload
+sudo service odoo1 enable
+sudo service odoo1 start
