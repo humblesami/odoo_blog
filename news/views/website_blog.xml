@@ -50,6 +50,16 @@
             </xpath>
         </template>
 
+        <template inherit_id="website_blog.opt_sidebar_blog_index_follow_us" id="sidebar_follow_us">
+            <xpath expr="//div[hasclass('o_wblog_social_links')]" position="attributes">
+                <attribute name="class" add="sami" remove="o_cc1" separator=" "/>
+            </xpath>
+            <xpath expr="//div[hasclass('o_wblog_social_links')]/a" position="attributes">
+                <attribute name="target">_blank</attribute>
+                <attribute name="target" add="_blank"/>
+            </xpath>
+        </template>
+
         <template id="post_breadcrumbs" inherit_id="website_blog.post_breadcrumbs">
             <xpath expr="//nav[1]" position="replace">
                 <div class="breadcrumb_container">

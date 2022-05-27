@@ -1,7 +1,7 @@
 <odoo>
     <data>
 
-        <template id="side_bar_global_index" name="Sidebar - Blog page">
+        <template id="side_bar_global_index" name="Sidebar On Blog page">
             <div id="o_wblog_sidebar" class="w-100">
                 <div class="oe_structure" id="oe_structure_blog_sidebar_index_1"/>
                 <div class="o_wblog_sidebar_block pb-5">
