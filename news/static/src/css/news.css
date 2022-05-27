@@ -103,3 +103,8 @@ ul.row.blog{
 {
     border-radius: 5px !important;
 }
+.website_blog .o_wblog_social_links > a, .o_wblog_social_links > a
+{
+    width: 2em;
+    height: 2em;
+}

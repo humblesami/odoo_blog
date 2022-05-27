@@ -1,47 +1,5 @@
 <odoo>
     <data>
-
-        <template id="side_bar_global_index" name="Sidebar On Blog page">
-            <div id="o_wblog_sidebar" class="w-100">
-                <div class="oe_structure" id="oe_structure_blog_sidebar_index_1"/>
-                <div class="o_wblog_sidebar_block pb-5">
-                    <h6 class="text-uppercase pb-2 mb-4 border-bottom font-weight-bold">About us</h6>
-                    <div>
-                        <p>Write a small text here to describe your blog or company.</p>
-                    </div>
-                </div>
-                <div class="oe_structure" id="side_bar_global_social">
-                    <div class="o_wblog_sidebar_block pb-5">
-                        <h6 class="text-uppercase pb-2 mb-4 border-bottom font-weight-bold">Follow Us</h6>
-                        <div class="o_wblog_social_links d-flex flex-wrap mx-n1">
-                            <t t-set="classes" t-translation="off">bg-100 border mx-1 mb-2 rounded-circle d-flex align-items-center justify-content-center text-decoration-none</t>
-                            <a t-if="website.social_facebook" t-att-target="_blank" t-att-href="website.social_facebook" aria-label="Facebook" title="Facebook" t-att-class="classes">
-                                <i class="fa fa-facebook-square text-facebook"/>
-                            </a>
-                            <a t-if="website.social_twitter" t-att-target="_blank" t-att-href="website.social_twitter" t-att-class="classes">
-                                <i class="fa fa-twitter text-twitter" aria-label="Twitter" title="Twitter"/>
-                            </a>
-                            <a t-if="website.social_linkedin" t-att-target="_blank" t-att-href="website.social_linkedin" t-att-class="classes">
-                                <i class="fa fa-linkedin text-linkedin" aria-label="LinkedIn" title="LinkedIn"/>
-                            </a>
-                            <a t-if="website.social_youtube" t-att-target="_blank" t-att-href="website.social_youtube" t-att-class="classes">
-                                <i class="fa fa-youtube-play text-youtube" aria-label="Youtube" title="Youtube"/>
-                            </a>
-                            <a t-if="website.social_github" t-att-target="_blank" t-att-href="website.social_github" t-att-class="classes">
-                                <i class="fa fa-github text-github" aria-label="Github" title="Github"/>
-                            </a>
-                            <a t-if="website.social_instagram" t-att-target="_blank" t-att-href="website.social_instagram" t-att-class="classes">
-                                <i class="fa fa-instagram text-instagram" aria-label="Instagram" title="Instagram"/>
-                            </a>
-                            <a t-if="blog" t-att-href="'/blog/%s/feed' % (blog.id)" t-att-class="classes">
-                                <i class="fa fa-rss-square" aria-label="RSS" title="RSS"/>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </template>
-
         <template id="news.post_top">
             <t t-if="opt_blog_post_breadcrumb and not opt_blog_post_regular_cover"
                t-call="website_blog.post_breadcrumbs"></t>
@@ -105,7 +63,7 @@
                                 </section>
                             </div>
                             <div class="col-lg-4 mt-4 mt-lg-0 o_colored_level">
-                                <t t-call="news.side_bar_global_index"/>
+                                <t t-call="website_blog.sidebar_blog_index"/>
                             </div>
                         </div>
                     </div>
