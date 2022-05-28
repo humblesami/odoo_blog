@@ -17,7 +17,7 @@
             $('body').removeClass('o_connected_user');
         });
     }
-    check_user();
+    //check_user();
 
     let counts = 0;
     let check1 = 0;
