@@ -1,6 +1,6 @@
 (function(){
     let counts = 0;
-    $.get('/news/get-user-id').then(function(uid){
+    $.get('/auth/get-user-id').then(function(uid){
         if(!isNAN(uid)){
             $('#oe_main_menu_navbar').not('.adjusted').show().addClass('adjusted');
         }
