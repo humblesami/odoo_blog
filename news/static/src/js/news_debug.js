@@ -4,7 +4,7 @@
         console.log(uid,1);
         if(!isNaN(uid)){
             console.log(uid,2);
-            $('#oe_main_menu_navbar').show();
+            $('#oe_main_menu_navbar').css('visibility', 'visible');
         }
         else{
             console.log(uid,3);
@@ -20,7 +20,7 @@
     let check2 = 0;
     function adjust_image_heights(){
         counts += 1;
-        console.log('counts => ' +counts);
+        console.log('counts => ' +counts, check1, check2);
         if(!check1 && $('#o_wblog_posts_loop, .dynamic_snippet_template').length){
             $('#o_wblog_posts_loop, .dynamic_snippet_template').not('.adjusted').css('visibility', 'visible').addClass('adjusted');
             check1 = 1;
