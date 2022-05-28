@@ -1,6 +1,3 @@
-#oe_main_menu_navbar{
-    visibility: none;
-}
 #o_wblog_posts_loop, #warp:not(.o_editable) .dynamic_snippet_template{
     visibility: hidden;
 }
