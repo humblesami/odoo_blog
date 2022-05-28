@@ -15,11 +15,10 @@
         $('body').removeClass('o_connected_user');
     });
 
-
-
     let check1 = 0;
     let check2 = 0;
     let wrappers = [];
+    let count_limit = 5;
     function adjust_image_heights(){
         counts += 1;
         if(check2){
@@ -27,8 +26,8 @@
             clearInterval(waiter);
             return;
         }
-        if(counts >= 10){
-            console.log('10 counts did nothing ');
+        if(counts >= count_limit){
+            console.log(count_limit + ' counts did nothing ');
             if(check1){
                 console.log('wrappers found without images');
                 wrappers.css('visibility', 'visible');
@@ -39,6 +38,9 @@
         if(!wrappers.length)
         {
             wrappers = $('#o_wblog_posts_loop, .dynamic_snippet_template');
+        }
+        else{
+            count_limit = 20;
         }
         let els = $('.bg_image_div:not(.adjusted)');
         if(!els.length){
