@@ -78,6 +78,5 @@
         wrappers.css('visibility', 'visible');
         clearInterval(waiter);
     }
-    adjust_image_heights();
     let waiter = setInterval(adjust_image_heights, 200);
 })();
