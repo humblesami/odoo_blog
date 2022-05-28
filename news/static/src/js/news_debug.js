@@ -1,16 +1,36 @@
 (function(){
     let counts = 0;
+    $.get('/news/get-user-id').then(function(uid){
+        if(!isNAN(uid)){
+            $('#oe_main_menu_navbar').not('.adjusted').show().addClass('adjusted');
+        }
+    }).fail(function(){});
+
+
+    let check1 = 0;
+    let check2 = 0;
     function adjust_image_heights(){
-        let els = $('.bg_image_div:not(.adjusted)');
         counts += 1;
-        $('#o_wblog_posts_loop, .dynamic_snippet_template').not('.adjusted').css('visibility', 'visible').addClass('adjusted');
-        $('#oe_main_menu_navbar')not('.adjusted').show().addClass('adjusted');
-        console.log(111);
+        console.log('counts => ' +counts);
+        if(!check1 && $('#o_wblog_posts_loop, .dynamic_snippet_template').length){
+            $('#o_wblog_posts_loop, .dynamic_snippet_template').not('.adjusted').css('visibility', 'visible').addClass('adjusted');
+            check1 = 1;
+        }
         if(counts >= 10){
             clearInterval(waiter);
         }
+        if(check2){
+            if(check1){
+                clearInterval(waiter);
+            }
+            return;
+        }
+        let els = $('.bg_image_div:not(.adjusted)');
         if(!els.length){
             return;
+        }
+        else{
+            check2 = 1;
         }
         els.each(function(i, el){
             el = $(el);
