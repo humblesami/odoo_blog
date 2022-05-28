@@ -1,10 +1,14 @@
 (function(){
     let counts = 0;
-    $.get('/auth/get-user-id').then(function(uid){
-        if(!isNAN(uid)){
-            $('#oe_main_menu_navbar').not('.adjusted').show().addClass('adjusted');
+    $.get('/auth/get_user_id').then(function(uid){
+        console.log(uid,1);
+        if(!isNaN(uid)){
+            console.log(uid,2);
+            $('#oe_main_menu_navbar').show();
         }
         else{
+            console.log(uid,3);
+            $('#oe_main_menu_navbar').hide();
             $('body').removeClass('o_connected_user');
         }
     }).fail(function(){

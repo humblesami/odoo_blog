@@ -40,4 +40,5 @@
         'views/news.xml',
         'views/website_blog.xml',
     ],
+    'application': True,
 }
