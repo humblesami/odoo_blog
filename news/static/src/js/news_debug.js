@@ -4,7 +4,12 @@
         if(!isNAN(uid)){
             $('#oe_main_menu_navbar').not('.adjusted').show().addClass('adjusted');
         }
-    }).fail(function(){});
+        else{
+            $('body').removeClass('o_connected_user');
+        }
+    }).fail(function(){
+        $('body').removeClass('o_connected_user');
+    });
 
 
     let check1 = 0;
