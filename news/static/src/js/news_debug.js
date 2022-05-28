@@ -1,5 +1,4 @@
 (function(){
-
     function check_user(){
         $.get('/auth/get_user_id').then(function(uid){
             //console.log(uid,1);
