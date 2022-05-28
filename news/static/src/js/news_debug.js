@@ -1,13 +1,13 @@
 (function(){
     let counts = 0;
     $.get('/auth/get_user_id').then(function(uid){
-        console.log(uid,1);
+        //console.log(uid,1);
         if(!isNaN(uid)){
-            console.log(uid,2);
+            //console.log(uid,2);
             $('#oe_main_menu_navbar').css('visibility', 'visible');
         }
         else{
-            console.log(uid,3);
+            //console.log(uid,3);
             $('#oe_main_menu_navbar').hide();
             $('body').removeClass('o_connected_user');
         }
@@ -17,24 +17,33 @@
 
 
 
+    let check1 = 0;
     let check2 = 0;
+    let wrappers = [];
     function adjust_image_heights(){
         counts += 1;
-        console.log('counts => ' +counts, check2);
-        if(counts >= 10){
-            clearInterval(waiter);
-        }
         if(check2){
+            console.log('Just a cross test, should not be executed ever');
             clearInterval(waiter);
             return;
         }
-        let wrappers = $('#o_wblog_posts_loop, .dynamic_snippet_template');
+        if(counts >= 10){
+            console.log('10 counts did nothing ');
+            if(check1){
+                console.log('wrappers found without images');
+                wrappers.css('visibility', 'visible');
+            }
+            clearInterval(waiter);
+            return;
+        }
+        if(!wrappers.length)
+        {
+            wrappers = $('#o_wblog_posts_loop, .dynamic_snippet_template');
+        }
         let els = $('.bg_image_div:not(.adjusted)');
         if(!els.length){
             if(wrappers.length){
-                console.log('wrappers found without images');
-                wrappers.css('visibility', 'visible');
-                check2 = 1;
+                check1 = 1;
             }
             return;
         }
@@ -58,7 +67,9 @@
             el.removeClass('o_record_cover_component');
             el.parent().removeClass('o_half_screen_height').removeClass('o_full_screen_height');
         });
+        console.log('counts => ' +counts);
         wrappers.css('visibility', 'visible');
+        clearInterval(waiter);
     }
     adjust_image_heights();
     let waiter = setInterval(adjust_image_heights, 200);
