@@ -1,5 +1,6 @@
 (function(){
     function check_user(){
+        let uid = 'none';
         let org = window.location.origin + '';
         $.get(org + '/auth/get_user_id').then(function(uid){
             //console.log(uid,1);
