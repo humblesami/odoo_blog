@@ -1,24 +1,38 @@
-https://www.cloudbooklet.com/how-to-install-odoo-15-on-ubuntu-20-04-with-nginx-aws/
-https://www.rosehosting.com/blog/how-to-install-odoo-12-on-ubuntu-18-04-with-nginx-as-a-reverse-proxy/
-https://linuxize.com/post/configure-odoo-with-nginx-as-a-reverse-proxy/
+https://www.rosehosting.com/blog/how-to-install-odoo-12-on-ubuntu-18-04-with-nginx-as-a-reverse-proxy
 
-My Tutorial
-https://docs.google.com/document/d/1OC2-B4k2MtZT3UpUEcMj3b3wds_zK0g3Mog5r0fhig8/edit
 
 sudo apt update
 sudo apt upgrade
+sudo apt install nginx
 
-sudo apt install zip unzip nginx nodejs npm python3-pip wget postgresql
-sudo apt install wget curl python3-dev libpq-dev python3-lxml
+sudo ufw app list
+sudo ufw enable
+sudo ufw reload
+sudo ufw status
+sudo ufw allow 'Nginx HTTP'
 
-Wget https://nightly.odoo.com/15.0/nightly/src/odoo_15.0.20220430.zip
+Install another python
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt-get update
+sudo apt-get install python3.8
+sudo apt install python3.8-distutils
+
+sudo apt install zip unzip curl wget nodejs npm postgresql
+sudo apt install python3-pip python3-dev libpq-dev python3-lxml
+
+wget https://nightly.odoo.com/15.0/nightly/src/odoo_15.0.20220430.zip
 unzip odoo_15.0.20220430.zip
-mv odoo_15.0.20220430 odoo15
-Rm odoo_15.0.20220430.zip
-Mv odoo15/setup/odoo odoo15/bin.py
-Nano odoo15/config.conf
+mv odoo-15.0.post20220430 odoo15
+mkdir files
+mv odoo_15.0.20220430.zip files
+mv odoo15/setup/odoo odoo15/bin.py
+
+
+git clone  https://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@github.com/humblesami/odoo_blog.git
+
+nano odoo15/config.conf
 [options]
-addons_path = /path/to/odoo15/blog_addons,/path/to/odoo15/odoo/addons, /path/to/odoo15/active_addons
+addons_path = /path/to/odoo15/odoo/addons,/path/to/odoo15/odoo_blog
 admin_passwd = 123
 db_maxconn = 64
 db_password = 123
@@ -34,8 +48,10 @@ sudo apt install ./wkhtmltox_0.12.6-1.focal_amd64.deb
 sudo -H pip3 install --upgrade pip
 sudo -H pip3 install virtualenv
 python3 -m pip install --upgrade Pillow
-virualenv /path/to
-source /path/to/bin/activate
+mkdir /path/to
+virualenv /path/to venv1
+source /path/to/venv1/bin/activate
+pip install --upgrade pip
 pip install -r odoo15/requirements.txt
 
 sudo -u postgres psql
@@ -48,44 +64,48 @@ GRANT ALL PRIVILEGES ON DATABASE o15 TO obool;
 sudo nao /etc/postgresql/14/main/pg_hba.conf
 Change
 local all all peer
-To
+Togit
 local all all md5
 
 Python odoo15/run.py -c doo15/config.conf
 sudo nano /etc/nginx/sites-available/blog.conf
 
 upstream samodooblogs {
-     server 127.0.0.1:8069;
+    server 127.0.0.1:8069;
 }
 server {
-     listen 80;
-     server_name growingvision.co;
+    listen 80;
+    server_name growingvision.co;
 
-     access_log /var/log/nginx/odoo_access.log;
-     error_log /var/log/nginx/odoo_error.log;
+    access_log /var/log/nginx/odoo_access.log;
+    error_log /var/log/nginx/odoo_error.log;
 
-     proxy_read_timeout 720s;
-     proxy_connect_timeout 720s;
-     proxy_send_timeout 720s;
+    proxy_read_timeout 720s;
+    proxy_connect_timeout 720s;
+    proxy_send_timeout 720s;
 
 
-     location / {
-        proxy_pass http://samodooblogs;
-        proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;
-        proxy_redirect off;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        #try_files $uri $uri/ =404;
-     }
+    location / {
+       proxy_pass http://samodooblogs;
+       proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;
+       proxy_redirect off;
+       proxy_set_header Host $host;
+       proxy_set_header X-Real-IP $remote_addr;
+       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+       #try_files $uri $uri/ =404;
+    }
 
-     location ~* /web/static/ {
-        proxy_pass http://samodooblogs;
-     }
+    location ^~ /web/assets/ {
+      proxy_pass http://samodooblogs;
+    }
+    location ^~ /[\/]+/static/ {
+       proxy_pass http://samodooblogs;
+    }
 
-     gzip_types text/css text/less text/plain text/xml application/xml application/json application/javascript;
-     gzip on;
- }
+    gzip_types text/css text/less text/plain text/xml application/xml application/json application/javascript;
+    gzip on;
+}
+
 
 
 sudo rm /etc/nginx/sites-enabled/blog.conf
@@ -119,3 +139,9 @@ Start Service
 sudo systemctl daemon-reload
 sudo service odoo1 enable
 sudo service odoo1 start
+
+
+
+
+
+

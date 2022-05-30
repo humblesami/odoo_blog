@@ -9,7 +9,7 @@ SyslogIdentifier=odoo1
 PermissionsStartOnly=true
 User=ubuntu
 Group=ubuntu
-ExecStart=/home/ubuntu/pyenvs/ol15/bin/python3 /home/ubuntu/odoo15/bin.py -c /home/ubuntu/odoo15/config.conf
+ExecStart=/home/ubuntu/pyenvs/odoo15/bin/python3 /home/ubuntu/odoo15/bin.py -c /home/ubuntu/odoo15/config.conf
 StandardOutput=journal+console
 
 [Install]
