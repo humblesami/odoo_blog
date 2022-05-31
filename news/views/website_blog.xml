@@ -115,6 +115,13 @@
                         </div>
                     </a>
                 </div>
+                <script src="/news/static/src/js/dynamic_blog_images.js"/>
+            </xpath>
+        </template>
+
+        <template id="posts_loop" inherit_id="website_blog.posts_loop">
+            <xpath expr="//div[@id='o_wblog_posts_loop']" position="after">
+                <script src="/news/static/src/js/dynamic_blog_images.js"/>
             </xpath>
         </template>
 
@@ -148,6 +155,7 @@
                         </div>
                     </div>
                 </section>
+                <script src="/news/static/src/js/dynamic_blog_images.js"/>
             </xpath>
         </template>
     </data>
