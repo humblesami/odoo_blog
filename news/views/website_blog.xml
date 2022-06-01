@@ -182,5 +182,14 @@
                 <script src="/news/static/src/js/dynamic_blog_images.js"/>
             </xpath>
         </template>
+
+        <template inherit_id="website.user_navbar">
+            <xpath expr="//div[haslass('o_menu_sections')]" position="inside">
+                <div class="dropdown" id="customize-menu">
+                    <a class="dropdown-toggle o-no-caret waves" data-toggle="dropdown" data-display="static" href="#">Purge It</a>
+                    <a class="dropdown-toggle o-no-caret waves" data-toggle="dropdown" data-display="static" href="#">Purge All</a>
+                </div>
+            </xpath>
+        </template>
     </data>
 </odoo>
