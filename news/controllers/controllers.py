@@ -1,4 +1,25 @@
-# from odoo.http import request
+import werkzeug
+from odoo import http
+from odoo.http import request
+from odoo.addons.website.controllers.main import Website, QueryURL
+
+
+class NewsWebsite(Website):
+    @http.route('/', type='http', auth="public", website=True, sitemap=True)
+    def index(self, **kw):
+        res = super().index()
+
+        BlogPost = request.env['blog.post']
+        blogs = BlogPost.search([])
+
+        search = ''
+        res.qcontext['posts'] = blogs
+        res.qcontext['tag'] = None
+        res.qcontext['active_tag_ids'] = []
+        res.qcontext['search'] = search
+
+        return res
+
 # from odoo.addons.website.models.ir_qweb import QWeb
 #
 #

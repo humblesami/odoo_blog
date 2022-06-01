@@ -89,11 +89,6 @@
             </xpath>
         </template>
 
-        <template id="news.blog_post_short" inherit_id="website_blog.blog_post_short">
-            <xpath expr="//div[@id='o_wblog_blog_top']" position="replace">
-            </xpath>
-        </template>
-
         <template id="template_for_dynamic_blog_posts" inherit_id="website_blog.dynamic_filter_template_blog_post_big_picture" name="Dynamic posts layout">
             <xpath expr="//figure[1]" position="replace">
                 <div t-foreach="records" t-as="data" class="my-3 w-100 s_blog_posts_post">
@@ -119,23 +114,36 @@
             </xpath>
         </template>
 
-        <template id="posts_loop" inherit_id="website_blog.posts_loop">
-            <xpath expr="//div[@id='o_wblog_posts_loop']" position="after">
-                <script src="/news/static/src/js/dynamic_blog_images.js"/>
-            </xpath>
-        </template>
-
         <template id="news.blog_post_short" inherit_id="website_blog.blog_post_short">
             <xpath expr="//div[@id='o_wblog_blog_top']" position="replace">
             </xpath>
         </template>
 
+        <template id="news_teaser" inherit_id="website_blog.post_teaser">
+            <xpath expr="//div[@t-if='len(blog_post.tag_ids)']" position="replace">
+            </xpath>
+            <!--<xpath expr="//div[hasclass('o_wblog_post_short_tag_section')]" position="replace">-->
+            <!--</xpath>-->
+        </template>
+
+        <template inherit_id="website_blog.posts_loop" id="posts_loop">
+            <xpath expr="//t[@t-call='website_blog.post_teaser']" position="inside">
+                <t t-call="news.news_teaser">
+                </t>
+            </xpath>
+            <xpath expr="//div[@id='o_wblog_posts_loop']" position="after">
+                <script src="/news/static/src/js/dynamic_blog_images.js"/>
+            </xpath>
+        </template>
+
         <template id="blog_post_complete" inherit_id="website_blog.blog_post_complete" name="News Blog Post" track="1">
             <xpath expr="//section[@id='o_wblog_post_footer']" position="replace">
-                <section id="o_wblog_post_footer"></section>
+                <section id="o_wblog_post_footer">
+                </section>
             </xpath>
             <xpath expr="//section[@id='o_wblog_post_top']" position="replace">
-                <section id="o_wblog_post_top"></section>
+                <section id="o_wblog_post_top">
+                </section>
             </xpath>
             <xpath expr="//section[@id='o_wblog_post_main']" position="replace">
                 <section id="o_wblog_post_main">
@@ -145,7 +153,8 @@
                         <div t-attf-class="d-flex flex-column flex-lg-row #{opt_blog_post_readable and 'justify-content-between'}">
                             <div id="o_wblog_post_content"
                                  t-attf-class="#{opt_blog_post_readable and 'o_container_small mx-0 w-100 flex-shrink-0' or 'w-lg-75'}">
-                                <t t-call="news.post_top"></t>
+                                <t t-call="news.post_top">
+                                </t>
                                 <t t-call="website_blog.blog_post_content"/>
                             </div>
                             <div id="o_wblog_post_sidebar_col"
