@@ -127,10 +127,25 @@
         </template>
 
         <template inherit_id="website_blog.posts_loop" id="posts_loop">
-            <xpath expr="//t[@t-call='website_blog.post_teaser']" position="inside">
-                <t t-call="news.news_teaser">
+            <xpath expr="//t[@t-if='not opt_blog_list_view']" position="replace">
+                <t t-if="not colWidth">
+                    <t t-if="not opt_blog_list_view">
+                        <t t-if="opt_blog_readable">
+                            <t t-if="opt_blog_sidebar_show" t-set="colWidth" t-value="'col-md-6'"/>
+                            <t t-else="" t-set="colWidth" t-value="'col-md-6 col-xl-4'"/>
+                        </t>
+                        <t t-else="">
+                            <t t-if="opt_blog_sidebar_show" t-set="colWidth" t-value="'px-2 col-md-6 col-xl-4'"/>
+                            <t t-else="" t-set="colWidth" t-value="'px-2 col-sm-6 col-lg-4 col-xl-3'"/>
+                        </t>
+                    </t>
+                    <t t-else="" t-set="colWidth" t-value="'px-2 col-sm-6 col-lg-4 col-xl-3'"/>
                 </t>
             </xpath>
+<!--            <xpath expr="//t[@t-call='website_blog.post_teaser']" position="replace">-->
+<!--                <t t-call="news.news_teaser">-->
+<!--                </t>-->
+<!--            </xpath>-->
             <xpath expr="//div[@id='o_wblog_posts_loop']" position="after">
                 <script src="/news/static/src/js/dynamic_blog_images.js"/>
             </xpath>

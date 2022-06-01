@@ -35,34 +35,34 @@
             </section>
         </template>
 
+        <template id="search_box">
+            <t t-call="website.website_search_box_input">
+                <t t-set="_classes" t-valuef="w-100 w-md-auto pt-2 pt-md-0 d-md-flex"/>
+                <t t-set="search_type" t-valuef="blogs"/>
+                <t t-set="action" t-valuef="/blog"/>
+                <t t-set="display_description" t-valuef="true"/>
+                <t t-set="display_detail" t-valuef="false"/>
+                <input type="hidden" name="tag" t-att-value="tag"/>
+            </t>
+        </template>
+
         <template id="homepage_news" name="News Home">
             <t t-call="website.layout">
                 <div id="wrap" class="oe_structure oe_empty container">
-                    <div class="s_allow_columns pt32 pb32" data-original-title="" title=""
+                    <div class="s_allow_columns pt16 pb32" data-original-title="" title=""
                          aria-describedby="tooltip40291">
                         <div class="row">
-                            <div class="col-lg-8 mt-4 mt-lg-0 o_colored_level" data-original-title="" title=""
-                                 aria-describedby="tooltip113132">
-                                <t t-call="website.website_search_box_input">
-                                    <t t-set="_classes" t-valuef="w-100 w-md-auto pt-2 pt-md-0 d-md-flex"/>
-                                    <t t-set="search_type" t-valuef="blogs"/>
-                                    <t t-set="action" t-valuef="/blog"/>
-                                    <t t-set="display_description" t-valuef="true"/>
-                                    <t t-set="display_detail" t-valuef="false"/>
-                                    <input type="hidden" name="tag" t-att-value="tag"/>
-                                </t>
-                                <section id="o_wblog_index_content" t-att-class="opt_blog_cards_design and 'o_wblog_page_cards_bg'">
-                                    <div class="container py-4">
-                                        <div t-if="original_search and posts" class="alert alert-warning mt8">
-                                            No results found for '<span t-esc="original_search"/>'. Showing results for '<span t-esc="search"/>'.
-                                        </div>
-                                        <div t-attf-class="row #{opt_blog_sidebar_show and 'justify-content-between' or 'justify-content-center'}">
-                                            <div id="o_wblog_posts_loop_container" t-attf-class="col #{'o_container_small mx-0' if opt_blog_list_view else ''}">
-                                                <t t-call="website_blog.posts_loop">
-                                                    <t t-if="not blog" t-set="posts_list_show_parent_blog" t-value="True"/>
-                                                </t>
-                                            </div>
-                                        </div>
+                            <div class="col-lg-8 mt-4 mt-lg-0 o_colored_level">
+                                <t t-call="news.search_box"/>
+                                <div class="py-2"></div>
+                                <section id="o_wblog_index_content">
+                                    <div t-if="original_search and posts" class="alert alert-warning mt8">
+                                        No results found for '<span t-esc="original_search"/>'. Showing results for '<span t-esc="search"/>'.
+                                    </div>
+                                    <div id="o_wblog_posts_loop_container">
+                                        <t t-set="colWidth" t-value="'px-2 col-lg-6'"/>
+                                        <t t-call="website_blog.posts_loop">
+                                        </t>
                                     </div>
                                 </section>
                             </div>
@@ -71,32 +71,6 @@
                             </div>
                         </div>
                     </div>
-                    <section class="s_title pt40 pb40 o_colored_level" data-vcss="001" data-snippet="s_title"
-                             data-name="Title" style="background-image: none;">
-                        <div class="s_allow_columns container">
-                            <h1 style="text-align: center;">
-                                <font style="font-size: 62px;">Bottom</font>
-                            </h1>
-                        </div>
-                    </section>
-                    <section data-snippet="s_dynamic_snippet"
-                             class="s_blog_posts s_dynamic_snippet_blog_posts s_blog_post_big_picture s_blog_posts_effect_marley s_dynamic pt32 pb32 o_colored_level d-none"
-                             data-name="Blog Posts" style="background-image: none;" data-filter-id="2"
-                             data-template-key="website_blog.dynamic_filter_template_blog_post_big_picture"
-                             data-number-of-elements="3" data-filter-by-blog-id="-1"
-                             data-number-of-elements-small-devices="1" data-number-of-records="6" data-original-title=""
-                             title="" aria-describedby="tooltip630673">
-                        <div class="o_not_editable container">
-                            <div class="css_non_editable_mode_hidden">
-                                <div class="missing_option_warning alert alert-info rounded-0 fade show d-none d-print-none o_default_snippet_text">
-                                    Your Dynamic Snippet will be displayed here... This message is displayed because you
-                                    did not provided both a filter and a template to use.
-                                    <br/>
-                                </div>
-                            </div>
-                            <div class="dynamic_snippet_template" style="visibility: visible;"/>
-                        </div>
-                    </section>
                 </div>
             </t>
         </template>
