@@ -1,6 +1,5 @@
 (function(){
     function activate_purge(){
-        console.log($('#purge-menu').length, 44, $('#purge-menu a.purge').length);
         $('#purge-menu a.purge').click(function(){
             let el = $(this);
             if(el.hasClass('all')){
@@ -15,13 +14,6 @@
             }
         });
     }
-    if(typeof $ === 'undefined'){
-        console.log(111);
-        setTimeout(activate_purge, 500);
-    }
-    else{
-        activate_purge();
-        console.log(222);
-    }
+    window.await_jquery.exec_on_ready(activate_purge);
 })();
 
