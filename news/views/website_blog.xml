@@ -110,7 +110,7 @@
                         </div>
                     </a>
                 </div>
-                <script src="/news/static/src/js/dynamic_blog_images.js"/>
+                <script defer="defer" src="/news/static/src/js/dynamic_blog_images.js"/>
             </xpath>
         </template>
 
@@ -147,7 +147,7 @@
 <!--                </t>-->
 <!--            </xpath>-->
             <xpath expr="//div[@id='o_wblog_posts_loop']" position="after">
-                <script src="/news/static/src/js/dynamic_blog_images.js"/>
+                <script defer="defer" src="/news/static/src/js/dynamic_blog_images.js"/>
             </xpath>
         </template>
 
@@ -179,7 +179,7 @@
                         </div>
                     </div>
                 </section>
-                <script src="/news/static/src/js/dynamic_blog_images.js"/>
+                <script defer="defer" src="/news/static/src/js/dynamic_blog_images.js"/>
             </xpath>
         </template>
 
