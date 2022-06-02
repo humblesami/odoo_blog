@@ -1,7 +1,7 @@
 <odoo>
     <data>
-        <template id="news_website_layout" name="New Website Layout" inherit_id="website.user_navbar">
-            <xpath expr="//body/nav[@id='oe_main_menu_navbar']" position="before">
+        <template id="news_website_layout" name="New Website Layout" inherit_id="website.layout">
+            <xpath expr="//div[@id='wrapwrap']" position="before">
                 <script type="text/javascript" src="/odoo_base/static/js/await_jquery.js">
                 </script>
             </xpath>
