@@ -51,12 +51,8 @@
         </template>
 
         <template inherit_id="website_blog.opt_sidebar_blog_index_follow_us" id="sidebar_follow_us">
-            <xpath expr="//div[hasclass('o_wblog_social_links')]" position="attributes">
-                <attribute name="class" add="sami" remove="o_cc1" separator=" "/>
-            </xpath>
             <xpath expr="//div[hasclass('o_wblog_social_links')]/a" position="attributes">
                 <attribute name="target">_blank</attribute>
-                <attribute name="target" add="_blank"/>
             </xpath>
         </template>
 
