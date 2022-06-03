@@ -7,6 +7,13 @@
             </xpath>
         </template>
 
+        <template id="remove_lazy_assets" inherit_id="web.frontend_layout">
+            <xpath expr='//t[@t-call-assets="web.assets_frontend_lazy"]' position="replace">
+            </xpath>
+            <xpath expr='//t[@t-call-assets="web.assets_common_lazy"]' position="replace">
+            </xpath>
+        </template>
+
         <record id="module_view_filter" model="ir.ui.view">
             <field name="name">ir.module.module.search.customized</field>
             <field name="model">ir.module.module</field>
