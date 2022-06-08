@@ -106,7 +106,6 @@
                         </div>
                     </a>
                 </div>
-                <script defer="defer" src="/news/static/src/js/dynamic_blog_images.js"/>
             </xpath>
         </template>
 
@@ -138,13 +137,6 @@
                     <t t-else="" t-set="colWidth" t-value="'px-2 col-sm-6 col-lg-4 col-xl-3'"/>
                 </t>
             </xpath>
-<!--            <xpath expr="//t[@t-call='website_blog.post_teaser']" position="replace">-->
-<!--                <t t-call="news.news_teaser">-->
-<!--                </t>-->
-<!--            </xpath>-->
-            <xpath expr="//div[@id='o_wblog_posts_loop']" position="after">
-                <script defer="defer" src="/news/static/src/js/dynamic_blog_images.js"/>
-            </xpath>
         </template>
 
         <template id="blog_post_complete" inherit_id="website_blog.blog_post_complete" name="News Blog Post" track="1">
@@ -175,7 +167,6 @@
                         </div>
                     </div>
                 </section>
-                <script defer="defer" src="/news/static/src/js/dynamic_blog_images.js"/>
             </xpath>
         </template>
 

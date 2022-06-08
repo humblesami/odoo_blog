@@ -1,4 +1,39 @@
 (function(){
+
+    let dom_shown = 0;
+    let css_loaded = 0;
+
+    function show_dom(){
+        if(dom_shown){
+            return;
+        }
+        console.log('Showing dom');
+        document.getElementById('css_waiter_dom').style.display = 'none';
+        dom_shown = 1;
+    }
+
+    window.css_loaded = function(href, link){
+        console.log(href);
+        if(link.onload){
+            link.onload=null;
+        }
+        if(dom_shown){
+            return;
+        }
+        if(href.endsWith('/web.assets_frontend.min.css') || href.endsWith('/web.assets_common.min.css')){
+            css_loaded += 1;
+            let nav_bar = document.getElementById('oe_main_menu_navbar');
+            if (nav_bar){
+                nav_bar.style.display = 'grid';
+            }
+            let if_css_not_loaded = setTimeout(show_dom, 1000);
+            if(css_loaded == 2)
+            {
+                clearTimeout(if_css_not_loaded);
+                show_dom();
+            }
+        }
+    }
     window.await_jquery = {
         completed: 0,
         functions : [],
@@ -13,22 +48,43 @@
         },
     };
 
-    if(typeof $){
+    if(typeof $ == 'undefined'){
         let ref_script = document.getElementById('web.layout.odooscript');
         let lazy_js_found = false;
         let sibling = ref_script.nextElementSibling;
-        while(!lazy_js_found && sibling){
-            if(sibling.src && sibling.src.endsWith('web.assets_common_lazy.min.js')){
-                lazy_js_found = true;
-                sibling.onload = function(){
-                    window.await_jquery.completed = 1;
-                    for(let fun of window.await_jquery.functions){
-                        fun();
+        let breaker = 0;
+        while(!lazy_js_found && sibling && breaker <= 10){
+            breaker += 1;
+            if(sibling){
+                let src = sibling.src;
+                if(!src){
+                    src = sibling.getAttribute('data-src');
+                }
+                if(src){
+                    if(src.endsWith('web.assets_common_lazy.min.js')){
+                        lazy_js_found = true;
+                        sibling.onload = function(){
+                            window.await_jquery.completed = 1;
+                            for(let fun of window.await_jquery.functions){
+                                fun();
+                            }
+                            console.log('executed waiting functions after jquery loaded');
+                        };
                     }
-                    console.log('executed waiting functions');
-                };
+                }
             }
+            else{
+                console.log('No next sibling of ', ref_script)
+                break;
+            }
+            ref_script = sibling;
             sibling = sibling.nextElementSibling;
+        }
+        if(!lazy_js_found){
+            console.log('Jquery wait failed after '+breaker);
+        }
+        else{
+            //console.log('Jquery wait is defined after '+breaker);
         }
     }
     else{
@@ -37,4 +93,6 @@
             fun();
         }
     }
+
+    console.log('Wait jquery 2');
 })();
