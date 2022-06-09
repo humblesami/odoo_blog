@@ -3,17 +3,21 @@
     let dom_shown = 0;
     let css_loaded = 0;
 
-    function show_dom(){
+    function show_dom(with_timeout='Yes'){
         if(dom_shown){
             return;
         }
-        console.log('Showing dom');
+        console.log('Showing dom with timeout '+with_timeout);
         document.getElementById('css_waiter_dom').style.display = 'none';
+        let nav_bar = document.getElementById('oe_main_menu_navbar');
+        if (nav_bar){
+            nav_bar.style.display = 'grid';
+        }
         dom_shown = 1;
     }
 
     window.css_loaded = function(href, link){
-        console.log(href);
+        //console.log(href);
         if(link.onload){
             link.onload=null;
         }
@@ -22,15 +26,11 @@
         }
         if(href.endsWith('/web.assets_frontend.min.css') || href.endsWith('/web.assets_common.min.css')){
             css_loaded += 1;
-            let nav_bar = document.getElementById('oe_main_menu_navbar');
-            if (nav_bar){
-                nav_bar.style.display = 'grid';
-            }
-            let if_css_not_loaded = setTimeout(show_dom, 1000);
+            let if_css_not_loaded = setTimeout(show_dom, 1500);
             if(css_loaded == 2)
             {
                 clearTimeout(if_css_not_loaded);
-                show_dom();
+                show_dom('No');
             }
         }
     }
@@ -39,7 +39,7 @@
         functions : [],
         exec_on_ready: function(awaiting_function){
             if(window.await_jquery.completed){
-                console.log('executed without wait');
+                console.log('Executed without wait');
                 awaiting_function();
             }
             else{
@@ -68,7 +68,7 @@
                             for(let fun of window.await_jquery.functions){
                                 fun();
                             }
-                            console.log('executed waiting functions after jquery loaded');
+                            console.log('Executed waiting functions after jquery loaded');
                         };
                     }
                 }
@@ -88,11 +88,11 @@
         }
     }
     else{
-        console.log('executed waiting functions $ already loaded');
+        console.log('Executed waiting functions $ already loaded');
         for(let fun of window.await_jquery.functions){
             fun();
         }
     }
 
-    console.log('Wait jquery 2');
+    console.log('Wait jquery 4');
 })();

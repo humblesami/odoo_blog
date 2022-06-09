@@ -9,7 +9,7 @@
                 </style>
                 <div id="css_waiter_dom" style="position: fixed; z-index:99999; background: rgba(0,0,0,0.5); top:0; left: 0; width:100vw; height: 100vh;">
                 </div>
-                <script type="text/javascript" src="/odoo_base/static/js/await_jquery.js?v=1">
+                <script type="text/javascript" src="/odoo_base/static/js/await_jquery.js?v=2">
                 </script>
             </xpath>
         </template>
