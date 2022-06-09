@@ -18,7 +18,7 @@
 
     let if_css_not_loaded = setTimeout(function(){
         show_dom('nothing loaded');
-    }, 1000);
+    }, 500);
 
     window.css_loaded = function(href, link){
         //console.log(href);
@@ -34,7 +34,7 @@
             clearTimeout(if_css_not_loaded);
             if_css_not_loaded = setTimeout(function(){
                 show_dom('With '+href+' only loaded');
-            }, 500);
+            }, 300);
             if(css_loaded == 2)
             {
                 clearTimeout(if_css_not_loaded);
@@ -102,5 +102,5 @@
         }
     }
 
-    console.log('Wait jquery 2');
+    console.log('Wait jquery 3');
 })();
