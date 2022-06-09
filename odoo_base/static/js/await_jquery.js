@@ -18,7 +18,7 @@
 
     let if_css_not_loaded = setTimeout(function(){
         show_dom('nothing loaded');
-    }, 2000);
+    }, 1000);
 
     window.css_loaded = function(href, link){
         //console.log(href);
@@ -34,7 +34,7 @@
             clearTimeout(if_css_not_loaded);
             if_css_not_loaded = setTimeout(function(){
                 show_dom('With '+href+' only loaded');
-            }, 1000);
+            }, 500);
             if(css_loaded == 2)
             {
                 clearTimeout(if_css_not_loaded);
