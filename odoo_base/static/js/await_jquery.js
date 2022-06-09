@@ -3,11 +3,11 @@
     let dom_shown = 0;
     let css_loaded = 0;
 
-    function show_dom(with_timeout='Yes'){
-        if(dom_shown){
+    function show_dom(what_is_loaded){
+        if(dom_shown && what_is_loaded != 'both loaded'){
             return;
         }
-        console.log('Showing dom with timeout '+with_timeout);
+        console.log('Showing dom with '+what_is_loaded);
         document.getElementById('css_waiter_dom').style.display = 'none';
         let nav_bar = document.getElementById('oe_main_menu_navbar');
         if (nav_bar){
@@ -15,6 +15,10 @@
         }
         dom_shown = 1;
     }
+
+    let if_css_not_loaded = setTimeout(function(){
+        show_dom('nothing loaded');
+    }, 1500);
 
     window.css_loaded = function(href, link){
         //console.log(href);
@@ -26,11 +30,14 @@
         }
         if(href.endsWith('/web.assets_frontend.min.css') || href.endsWith('/web.assets_common.min.css')){
             css_loaded += 1;
-            let if_css_not_loaded = setTimeout(show_dom, 1500);
+            clearTimeout(if_css_not_loaded);
+            if_css_not_loaded = setTimeout(function(){
+                show_dom('With '+href+' only loaded');
+            }, 1500);
             if(css_loaded == 2)
             {
                 clearTimeout(if_css_not_loaded);
-                show_dom('No');
+                show_dom('both loaded');
             }
         }
     }
@@ -94,5 +101,5 @@
         }
     }
 
-    console.log('Wait jquery 4');
+    console.log('Wait jquery 1');
 })();
