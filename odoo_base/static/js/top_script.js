@@ -16,6 +16,10 @@
         dom_shown = 1;
     }
 
+    let if_css_not_loaded = setTimeout(function(){
+        show_dom('nothing loaded');
+    }, 2000);
+
     window.css_loaded = function(href, link){
         console.log(href);
         if(link.onload){
@@ -23,6 +27,9 @@
         }
         if(href.endsWith('/web.assets_frontend.min.css') || href.endsWith('/web.assets_common.min.css')){
             css_loaded += 1;
+            if_css_not_loaded = setTimeout(function(){
+                show_dom('nothing loaded');
+            }, 500);
             if(css_loaded == 2)
             {
                 show_dom('both loaded');
@@ -30,5 +37,5 @@
         }
     }
 
-    console.log('Top script 2');
+    console.log('Top script 3');
 })();
