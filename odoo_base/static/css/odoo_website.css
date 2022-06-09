@@ -1,0 +1,6 @@
+button[data-target="#top_menu_collapse"], #edit-page-menu{
+    display: none;
+}
+#oe_main_menu_navbar{
+    display:none;
+}

@@ -21,6 +21,6 @@
         });
     }
     console.log('Purge page');
-    window.await_jquery.exec_on_ready(activate_purge);
+    activate_purge();
 })();
 

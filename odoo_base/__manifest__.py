@@ -21,7 +21,10 @@
 
     # any module necessary for this one to work correctly
     'depends': ['base','web'],
-
+    'assets': {
+        'web.assets_frontend': [
+        ],
+    },
     # always loaded
     'data': [
         'views/views.xml',

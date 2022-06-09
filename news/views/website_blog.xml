@@ -161,7 +161,7 @@
                                 <t t-call="website_blog.blog_post_content"/>
                             </div>
                             <div id="o_wblog_post_sidebar_col"
-                                 t-attf-class="pl-lg-5 pt16 #{not opt_blog_post_readable and 'flex-grow-1 w-lg-25'}">
+                                 t-attf-class="px-3 pt16 #{not opt_blog_post_readable and 'flex-grow-1 w-lg-25'}">
                                 <t t-call="website_blog.blog_post_sidebar"/>
                             </div>
                         </div>
@@ -179,7 +179,6 @@
                         <a role="menuitem" class="dropdown-item purge static">Purge Static</a>
                         <a role="menuitem" class="dropdown-item purge all">Purge All</a>
                     </div>
-                    <script defer="defer" src="/news/static/src/js/purger.js"/>
                 </div>
             </xpath>
         </template>

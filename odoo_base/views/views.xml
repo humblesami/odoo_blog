@@ -1,29 +1,34 @@
 <odoo>
     <data>
         <template id="news_website_layout" name="New Website Layout" inherit_id="website.layout">
-            <xpath expr="//div[@id='wrapwrap']" position="before">
+            <xpath expr="//head/script[1]" position="before">
                 <style>
+                    button[data-target="#top_menu_collapse"], #edit-page-menu{
+                        display: none;
+                    }
                     #oe_main_menu_navbar{
                         display:none;
                     }
                 </style>
-                <div id="css_waiter_dom" style="position: fixed; z-index:99999; background: rgba(0,0,0,0.5); top:0; left: 0; width:100vw; height: 100vh;">
+                <script type="text/javascript" src="/web/static/lib/jquery/jquery.js"/>
+                <script type="text/javascript" src="/odoo_base/static/js/top_script.js?v=1"/>
+            </xpath>
+            <xpath expr="//div[@id='wrapwrap']" position="before">
+                <div id="css_waiter_dom" style="position: fixed; z-index:99999; background: rgba(0,0,0,0.8); top:0; left: 0; width:100vw; height: 100vh;">
                 </div>
-                <script type="text/javascript" src="/odoo_base/static/js/await_jquery.js?v=8">
-                </script>
             </xpath>
         </template>
 
-<!--        <template id="remove_lazy_assets" inherit_id="web.frontend_layout">-->
-<!--            <xpath expr='//t[@t-call-assets="web.assets_frontend_lazy"]' position="replace">-->
-<!--            </xpath>-->
-<!--            <xpath expr='//t[@t-call-assets="web.assets_common_lazy"]' position="replace">-->
-<!--                <t t-if="uid">-->
-<!--                    <t t-call-assets="web.assets_common_lazy" t-css="false" lazy_load="True"/>-->
-<!--                    <t t-call-assets="web.assets_frontend_lazy" t-css="false" lazy_load="True"/>-->
-<!--                </t>-->
-<!--            </xpath>-->
-<!--        </template>-->
+        <template id="remove_lazy_assets" inherit_id="web.frontend_layout">
+            <xpath expr='//t[@t-call-assets="web.assets_frontend_lazy"]' position="replace">
+            </xpath>
+            <xpath expr='//t[@t-call-assets="web.assets_common_lazy"]' position="replace">
+                <t t-if="uid">
+                    <t t-call-assets="web.assets_common_lazy" t-css="false" lazy_load="True"/>
+                    <t t-call-assets="web.assets_frontend_lazy" t-css="false" lazy_load="True"/>
+                </t>
+            </xpath>
+        </template>
 
         <record id="module_view_filter" model="ir.ui.view">
             <field name="name">ir.module.module.search.customized</field>
