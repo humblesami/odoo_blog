@@ -18,7 +18,7 @@
 
     let if_css_not_loaded = setTimeout(function(){
         show_dom('nothing loaded');
-    }, 1500);
+    }, 4000);
 
     window.css_loaded = function(href, link){
         //console.log(href);
@@ -30,6 +30,7 @@
         }
         if(href.endsWith('/web.assets_frontend.min.css') || href.endsWith('/web.assets_common.min.css')){
             css_loaded += 1;
+            console.log(href);
             clearTimeout(if_css_not_loaded);
             if_css_not_loaded = setTimeout(function(){
                 show_dom('With '+href+' only loaded');
