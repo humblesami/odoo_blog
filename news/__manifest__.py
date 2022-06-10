@@ -26,7 +26,7 @@
     # always loaded
     'assets': {
         'web.assets_frontend': [
-            'news/static/src/js/news.js',
+            'news/static/src/js/dynamic_blog_images.js',
         ],
         'web.assets_qweb': [
         
