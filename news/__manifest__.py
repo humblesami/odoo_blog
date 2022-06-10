@@ -27,7 +27,6 @@
     'assets': {
         'web.assets_frontend': [
             'news/static/src/js/news.js',
-            'news/static/src/js/purger.js',
         ],
         'web.assets_qweb': [
         

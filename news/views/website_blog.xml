@@ -169,18 +169,5 @@
                 </section>
             </xpath>
         </template>
-
-        <template inherit_id="website.user_navbar" id="user_navbar">
-            <xpath expr="//div[hasclass('o_menu_sections')]" position="inside">
-                <div class="dropdown" id="purge-menu">
-                    <a id="purge-menu-button" class="dropdown-toggle o-no-caret waves" data-toggle="dropdown" data-display="static" href="#">Purge</a>
-                    <div class="dropdown-menu" role="menu">
-                        <a role="menuitem" class="dropdown-item purge current">Purge It</a>
-                        <a role="menuitem" class="dropdown-item purge static">Purge Static</a>
-                        <a role="menuitem" class="dropdown-item purge all">Purge All</a>
-                    </div>
-                </div>
-            </xpath>
-        </template>
     </data>
 </odoo>

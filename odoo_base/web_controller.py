@@ -17,7 +17,7 @@ class Website(http.Controller):
         res = {'status': 'error', 'message': 'Nothing'}
         try:
             url_to_purge = request.httprequest.values.get('url')
-            url_to_purge = 'http://voiceofnews.com/blog'
+            # url_to_purge = 'http://voiceofnews.com/blog'
             if not url_to_purge:
                 return 'Invalid Url'
             token = 'hbWBy99DnEsV7ItOJMh40ssg6Ka_IOCZiEDCNMV-'

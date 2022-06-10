@@ -18,7 +18,7 @@
 
     let if_css_not_loaded = setTimeout(function(){
         show_dom('nothing loaded');
-    }, 2000);
+    }, 5500);
 
     window.css_loaded = function(href, link){
         console.log(href);
@@ -27,11 +27,13 @@
         }
         if(href.endsWith('/web.assets_frontend.min.css') || href.endsWith('/web.assets_common.min.css')){
             css_loaded += 1;
+            clearTimeout(if_css_not_loaded);
             if_css_not_loaded = setTimeout(function(){
-                show_dom('nothing loaded');
-            }, 500);
+                show_dom(href + ' only loaded');
+            }, 800);
             if(css_loaded == 2)
             {
+                clearTimeout(if_css_not_loaded);
                 show_dom('both loaded');
             }
         }
