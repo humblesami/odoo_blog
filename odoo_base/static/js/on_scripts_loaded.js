@@ -1,5 +1,5 @@
 (function(){
-    console.log('On Scripts loaded 2');
+    console.log('On Scripts loaded 3');
     $('button[data-target="#top_menu_collapse"], #edit-page-menu').css('visibility', 'visible');
 
     let uid = 'none';
@@ -11,9 +11,7 @@
             if(!isNaN(uid)){
                 //console.log(uid,2);
                 let user_menu_bar = $('#oe_main_menu_navbar');
-                if(user_menu_bar.css('display', 'none')){
-                    user_menu_bar.css('display', 'grid');
-                }
+                user_menu_bar.css('display', 'grid');
                 if(!$('body').hasClass(user_class))
                 {
                     $('body').addClass(user_class);
