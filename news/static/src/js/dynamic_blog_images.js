@@ -1,6 +1,7 @@
 (function(){
+    let els = [];
     function set_image_heights(){
-        let els = document.querySelectorAll('.bg_image_div:not(.adjusted)');
+        els = document.querySelectorAll('.bg_image_div:not(.adjusted)');
         for(let el of els){
             let height = el.clientWidth * 0.587;
             let height_to_apply = height + 'px';
