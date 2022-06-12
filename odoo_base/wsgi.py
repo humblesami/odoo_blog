@@ -18,9 +18,11 @@ def __call__(self, environ, start_response):
                     new_headers.append((k, v))
             start_response(status, new_headers)
         else:
+            found_at = -1
             for header in headers:
+                found_at += 1
                 if header[0].lower() == 'cache-control':
-                    headers['cache-excluded'] = 1
+                    headers[found_at] = ('cache-excluded', 'yes')
                     break
             start_response(status, headers)
     return self.app(environ, start_wrapped)
