@@ -20,4 +20,5 @@
         }
     }
     set_image_heights();
+    console.log('setting heights of => '+els.length);
 })()
