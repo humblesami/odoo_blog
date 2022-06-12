@@ -5,7 +5,7 @@
     }
 
     let failure_handler = setTimeout(function () {
-        //show_dom('failed loading css');
+        show_dom('failed loading css');
         clearTimeout(failure_handler);
     }, 2900);
 
