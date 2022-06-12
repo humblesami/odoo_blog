@@ -22,7 +22,7 @@ def __call__(self, environ, start_response):
             for header in headers:
                 found_at += 1
                 if header[0].lower() == 'cache-control':
-                    headers[found_at] = ('cache-excluded', 'yes')
+                    headers[found_at] = ('cache-from-origin', 'yes')
                     break
             start_response(status, headers)
     return self.app(environ, start_wrapped)

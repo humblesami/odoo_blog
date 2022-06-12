@@ -1,4 +1,4 @@
 # -*- coding: utf-8 -*-
-from . import wsgi
+from . import cache
 from . import web_models
 from . import web_controller
