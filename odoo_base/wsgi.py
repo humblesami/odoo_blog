@@ -9,21 +9,23 @@ def __call__(self, environ, start_response):
         req = werkzeug.wrappers.Request(environ)
         root.setup_session(req)
         req_path = req.path
+        cache_control = ('Cache-Control', 'public, max-age=3200, stale-while-revalidate=3800')
         if req.session and req.session.debug and not 'wkhtmltopdf' in req.headers.get('User-Agent'):
-
             if "assets" in req.session.debug and (".js" in req.base_url or ".css" in req.base_url):
                 new_headers = [('Cache-Control', 'no-store')]
             else:
                 new_headers = [('Cache-Control', 'no-cache')]
                 if req_path != '/web' and not req_path.startswith('/web?'):
-                    new_headers = [('Cache-Control', 'public, max-age=3200, stale-while-revalidate=3800')]
-
+                    new_headers = [cache_control]
+            
             for k, v in headers:
                 if k.lower() != 'cache-control':
                     new_headers.append((k, v))
 
             start_response(status, new_headers)
         else:
+            if req_path != '/web' and not req_path.startswith('/web?'):
+                headers.append(cache_control)
             start_response(status, headers)
     return self.app(environ, start_wrapped)
 
