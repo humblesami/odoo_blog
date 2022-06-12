@@ -15,7 +15,7 @@ def __call__(self, environ, start_response):
                 new_headers = [('Cache-Control', 'no-store')]
             else:
                 new_headers = [('Cache-Control', 'no-cache')]
-                if req_path != '/web' and not req_path.startswith('/web?'):
+                if req_path != '/web' and not req_path.startswith('/web?') and req_path != '/longpolling/poll':
                     new_headers = [cache_control]
             
             for k, v in headers:
@@ -24,8 +24,15 @@ def __call__(self, environ, start_response):
 
             start_response(status, new_headers)
         else:
-            if req_path != '/web' and not req_path.startswith('/web?'):
-                headers.append(cache_control)
+            if req_path != '/web' and not req_path.startswith('/web?') and req_path != '/longpolling/poll':
+                found_at = -1
+                for header in headers:
+                    found_at += 1
+                    if header[0].lower() == 'cache-control':
+                        headers[found_at] = cache_control
+                        break
+                if found_at == -1:
+                    headers.append(cache_control)
             start_response(status, headers)
     return self.app(environ, start_wrapped)
 
