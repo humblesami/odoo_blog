@@ -23,7 +23,6 @@
     'depends': ['base','web'],
     'assets': {
         'web.assets_frontend': [
-            'odoo_base/static/js/on_scripts_loaded.js',
             'odoo_base/static/js/purger.js',
         ],
     },
