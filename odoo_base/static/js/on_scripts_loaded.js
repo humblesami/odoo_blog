@@ -1,6 +1,6 @@
 (function(){
-    console.log('On Scripts loaded 3');
-    $('button[data-target="#top_menu_collapse"], #edit-page-menu').css('visibility', 'visible');
+    //console.log('On Scripts loaded 3');
+    $('#edit-page-menu').css('visibility', 'visible');
 
     let uid = 'none';
     function check_user(){

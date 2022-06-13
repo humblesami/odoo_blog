@@ -25,12 +25,6 @@
 
     # always loaded
     'assets': {
-        'web.assets_frontend': [
-            'news/static/src/js/dynamic_blog_images.js',
-        ],
-        'web.assets_qweb': [
-        
-        ],
     },
     'data': [
         # 'security/ir.model.access.csv',
