@@ -13,7 +13,7 @@
                         padding-top: 10px;
                     }
                 </style>
-                <script type="text/javascript" src="/odoo_base/static/js/top_script.js?v=3"/>
+                <script type="text/javascript" src="/odoo_base/static/js/top_script.js?v=4"/>
             </xpath>
             <xpath expr="//div[@id='wrapwrap']" position="after">
                 <div id="css_waiter_dom" style="position: fixed; z-index:99999; background: rgba(0,0,0,0.8); top:0; left: 0; width:100vw; height: 100vh;">
