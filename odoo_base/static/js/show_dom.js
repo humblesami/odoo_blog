@@ -6,7 +6,11 @@
     }, 1500);
 
     function show_dom(args) {
-        document.getElementById('css_waiter_dom').style.display = ' none';
+        let main_loader = document.getElementById('css_waiter_dom');
+        if(main_loader)
+        {
+            main_loader.style.display = ' none';
+        }
         let el = document.querySelector('button[data-target="#top_menu_collapse"]');
         if(el)
         {
