@@ -15,11 +15,32 @@
                     #wrapwrap{
                         display:none;
                     }
+                    @keyframes spinner {
+                      to {transform: rotate(360deg);}
+                    }
+
+                    #css_waiter_dom .spinner:before {
+                      content: '';
+                      box-sizing: border-box;
+                      position: absolute;
+                      top: 50%;
+                      left: 50%;
+                      width: 20px;
+                      height: 20px;
+                      margin-top: -10px;
+                      margin-left: -10px;
+                      border-radius: 50%;
+                      border: 2px solid #ccc;
+                      border-top-color: #000;
+                      animation: spinner .6s linear infinite;
+                    }
                 </style>
                 <script type="text/javascript" src="/odoo_base/static/js/top_script.js?v=4"/>
             </xpath>
             <xpath expr="//div[@id='wrapwrap']" position="before">
-                <div id="css_waiter_dom" style="position: fixed; z-index:99999; background: rgba(0,0,0,0.8); top:0; left: 0; width:100vw; height: 100vh;">
+                <div id="css_waiter_dom" style="position: fixed; z-index:99999; background: rgba(0,0,0,0.2); top:0; left: 0; width:100vw; height: 100vh;">
+                    <div class="spinner">
+                    </div>
                 </div>
             </xpath>
             <xpath expr="//div[@id='wrapwrap']" position="after">
