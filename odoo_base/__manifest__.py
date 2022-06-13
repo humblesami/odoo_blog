@@ -23,6 +23,7 @@
     'depends': ['base','web'],
     'assets': {
         'web.assets_frontend': [
+            ('replace', 'website/static/src/scss/website.scss', 'odoo_base/static/css/website.scss'),
             'odoo_base/static/js/purger.js',
         ],
     },

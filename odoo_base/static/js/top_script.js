@@ -6,6 +6,7 @@
             let waiter_obj = window.css_waiter;
             link_el.onload = undefined;
             let href = link_el.href;
+            console.log(href);
             if(href.endsWith('/web.assets_frontend.min.css')){
                 waiter_obj.css_loaded = 1;
                 for (let fun of waiter_obj.waiting_functions) {

@@ -1,9 +1,18 @@
 (function () {
+
+//    let links = document.querySelectorAll('link[type="text/css"]');
+//    console.log(links.length + ' css files');
+//    for(let link of links){
+//        link.onload = function(){
+//            console.log(link.href);
+//        }
+//    }
+
     let if_css_failed = setTimeout(function(){
         let message = 'Failed loading css';
         show_dom(message);
         console.log(message);
-    }, 1500);
+    }, 25000);
 
     function show_dom(args) {
         let main_loader = document.getElementById('css_waiter_dom');
