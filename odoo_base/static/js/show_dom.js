@@ -1,10 +1,18 @@
 (function () {
+    let if_css_failed = setTimeout(function(){
+        let message = 'Failed loading css';
+        show_dom(message);
+        console.log(message);
+    }, 1500);
     function show_dom(args) {
-        //set_image_heights();
         document.getElementById('css_waiter_dom').style.display = ' none';
         let el = document.querySelector('button[data-target="#top_menu_collapse"]');
-        el.style.visibility = 'visible';
-        //console.log(el);
+        if(el)
+        {
+            el.style.visibility = 'visible';
+        }
+        clearTimeout(if_css_failed);
+        //set_image_heights();
     }
 
     let els = [];
@@ -30,23 +38,10 @@
         //console.log('Setting heights of => '+els.length+' images');
     }
 
-    let failure_handler = setTimeout(function () {
-        show_dom('failed loading css');
-        clearTimeout(failure_handler);
-    }, 2900);
+    window.css_waiter.wait_or_execute(function(){
+        show_dom('All loaded');
+    });
 
+    console.log('show dom 5');
 
-    function wait_and_load(){
-        window.css_waiter.wait_or_execute(function(){
-            if(failure_handler)
-            {
-                clearTimeout(failure_handler);
-            }
-        });
-        window.css_waiter.wait_or_execute(function(){
-            show_dom('All loaded');
-        });
-    }
-
-    wait_and_load();
 })()
