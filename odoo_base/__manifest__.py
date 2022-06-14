@@ -22,7 +22,7 @@
     # any module necessary for this one to work correctly
     'depends': ['base','web'],
     'assets': {
-        'web.assets_frontend_minimal': [
+        'web.assets_common_minimal': [
             'web/static/lib/jquery/jquery.js',
             'odoo_base/static/js/show_dom.js'
         ],
