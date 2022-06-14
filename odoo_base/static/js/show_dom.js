@@ -54,15 +54,6 @@
     function on_css_wait_time_out(){
         css_load_timeout = setTimeout(function(){
             if(window.css_waiter.afe_loaded){
-                if(window.css_waiter.css_loaded >= 2){
-                    show_dom('All loaded');
-                }
-                else{
-                    show_dom('Front end assets loaded');
-                }
-                return;
-            }
-            else{
                 show_dom('Failed loading css');
             }
         }, 500);
@@ -87,7 +78,10 @@
     }
 
     window.css_waiter.wait_or_execute(function(){
-        show_dom('All loaded');
+        show_dom('Assets loaded');
     });
-    on_css_wait_time_out();
+    if(!window.css_waiter.afe_loaded)
+    {
+        on_css_wait_time_out();
+    }
 })()
