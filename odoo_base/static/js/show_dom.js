@@ -1,15 +1,5 @@
 (function () {
 
-    let if_css_failed = setTimeout(function(){
-        let message = 'Failed loading css';
-        if(window.css_waiter.afe_loaded){
-            message = 'Front end assets loaded';
-            show_dom(message);
-            return;
-        }
-        show_dom(message);
-    }, 1000);
-
     function show_dom(args) {
         let main_loader = document.getElementById('css_waiter_dom');
         if(main_loader)
@@ -76,8 +66,20 @@
         //console.log('Setting heights of => '+els.length+' images');
     }
 
-    window.css_waiter.wait_or_execute(function(){
-        show_dom('All loaded');
-    });
+    function on_css_wait_time_out(){
+        let if_css_failed = setTimeout(function(){
+            let message = 'Failed loading css';
+            if(window.css_waiter.afe_loaded){
+                message = 'Front end assets loaded';
+                show_dom(message);
+                return;
+            }
+            show_dom(message);
+        }, 1000);
+    }
 
+    //on_css_wait_time_out();
+    //window.css_waiter.wait_or_execute(function(){
+    //    show_dom('All loaded');
+    //});
 })()
