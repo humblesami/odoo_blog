@@ -29,7 +29,9 @@
             $.ajax(purge_req_options);
         });
 
-        console.log('Purging activated');
+        $('button[data-target="#top_menu_collapse"],#edit-page-menu').css('visibility', 'visible');
+
+        console.log('Purging activated and menu buttons shown');
     }
     activate_purge();
 })();

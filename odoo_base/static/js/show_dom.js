@@ -20,14 +20,8 @@
         {
             main_loader.style.display = ' none';
         }
-        let el = document.querySelector('button[data-target="#top_menu_collapse"]');
-        if(el)
-        {
-            el.style.visibility = 'visible';
-        }
         clearTimeout(if_css_failed);
         //set_image_heights();
-        $('#edit-page-menu').css('visibility', 'visible');
         console.log(args + ', Showing wrap');
         if($('body').hasClass('o_connected_user')){
             check_user();
