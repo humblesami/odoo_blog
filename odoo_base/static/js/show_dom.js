@@ -54,7 +54,12 @@
     function on_css_wait_time_out(){
         css_load_timeout = setTimeout(function(){
             if(window.css_waiter.afe_loaded){
-                show_dom('Front end assets loaded');
+                if(window.css_waiter.css_loaded >= 2){
+                    show_dom('All loaded');
+                }
+                else{
+                    show_dom('Front end assets loaded');
+                }
                 return;
             }
             else{
