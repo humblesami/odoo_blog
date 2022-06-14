@@ -19,7 +19,7 @@
         wait_or_execute: function (waiter_function) {
             let waiter_obj = window.css_waiter;
             //console.log('css load count till now => ' + waiter_obj.css_loaded);
-            if (waiter_obj.css_loaded >= 2) {
+            if (waiter_obj.afe_loaded) {
                 waiter_function();
             }
             else {
