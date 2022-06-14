@@ -8,7 +8,7 @@
             return;
         }
         show_dom(message);
-    }, 2000);
+    }, 1000);
 
     function show_dom(args) {
         let main_loader = document.getElementById('css_waiter_dom');
