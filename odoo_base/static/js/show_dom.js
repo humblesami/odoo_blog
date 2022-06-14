@@ -28,7 +28,6 @@
             console.log('checking user');
         }
         document.getElementById('wrapwrap').style.display = 'block';
-        $('button[data-target="#top_menu_collapse"],#edit-page-menu').css('visibility', 'visible');
     }
 
     let uid = 'none';
