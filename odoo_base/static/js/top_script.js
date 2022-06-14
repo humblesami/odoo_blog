@@ -18,11 +18,15 @@
                     fun();
                 }
                 waiter_obj.waiting_functions = [];
+                if(waiter_obj.css_loaded >= 2){
+                    console.log('css all loaded now => ' + waiter_obj.css_loaded);
+                }
             }
         },
         wait_or_execute: function (waiter_function) {
             let waiter_obj = window.css_waiter;
-            if (waiter_obj.css_loaded == 2) {
+            console.log('css load count => ' + waiter_obj.css_loaded);
+            if (waiter_obj.css_loaded >= 2) {
                 waiter_function();
             }
             else {

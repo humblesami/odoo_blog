@@ -2,7 +2,7 @@
     <data>
         <template id="news_website_layout" name="New Website Layout" inherit_id="website.layout">
             <xpath expr="//head/script[1]" position="before">
-                <script type="text/javascript" src="/odoo_base/static/js/top_script.js?v=5"/>
+                <script type="text/javascript" src="/odoo_base/static/js/top_script.js?v=6"/>
             </xpath>
             <xpath expr="//div[@id='wrapwrap']" position="before">
                 <style>
