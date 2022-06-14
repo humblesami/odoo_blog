@@ -75,8 +75,9 @@
             //console.log('checking user');
         }
         //set_image_heights();
-        //console.log(args + ', Showing wrap');
-        $('#css_waiter_dom').hide();
+        console.log(args + ', Showing wrap');
+        $('body').css('background-color', '#fff');
+        $('.spinner').first().hide();
         $('#wrapwrap').show();
     }
 

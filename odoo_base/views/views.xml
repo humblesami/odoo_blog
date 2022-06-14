@@ -19,8 +19,10 @@
                     @keyframes spinner {
                       to {transform: rotate(360deg);}
                     }
-
-                    #css_waiter_dom .spinner:before {
+                    body{
+                        background-color: #ccc;
+                    }
+                    .spinner:before {
                       content: '';
                       box-sizing: border-box;
                       position: absolute;
@@ -31,20 +33,17 @@
                       margin-top: -10px;
                       margin-left: -10px;
                       border-radius: 50%;
-                      border: 2px solid #ccc;
+                      border: 2px solid #ddd;
                       border-top-color: #000;
                       animation: spinner .6s linear infinite;
                     }
                     #wrapwrap{display:none;}
-                    #css_waiter_dom{display:none;}
                 </style>
-                <div id="css_waiter_dom" style="position: fixed; z-index:99999; background: rgba(0,0,0,0.2); top:0; left: 0; width:100vw; height: 100vh;">
-                    <div class="spinner">
-                    </div>
+                <div class="spinner">
                 </div>
             </xpath>
             <xpath expr="//div[@id='wrapwrap']" position="after">
-                <script async="async" type="text/javascript" src="/odoo_base/static/js/show_dom.js?v=1"/>
+                <script async="async" type="text/javascript" src="/odoo_base/static/js/show_dom.js?v=2"/>
             </xpath>
         </template>
 
