@@ -15,9 +15,7 @@
                     .navbar-collapse ul#top_menu{
                         padding-top: 10px;
                     }
-                    #wrapwrap{
-                        display:none;
-                    }
+
                     @keyframes spinner {
                       to {transform: rotate(360deg);}
                     }
@@ -37,6 +35,7 @@
                       border-top-color: #000;
                       animation: spinner .6s linear infinite;
                     }
+                    /*#wrapwrap{display:none;}*/
                 </style>
 <!--                <div id="css_waiter_dom" style="position: fixed; z-index:99999; background: rgba(0,0,0,0.2); top:0; left: 0; width:100vw; height: 100vh;">-->
 <!--                    <div class="spinner">-->
