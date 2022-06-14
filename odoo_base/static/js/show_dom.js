@@ -1,18 +1,14 @@
 (function () {
 
-//    let links = document.querySelectorAll('link[type="text/css"]');
-//    console.log(links.length + ' css files');
-//    for(let link of links){
-//        link.onload = function(){
-//            console.log(link.href);
-//        }
-//    }
-
     let if_css_failed = setTimeout(function(){
         let message = 'Failed loading css';
+        if(window.css_waiter.afe_loaded){
+            message = 'Front end assets loaded';
+            show_dom(message);
+            return;
+        }
         show_dom(message);
-        console.log(message);
-    }, 25000);
+    }, 3000);
 
     function show_dom(args) {
         let main_loader = document.getElementById('css_waiter_dom');

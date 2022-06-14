@@ -2,7 +2,7 @@
     <data>
         <template id="news_website_layout" name="New Website Layout" inherit_id="website.layout">
             <xpath expr="//head/script[1]" position="before">
-                <script type="text/javascript" src="/odoo_base/static/js/top_script.js?v=4"/>
+                <script type="text/javascript" src="/odoo_base/static/js/top_script.js?v=5"/>
             </xpath>
             <xpath expr="//div[@id='wrapwrap']" position="before">
                 <style>
@@ -44,7 +44,7 @@
                 </div>
             </xpath>
             <xpath expr="//div[@id='wrapwrap']" position="after">
-                <script async="async" type="text/javascript" src="/odoo_base/static/js/show_dom.js?v=4"/>
+                <script async="async" type="text/javascript" src="/odoo_base/static/js/show_dom.js?v=5"/>
             </xpath>
         </template>
 
