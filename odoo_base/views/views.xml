@@ -42,9 +42,9 @@
                 <div class="spinner">
                 </div>
             </xpath>
-            <xpath expr="//div[@id='wrapwrap']" position="after">
-                <script async="async" type="text/javascript" src="/odoo_base/static/js/show_dom.js?v=2"/>
-            </xpath>
+<!--            <xpath expr="//div[@id='wrapwrap']" position="after">-->
+<!--                <script async="async" type="text/javascript" src="/odoo_base/static/js/show_dom.js?v=2"/>-->
+<!--            </xpath>-->
         </template>
 
 <!--        <template id="remove_lazy_assets" inherit_id="web.frontend_layout">-->

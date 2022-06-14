@@ -1,5 +1,8 @@
 (function () {
-
+    console.log('Fornt end => '+ window.on_front_end);
+    if(!window.on_front_end){
+        return false;
+    }
     let uid = 'none';
     function check_user(){
         let user_class = 'o_connected_user';
@@ -49,7 +52,6 @@
         }
         //console.log('Setting heights of => '+els.length+' images');
     }
-
 
     function on_css_wait_time_out(){
         css_load_timeout = setTimeout(function(){

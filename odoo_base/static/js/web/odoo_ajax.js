@@ -12,4 +12,3 @@
 ////    return ajax;
 //});
 console.log(44556);
-//# sourceMappingURL=http://localhost:8001/odoo_base/static/js/web_odoo_ajax.js
