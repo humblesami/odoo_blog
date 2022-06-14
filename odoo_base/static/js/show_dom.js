@@ -1,21 +1,5 @@
 (function () {
 
-    function show_dom(args) {
-        let main_loader = document.getElementById('css_waiter_dom');
-        if(main_loader)
-        {
-            main_loader.style.display = ' none';
-        }
-        clearTimeout(if_css_failed);
-        //set_image_heights();
-        console.log(args + ', Showing wrap');
-        if($('body').hasClass('o_connected_user')){
-            check_user();
-            console.log('checking user');
-        }
-        document.getElementById('wrapwrap').style.display = 'block';
-    }
-
     let uid = 'none';
     function check_user(){
         let user_class = 'o_connected_user';
@@ -66,20 +50,38 @@
         //console.log('Setting heights of => '+els.length+' images');
     }
 
+
     function on_css_wait_time_out(){
-        let if_css_failed = setTimeout(function(){
-            let message = 'Failed loading css';
+        css_load_timeout = setTimeout(function(){
             if(window.css_waiter.afe_loaded){
-                message = 'Front end assets loaded';
-                show_dom(message);
+                show_dom('Front end assets loaded');
                 return;
             }
-            show_dom(message);
-        }, 1000);
+            else{
+                show_dom('Failed loading css');
+            }
+        }, 500);
+        //console.log("Time out should be called in 500ms");
     }
 
-    //on_css_wait_time_out();
-    //window.css_waiter.wait_or_execute(function(){
-    //    show_dom('All loaded');
-    //});
+    let css_load_timeout = undefined;
+    function show_dom(args) {
+        if(css_load_timeout)
+        {
+            clearTimeout(css_load_timeout);
+        }
+        if($('body').hasClass('o_connected_user')){
+            check_user();
+            //console.log('checking user');
+        }
+        //set_image_heights();
+        //console.log(args + ', Showing wrap');
+        $('#css_waiter_dom').hide();
+        $('#wrapwrap').show();
+    }
+
+    window.css_waiter.wait_or_execute(function(){
+        show_dom('All loaded');
+    });
+    on_css_wait_time_out();
 })()

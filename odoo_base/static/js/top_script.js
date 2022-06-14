@@ -13,19 +13,19 @@
                     css_waiter.afe_loaded = 1;
                 }
                 waiter_obj.css_loaded += 1;
-                console.log(href);
+                //console.log(href);
                 for (let fun of waiter_obj.waiting_functions) {
                     fun();
                 }
                 waiter_obj.waiting_functions = [];
                 if(waiter_obj.css_loaded >= 2){
-                    console.log('css all loaded now => ' + waiter_obj.css_loaded);
+                    //console.log('css all loaded now => ' + waiter_obj.css_loaded);
                 }
             }
         },
         wait_or_execute: function (waiter_function) {
             let waiter_obj = window.css_waiter;
-            console.log('css load count => ' + waiter_obj.css_loaded);
+            //console.log('css load count till now => ' + waiter_obj.css_loaded);
             if (waiter_obj.css_loaded >= 2) {
                 waiter_function();
             }

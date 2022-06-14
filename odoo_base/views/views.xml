@@ -35,15 +35,16 @@
                       border-top-color: #000;
                       animation: spinner .6s linear infinite;
                     }
-                    /*#wrapwrap{display:none;}*/
+                    #wrapwrap{display:none;}
+                    #css_waiter_dom{display:none;}
                 </style>
-<!--                <div id="css_waiter_dom" style="position: fixed; z-index:99999; background: rgba(0,0,0,0.2); top:0; left: 0; width:100vw; height: 100vh;">-->
-<!--                    <div class="spinner">-->
-<!--                    </div>-->
-<!--                </div>-->
+                <div id="css_waiter_dom" style="position: fixed; z-index:99999; background: rgba(0,0,0,0.2); top:0; left: 0; width:100vw; height: 100vh;">
+                    <div class="spinner">
+                    </div>
+                </div>
             </xpath>
             <xpath expr="//div[@id='wrapwrap']" position="after">
-                <script async="async" type="text/javascript" src="/odoo_base/static/js/show_dom.js?v=6"/>
+                <script async="async" type="text/javascript" src="/odoo_base/static/js/show_dom.js?v=1"/>
             </xpath>
         </template>
 

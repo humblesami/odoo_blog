@@ -33,7 +33,7 @@
     {
         activate_purge();
     }
-    console.log('Purging activated and menu buttons shown');
+    //console.log('Purging activated and menu buttons shown');
     $('button[data-target="#top_menu_collapse"],#edit-page-menu').css('visibility', 'visible');
 })();
 
