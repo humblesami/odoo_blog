@@ -2,6 +2,9 @@
     <data>
         <template id="news_website_layout" name="New Website Layout" inherit_id="website.layout">
             <xpath expr="//head/script[1]" position="before">
+                <script type="text/javascript" src="/odoo_base/static/js/top_script.js?v=4"/>
+            </xpath>
+            <xpath expr="//div[@id='wrapwrap']" position="before">
                 <style>
                     button[data-target="#top_menu_collapse"], #edit-page-menu{
                         visibility: hidden;
@@ -35,9 +38,6 @@
                       animation: spinner .6s linear infinite;
                     }
                 </style>
-                <script type="text/javascript" src="/odoo_base/static/js/top_script.js?v=4"/>
-            </xpath>
-            <xpath expr="//div[@id='wrapwrap']" position="before">
                 <div id="css_waiter_dom" style="position: fixed; z-index:99999; background: rgba(0,0,0,0.2); top:0; left: 0; width:100vw; height: 100vh;">
                     <div class="spinner">
                     </div>

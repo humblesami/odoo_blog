@@ -1,0 +1,11 @@
+sudo apt-get update
+sudo apt-get install certbot
+sudo apt-get install python3-certbot-nginx
+sudo certbot --nginx -d voiceofnews.com -d www.voiceofnews.com
+sudo certbot --apache -d 92newshd.tv -d www.92newshd.tv
+sudo certbot renew --dry-run
+sudo certbot certificates
+
+
+sudo a2densite webtv.92newshd.tv.conf live.92newshd.tv.conf mobileapp.92newshd.tv.conf
+sudo certbot --expand -d 92newshd.tv,webtv.92newshd.tv,live.92newshd.tv,mobileapp.92newshd.tv
