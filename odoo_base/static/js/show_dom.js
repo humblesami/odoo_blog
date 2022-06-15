@@ -72,7 +72,7 @@
             check_user();
             //console.log('checking user');
         }
-        //set_image_heights();
+        set_image_heights();
         console.log(args + ', Showing wrap');
         $('body').css('background-color', '#fff');
         $('.spinner').first().hide();
