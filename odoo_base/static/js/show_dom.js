@@ -44,7 +44,7 @@
             else{
                 el_width = parseFloat(el_width);
             }
-            console.log(el_width, 111);
+            //console.log(el_width, 111);
             let height = el_width * 0.587;
             let height_to_apply = height + 'px';
             el.style.height = height_to_apply;
@@ -83,11 +83,11 @@
             check_user();
             //console.log('checking user');
         }
-        set_image_heights();
         console.log(args + ', Showing wrap');
         $('body').css('background-color', '#fff');
         $('.spinner').first().hide();
         $('#wrapwrap').show();
+        set_image_heights();
     }
 
     window.css_waiter.wait_or_execute(function(){
