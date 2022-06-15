@@ -4,6 +4,8 @@
             <xpath expr="//head/script[1]" position="before">
                 <script type="text/javascript" src="/odoo_base/static/js/top_script.js?v=3"/>
             </xpath>
+            <xpath expr="//link[@rel='preconnect'][1]" position="replace">
+            </xpath>
             <xpath expr="//div[@id='wrapwrap']" position="before">
                 <style>
                     button[data-target="#top_menu_collapse"], #edit-page-menu{
@@ -45,11 +47,6 @@
 <!--            <xpath expr="//div[@id='wrapwrap']" position="after">-->
 <!--                <script async="async" type="text/javascript" src="/odoo_base/static/js/show_dom.js?v=2"/>-->
 <!--            </xpath>-->
-        </template>
-
-        <template id="website_layout" inherit_id="website.frontend_layout">
-            <xpath expr='//link[@rel="preconnect"][1]' position="replace">
-            </xpath>
         </template>
 
 <!--        <template id="remove_lazy_assets" inherit_id="web.frontend_layout">-->
