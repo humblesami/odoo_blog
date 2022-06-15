@@ -1,21 +1,11 @@
 <odoo>
     <data>
-        <template id="news_website_layout" name="New Website Layout" inherit_id="website.layout">
+        <template id="news_website_layout" name="News Website Layout" inherit_id="website.layout">
             <xpath expr="//head/script[1]" position="before">
                 <script type="text/javascript" src="/odoo_base/static/js/top_script.js?v=3"/>
-            </xpath>
-            <xpath expr="//link[@rel='preconnect'][1]" position="replace">
-            </xpath>
-            <xpath expr="//div[@id='wrapwrap']" position="before">
                 <style>
                     button[data-target="#top_menu_collapse"], #edit-page-menu{
                         visibility: hidden;
-                    }
-                    @media (max-width: 767.98px)
-                    {
-                        #oe_main_menu_navbar.o_main_navbar{
-                            display:none;
-                        }
                     }
                     #oe_main_menu_navbar{
                         display:none;
@@ -46,7 +36,17 @@
                       animation: spinner .6s linear infinite;
                     }
                     #wrapwrap{display:none;}
+                    @media (max-width: 767.98px)
+                    {
+                        #oe_main_menu_navbar.o_main_navbar{
+                            display:none;
+                        }
+                    }
                 </style>
+            </xpath>
+            <xpath expr="//link[@rel='preconnect'][1]" position="replace">
+            </xpath>
+            <xpath expr="//div[@id='wrapwrap']" position="before">
                 <div class="spinner">
                 </div>
             </xpath>
