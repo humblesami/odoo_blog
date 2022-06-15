@@ -41,6 +41,7 @@
             if(!el_width){
                 console.log(el.parentNode, 'has no width');
             }
+            console.log(el_width, 111);
             let height = el_width * 0.587;
             let height_to_apply = height + 'px';
             el.style.height = height_to_apply;
