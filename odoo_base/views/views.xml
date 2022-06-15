@@ -11,6 +11,12 @@
                     button[data-target="#top_menu_collapse"], #edit-page-menu{
                         visibility: hidden;
                     }
+                    @media (max-width: 767.98px)
+                    {
+                        #oe_main_menu_navbar.o_main_navbar{
+                            display:none;
+                        }
+                    }
                     #oe_main_menu_navbar{
                         display:none;
                     }
