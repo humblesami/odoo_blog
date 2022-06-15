@@ -48,7 +48,7 @@
         </template>
 
         <template id="website_layout" inherit_id="website.frontend_layout">
-            <xpath expr='//link[@href="https://fonts.gstatic.com/"]' position="replace">
+            <xpath expr='//link[@rel="preconnect"][1]' position="replace">
             </xpath>
         </template>
 
