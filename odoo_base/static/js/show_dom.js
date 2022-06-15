@@ -66,10 +66,10 @@
 
     function on_css_wait_time_out(){
         css_load_timeout = setTimeout(function(){
-            if(window.css_waiter.afe_loaded){
+            if(!window.css_waiter.afe_loaded){
                 show_dom('Failed loading css');
             }
-        }, 500);
+        }, 1000);
         //console.log("Time out should be called in 500ms");
     }
 
