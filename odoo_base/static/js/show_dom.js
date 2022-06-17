@@ -38,11 +38,10 @@
             else{
                 el_width = parseFloat(el_width);
             }
-            let image_inside = $(el).find('img.img_cover_image');
             //console.log(el_width, 111);
             let height = el_width * 0.587;
             let height_to_apply = height + 'px';
-            image_inside.css({'width', '100%', 'height': height_to_apply});
+            $(el).find('img.img_cover_image').css({'width': '100%', 'height': height_to_apply});
             el.classList.add("adjusted");
             if(el.nextElementSibling)
             {
