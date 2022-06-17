@@ -42,8 +42,8 @@
             let height = el_width * 0.587;
             let height_to_apply = height + 'px';
             console.log(el, height_to_apply);
-            el.childNode.width = '100%';
-            el.childNode.height = height_to_apply;
+            el.children[0].width = '100%';
+            el.children[0].height = height_to_apply;
             el.classList.add("adjusted");
             if(el.nextElementSibling)
             {
@@ -96,5 +96,5 @@
     {
         on_css_wait_time_out();
     }
-    console.log('show dom v3')
+    console.log('show dom v2')
 })()
