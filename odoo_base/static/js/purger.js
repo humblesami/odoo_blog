@@ -34,7 +34,7 @@
         activate_purge();
     }
     //console.log('Purging activated and menu buttons shown');
-    console.log('showing menu');
-    //$('button[data-target="#top_menu_collapse"],#edit-page-menu').css('visibility', 'visible');
+    console.log('showing menu 2');
+    $('button[data-target="#top_menu_collapse"],#edit-page-menu').css('visibility', 'visible');
 })();
 
