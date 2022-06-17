@@ -32,8 +32,10 @@
         for(let el of els){
             let el_width = $(el).width();
             if(!el_width){
+                el_width = $(el).parent().width();
+            }
+            if(!el_width){
                 console.log(el.parentNode, 'has no width');
-                return;
             }
             else{
                 el_width = parseFloat(el_width);
@@ -41,9 +43,7 @@
             //console.log(el_width, 111);
             let height = el_width * 0.587;
             let height_to_apply = height + 'px';
-            console.log(el, height_to_apply);
-            el.children[0].style.width = '100%';
-            el.children[0].style.height = height_to_apply;
+            el.style.height = height_to_apply;
             el.classList.add("adjusted");
             if(el.nextElementSibling)
             {
