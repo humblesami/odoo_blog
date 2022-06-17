@@ -22,10 +22,11 @@
     # any module necessary for this one to work correctly
     'depends': ['base','web'],
     'assets': {
-        'web.assets_common_minimal': [],
+        'web.assets_frontend_minimal': [
+            'odoo_base/static/js/purger.js',
+        ],
         'web.assets_frontend': [
             ('replace', 'website/static/src/scss/website.scss', 'odoo_base/static/css/website.scss'),
-            'odoo_base/static/js/purger.js'
         ],
     },
     # always loaded
