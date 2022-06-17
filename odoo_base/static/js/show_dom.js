@@ -32,18 +32,17 @@
         for(let el of els){
             let el_width = $(el).width();
             if(!el_width){
-                el_width = $(el).parent().width();
-            }
-            if(!el_width){
                 console.log(el.parentNode, 'has no width');
+                return;
             }
             else{
                 el_width = parseFloat(el_width);
             }
+            let image_inside = $(el).find('img.img_cover_image');
             //console.log(el_width, 111);
             let height = el_width * 0.587;
             let height_to_apply = height + 'px';
-            el.style.height = height_to_apply;
+            image_inside.css({'width', '100%', 'height': height_to_apply});
             el.classList.add("adjusted");
             if(el.nextElementSibling)
             {
