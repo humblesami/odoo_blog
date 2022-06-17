@@ -43,9 +43,10 @@
             //console.log(el_width, 111);
             let height = el_width * 0.587;
             let height_to_apply = height + 'px';
-            let img_inside = el.children[0];
-            img_inside.setAttribute('height', height_to_apply);
-            img_inside.style.height = height_to_apply;
+            //let img_inside = el.children[0];
+            //img_inside.setAttribute('height', height_to_apply);
+            //img_inside.style.height = height_to_apply;
+            el.style.height = height_to_apply;
             el.classList.add("adjusted");
             if(el.nextElementSibling)
             {
