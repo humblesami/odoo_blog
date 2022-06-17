@@ -62,11 +62,11 @@
                     <t t-call-assets="web.assets_common_lazy" t-css="false" lazy_load="True"/>
                 </t>
             </xpath>
-<!--            <xpath expr='//t[@t-call-assets="web.assets_frontend_lazy"]' position="replace">-->
-<!--                <t t-if="uid">-->
-<!--                    <t t-call-assets="web.assets_frontend_lazy" t-css="false" lazy_load="True"/>-->
-<!--                </t>-->
-<!--            </xpath>-->
+            <xpath expr='//t[@t-call-assets="web.assets_frontend_lazy"]' position="replace">
+                <t t-if="uid">
+                    <t t-call-assets="web.assets_frontend_lazy" t-css="false" lazy_load="True"/>
+                </t>
+            </xpath>
         </template>
 
         <record id="module_view_filter" model="ir.ui.view">
