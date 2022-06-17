@@ -95,4 +95,5 @@
     {
         on_css_wait_time_out();
     }
+    console.log('show dom v2')
 })()
