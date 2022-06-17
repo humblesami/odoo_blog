@@ -1,5 +1,4 @@
 (function () {
-    console.log('Fornt end => '+ window.on_front_end);
     if(!window.on_front_end){
         return false;
     }
@@ -67,9 +66,12 @@
     function on_css_wait_time_out(){
         css_load_timeout = setTimeout(function(){
             if(!window.css_waiter.afe_loaded){
-                show_dom('Failed loading css');
+                console.log('Fe assets not loaded in 2 seconds');
+                $('body').css('background-color', '#fff');
+                $('.spinner').first().hide();
+                $('#wrapwrap').show();
             }
-        }, 1000);
+        }, 2000);
         //console.log("Time out should be called in 500ms");
     }
 
