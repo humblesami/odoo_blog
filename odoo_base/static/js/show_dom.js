@@ -1,4 +1,8 @@
 (function () {
+    console.log('Front end 1 => '+ window.on_front_end);
+    if(!window.on_front_end){
+        return false;
+    }
     let uid = 'none';
     function check_user(){
         let user_class = 'o_connected_user';
@@ -99,5 +103,4 @@
     {
         on_css_wait_time_out();
     }
-    console.log('show dom v2')
 })()

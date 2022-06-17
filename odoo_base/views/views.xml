@@ -2,8 +2,7 @@
     <data>
         <template id="news_website_layout" name="News Website Layout" inherit_id="website.layout">
             <xpath expr="//head/script[1]" position="before">
-                <script type="text/javascript" src="/odoo_base/static/js/top_script.js"/>
-                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"/>
+                <script type="text/javascript" src="/odoo_base/static/js/top_script.js?v=3"/>
                 <style>
                     button[data-target="#top_menu_collapse"], #edit-page-menu{
                         visibility: hidden;
@@ -49,12 +48,11 @@
             </xpath>
             <xpath expr="//div[@id='wrapwrap']" position="before">
                 <div class="spinner">
-                    <div style="text-align:center">Loading Page...</div>
                 </div>
             </xpath>
-            <xpath expr="//div[@id='wrapwrap']" position="after">
-                <script async="async" type="text/javascript" src="/odoo_base/static/js/show_dom.js?v=2"/>
-            </xpath>
+<!--            <xpath expr="//div[@id='wrapwrap']" position="after">-->
+<!--                <script async="async" type="text/javascript" src="/odoo_base/static/js/show_dom.js?v=2"/>-->
+<!--            </xpath>-->
         </template>
 
 <!--        <template id="remove_lazy_assets" inherit_id="web.frontend_layout">-->
