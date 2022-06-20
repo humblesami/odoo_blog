@@ -8,8 +8,8 @@
         let user_class = 'o_connected_user';
         let org = window.location.origin + '';
         $.get(org + '/auth/get_user_id').then(function(uid){
+            console.log(uid,2);
             if(!isNaN(uid)){
-                //console.log(uid,2);
                 let user_menu_bar = $('#oe_main_menu_navbar');
                 user_menu_bar.css('display', 'grid');
                 if(!$('body').hasClass(user_class))
@@ -85,10 +85,7 @@
         {
             clearTimeout(css_load_timeout);
         }
-        if($('body').hasClass('o_connected_user')){
-            check_user();
-            //console.log('checking user');
-        }
+        check_user();
         console.log(args + ', Showing wrap');
         $('body').css('background-color', '#fff');
         $('.spinner').first().hide();
