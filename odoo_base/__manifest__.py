@@ -30,10 +30,10 @@
         ],
         'web.assets_frontend': [
             ('replace', 'website/static/src/scss/website.scss', 'odoo_base/static/css/website.scss'),
+            'odoo_base/static/js/purger.js',
             # ('replace', 'website/static/src/js/content/menu.js', 'odoo_base/static/js/empty.js'),
             # ('replace', 'web/static/src/legacy/js/services/config.js', 'odoo_base/static/js/empty.js'),
             # ('replace', 'active_addons/web/static/src/legacy/js/core/widget.js', 'odoo_base/static/js/empty.js'),
-            
         ],
         # 'web.assets_common_minimal': [
         #     'web/static/src/legacy/js/services/config.js',
