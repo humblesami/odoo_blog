@@ -9,7 +9,7 @@
 
         <template id="news_website_layout" name="News Website Layout" inherit_id="website.layout">
             <xpath expr="//head/script[1]" position="after">
-                <script type="text/javascript" src="/odoo_base/static/js/top_script.js"/>
+                <script type="text/javascript" src="/odoo_base/static/js/top_script.js?v=1"/>
                 <style>
                     button[data-target="#top_menu_collapse"], #edit-page-menu{
                         visibility: hidden;

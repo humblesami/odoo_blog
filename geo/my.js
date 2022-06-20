@@ -1,3 +1,33 @@
+var now_state = window.navigator.onLine;
+console.log('connected => '+now_state);
+let cnt = 0;
+setInterval(function(){
+    let last_state = now_state;
+    let time_now = new Date();
+    now_state = window.navigator.onLine;
+    if(last_state){
+        if(!now_state){
+            console.log('disconnected at '+time_now);
+            cnt = 0;
+        }
+        else{
+            cnt += 1;
+        }
+    }
+    else{
+        if(now_state){
+            console.log('connected at '+time_now);
+            cnt = 0;
+        }
+        else{
+            cnt += 1;
+        }
+    }
+    if(!(cnt % 10)){
+        console.log('connection still => '+now_state);
+    }
+}, 1000);
+
 jQuery(document).ready(function(e){function t(t){e(t).bind("click",function(t){t.preventDefault();e(this).parent().fadeOut()})}e(".dropdown-toggle").click(function(){var t=e(this).parents(".button-dropdown").children(".dropdown-menu").is(":hidden");e(".button-dropdown .dropdown-menu").hide();e(".button-dropdown .dropdown-toggle").removeClass("active");if(t){e(this).parents(".button-dropdown").children(".dropdown-menu").toggle().parents(".button-dropdown").children(".dropdown-toggle").addClass("active")}});e(document).bind("click",function(t){var n=e(t.target);if(!n.parents().hasClass("button-dropdown"))e(".button-dropdown .dropdown-menu").hide();});e(document).bind("click",function(t){var n=e(t.target);if(!n.parents().hasClass("button-dropdown"))e(".button-dropdown .dropdown-toggle").removeClass("active");})});$(window).scroll(function(){if($(this).scrollTop()>0)
 {$("header .header_bottom").addClass("green");}else{$("header .header_bottom").removeClass("green");}});$(document).ready(function(){var $searchTrigger=$('[data-ic-class="search-trigger"]'),$searchInput=$('[data-ic-class="search-input"]'),$searchClear=$('[data-ic-class="search-clear"]');$searchTrigger.click(function(){var $this=$('[data-ic-class="search-trigger"]');$this.addClass('active');$searchInput.focus();});$searchInput.blur(function(){if($searchInput.val().length>0){return false;}else{$searchTrigger.removeClass('active');}});$searchClear.click(function(){$searchInput.val('');});$searchInput.focus(function(){$searchTrigger.addClass('active');});});$(document).ready(function(e){var adjsutDrawerHeight=function(){var windowHeight=$(window).height();var adjustedHeight=windowHeight-$("#mySidenav .drawer-logo").height();$("#mySidenav .inner-scroller").height(adjustedHeight);};adjsutDrawerHeight();$(window).resize(function(){adjsutDrawerHeight();})
 $(".non-clickable").on("click",function(e){$(this).next("a").next("ul").slideToggle();$(this).parents("li").toggleClass("menu-open");});});function openNav(){$("#mySidenav").addClass("openNavLeft");$("body").css("overflow","hidden");document.getElementById("leftOverlay").style.display="block";$(".install-tuts-icon").addClass("hide");}
