@@ -3,6 +3,7 @@
         return false;
     }
     let uid = 'none';
+    console.log("It will show dom")
     function check_user(){
         let user_class = 'o_connected_user';
         let org = window.location.origin + '';

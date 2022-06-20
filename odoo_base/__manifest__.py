@@ -20,15 +20,14 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','web'],
+    'depends': ['base','website'],
     'assets': {
         'web._assets_common_scripts': [
-            ('replace', 'web/static/lib/jquery/jquery.js', 'odoo_base/static/empty.js'),
-            'odoo_base/static/js/show_dom.js',
-            'odoo_base/static/js/purger.js',
+            # ('replace', 'web/static/lib/jquery/jquery.js', 'odoo_base/static/js/empty.js'),
         ],
         'web.assets_frontend': [
             ('replace', 'website/static/src/scss/website.scss', 'odoo_base/static/css/website.scss'),
+            # 'odoo_base/static/js/show_dom.js',
             # ('replace', 'website/static/src/js/content/menu.js', 'odoo_base/static/js/empty.js'),
             # ('replace', 'web/static/src/legacy/js/services/config.js', 'odoo_base/static/js/empty.js'),
             # ('replace', 'active_addons/web/static/src/legacy/js/core/widget.js', 'odoo_base/static/js/empty.js'),
