@@ -1,4 +1,7 @@
 (function(){
+    if(!window.on_front_end){
+        return false;
+    }
     function activate_purge(){
         let loc_obj = window.location;
         let server_url = loc_obj.origin + '';
@@ -33,8 +36,6 @@
     {
         activate_purge();
     }
-    //console.log('Purging activated and menu buttons shown');
-    console.log('showing menu 2');
     $('button[data-target="#top_menu_collapse"],#edit-page-menu').css('visibility', 'visible');
 })();
 

@@ -1,5 +1,4 @@
 (function () {
-    console.log('Front end 1 => '+ window.on_front_end);
     if(!window.on_front_end){
         return false;
     }
@@ -8,7 +7,6 @@
         let user_class = 'o_connected_user';
         let org = window.location.origin + '';
         $.get(org + '/auth/get_user_id').then(function(uid){
-            console.log(uid,2);
             if(!isNaN(uid)){
                 let user_menu_bar = $('#oe_main_menu_navbar');
                 user_menu_bar.css('display', 'grid');
@@ -16,6 +14,7 @@
                 {
                     $('body').addClass(user_class);
                 }
+                console.log('User available');
             }
             else{
                 //console.log(uid,3);
@@ -23,6 +22,7 @@
                 {
                     $('body').removeClass(user_class);
                 }
+                console.log('User unavailable');
             }
         }).fail(function(){
             //console.log(uid,3);
