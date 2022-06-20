@@ -23,7 +23,7 @@
     'depends': ['base','web'],
     'assets': {
         'web._assets_common_scripts': [
-            ('replace', 'web/static/lib/jquery/jquery.js', 'odoo_base/static/js/empty.js'),
+            ('replace', 'web/static/lib/jquery/jquery.js', 'odoo_base/static/libs/jquery.js'),
         ],
         'web.assets_frontend_minimal': [
             'odoo_base/static/js/purger.js',
