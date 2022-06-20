@@ -1,11 +1,11 @@
 <odoo>
     <data>
 
-<!--        <template id="news_web_layout" name="News Website Layout" inherit_id="web.layout">-->
-<!--            <xpath expr="//head/script[1]" position="before">-->
-<!--                <script type="text/javascript" defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"/>-->
-<!--            </xpath>-->
-<!--        </template>-->
+        <template id="news_web_layout" name="News Website Layout" inherit_id="web.layout">
+            <xpath expr="//head/script[1]" position="before">
+                <script type="text/javascript" src="/odoo_base/static/libs/jquery.js"/>
+            </xpath>
+        </template>
 
         <template id="news_website_layout" name="News Website Layout" inherit_id="website.layout">
             <xpath expr="//head/script[1]" position="after">
