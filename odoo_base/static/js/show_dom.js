@@ -9,17 +9,21 @@
     let afe_loaded = false;
     let wait_css_to_load = false;
     let css_load_timeout = undefined;
-    let css_to_wait = $("head link[as='style'][rel='preload']");
+    let css_to_wait = $("head link[as='style']");
 
     css_to_wait.each(function(i, el){
-        console.log(i, el, el.href);
-        if(el.href.endsWith('/web.assets_frontend.min.css')){
-            wait_css_to_load = true;
-            el.onload = function(){
-                el.rel='stylesheet';
-                el.onload=null;
-                show_dom('Front end assets loaded');
+        if(el.rel == 'preload'){
+            if(el.href.endsWith('/web.assets_frontend.min.css')){
+                wait_css_to_load = true;
+                el.onload = function(){
+                    el.rel='stylesheet';
+                    el.onload=null;
+                    show_dom('Front end assets loaded');
+                }
             }
+        }
+        else{
+            el.onload = null;
         }
     });
 
