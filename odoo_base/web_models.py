@@ -20,6 +20,6 @@ class CustomIrQWeb(IrQWeb):
         if css:
             res[0][1]['rel'] = "preload"
             res[0][1]['as'] = "style"
-            on_load = "this.rel='stylesheet';if(window.css_waiter){window.css_waiter.on_file_loaded(this)}"
+            on_load = "this.rel='stylesheet';this.onload=null"
             res[0][1]['onload'] = on_load
         return res

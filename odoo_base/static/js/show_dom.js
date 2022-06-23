@@ -1,9 +1,33 @@
 (function () {
-    if(!window.on_front_end){
+    console.log('v6 Show dom');
+    if(!window.is_website){
         return false;
     }
+
+    let els = [];
     let uid = 'none';
-    console.log("It will show dom")
+    let afe_loaded = false;
+    let wait_css_to_load = false;
+    let css_load_timeout = undefined;
+    let css_to_wait = $("head link[as='style'][rel='preload']");
+
+    css_to_wait.each(function(i, el){
+        console.log(i, el, el.href);
+        if(el.href.endsWith('/web.assets_frontend.min.css')){
+            wait_css_to_load = true;
+            el.onload = function(){
+                el.rel='stylesheet';
+                el.onload=null;
+                show_dom('Front end assets loaded');
+            }
+        }
+    });
+
+    if(!wait_css_to_load){
+        afe_loaded = true;
+        show_dom('Already loaded');
+    }
+
     function check_user(){
         let user_class = 'o_connected_user';
         let org = window.location.origin + '';
@@ -31,7 +55,6 @@
         });
     }
 
-    let els = [];
     function set_image_heights(){
         els = document.querySelectorAll('.bg_image_div:not(.adjusted)');
         for(let el of els){
@@ -70,7 +93,7 @@
 
     function on_css_wait_time_out(){
         css_load_timeout = setTimeout(function(){
-            if(!window.css_waiter.afe_loaded){
+            if(!afe_loaded){
                 console.log('Fe assets not loaded in 2 seconds');
                 $('body').css('background-color', '#fff');
                 $('.spinner').first().hide();
@@ -80,7 +103,6 @@
         //console.log("Time out should be called in 500ms");
     }
 
-    let css_load_timeout = undefined;
     function show_dom(args) {
         if(css_load_timeout)
         {
@@ -94,10 +116,7 @@
         set_image_heights();
     }
 
-    window.css_waiter.wait_or_execute(function(){
-        show_dom('Assets loaded');
-    });
-    if(!window.css_waiter.afe_loaded)
+    if(!afe_loaded)
     {
         on_css_wait_time_out();
     }

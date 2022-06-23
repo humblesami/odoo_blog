@@ -1,5 +1,5 @@
 (function(){
-    if(!window.on_front_end){
+    if(!window.is_website){
         return false;
     }
     function activate_purge(){
