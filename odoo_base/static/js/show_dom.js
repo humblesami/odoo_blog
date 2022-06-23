@@ -1,6 +1,6 @@
 (function () {
 
-    console.log('v8 Show dom');
+    console.log('v9 Show dom');
     if(!window.is_website){
         return false;
     }
@@ -66,9 +66,11 @@
         }
     };
 
+    let once_failed = 0;
     let css_load_timeout = setTimeout(function(){
+        once_failed = 1;
         show_dom('Failed loading css');
-    }, 2000);
+    }, 5000);
 
     function show_dom(args) {
         if(css_load_timeout)
@@ -79,7 +81,10 @@
         document.body.style.backgroundColor = '#fff';
         document.querySelector('.spinner').style.display = 'none';
         document.getElementById('wrapwrap').style.display = 'block';
-        set_image_heights();
+        if(!once_failed)
+        {
+            set_image_heights();
+        }
     }
 
     handle_css_loading();
