@@ -24,8 +24,7 @@
     'assets': {
         'web._assets_common_scripts': [
             ('replace', 'web/static/lib/jquery/jquery.js', 'odoo_base/static/libs/jquery.js'),
-            "odoo_base/static/js/show_dom.js",
-            "odoo_base/static/js/purger.js"
+            "odoo_base/static/js/after_dj.js"
         ],
         'web.assets_frontend': [
             ('replace', 'website/static/src/scss/website.scss', 'odoo_base/static/css/website.scss'),

@@ -1,73 +1,22 @@
 (function () {
-    console.log('v6 Show dom');
+
+    console.log('v8 Show dom');
     if(!window.is_website){
         return false;
     }
 
     let els = [];
     let uid = 'none';
-    let afe_loaded = false;
-    let wait_css_to_load = false;
-    let css_load_timeout = undefined;
-    let css_to_wait = $("head link[as='style']");
-
-    css_to_wait.each(function(i, el){
-        if(el.rel == 'preload'){
-            if(el.href.endsWith('/web.assets_frontend.min.css')){
-                wait_css_to_load = true;
-                el.onload = function(){
-                    el.rel='stylesheet';
-                    el.onload=null;
-                    show_dom('Front end assets loaded');
-                }
-            }
-        }
-        else{
-            el.onload = null;
-        }
-    });
-
-    if(!wait_css_to_load){
-        afe_loaded = true;
-        show_dom('Already loaded');
-    }
-
-    function check_user(){
-        let user_class = 'o_connected_user';
-        let org = window.location.origin + '';
-        $.get(org + '/auth/get_user_id').then(function(uid){
-            if(!isNaN(uid)){
-                let user_menu_bar = $('#oe_main_menu_navbar');
-                user_menu_bar.css('display', 'grid');
-                if(!$('body').hasClass(user_class))
-                {
-                    $('body').addClass(user_class);
-                }
-                console.log('User available');
-            }
-            else{
-                //console.log(uid,3);
-                if($('body').hasClass(user_class))
-                {
-                    $('body').removeClass(user_class);
-                }
-                console.log('User unavailable');
-            }
-        }).fail(function(){
-            //console.log(uid,3);
-            $('body').removeClass(user_class);
-        });
-    }
 
     function set_image_heights(){
         els = document.querySelectorAll('.bg_image_div:not(.adjusted)');
         for(let el of els){
-            let el_width = $(el).width();
+            let el_width = el.getBoundingClientRect().width;
             if(!el_width){
-                el_width = $(el).parent().width();
+                el_width = el.parentNode.getBoundingClientRect().width;
             }
             if(!el_width){
-                console.log(el.parentNode, 'has no width');
+                console.log(el.parentNode.outerHTML, 'has no width');
             }
             else{
                 el_width = parseFloat(el_width);
@@ -95,33 +44,44 @@
         //console.log('Setting heights of => '+els.length+' images');
     }
 
-    function on_css_wait_time_out(){
-        css_load_timeout = setTimeout(function(){
-            if(!afe_loaded){
-                console.log('Fe assets not loaded in 2 seconds');
-                $('body').css('background-color', '#fff');
-                $('.spinner').first().hide();
-                $('#wrapwrap').show();
+    function handle_css_loading(){
+        let css_links = document.querySelectorAll("head link[as='style']");
+        for (let link of css_links){
+            if(link.rel == 'stylesheet'){
+                if(link.href.endsWith('/web.assets_frontend.min.css')){
+                    show_dom('CSS pre loaded');
+                }
             }
-        }, 2000);
-        //console.log("Time out should be called in 500ms");
-    }
+            else{
+                link.onload = function(){
+                    if(!link.loaded){
+                        link.rel = 'stylesheet';
+                        link.loaded = 1;
+                        if(link.href.endsWith('/web.assets_frontend.min.css')){
+                            show_dom('CSS now loaded');
+                        }
+                    }
+                }
+            }
+        }
+    };
+
+    let css_load_timeout = setTimeout(function(){
+        show_dom('Failed loading css');
+    }, 2000);
 
     function show_dom(args) {
         if(css_load_timeout)
         {
             clearTimeout(css_load_timeout);
         }
-        check_user();
         console.log(args + ', Showing wrap');
-        $('body').css('background-color', '#fff');
-        $('.spinner').first().hide();
-        $('#wrapwrap').show();
+        document.body.style.backgroundColor = '#fff';
+        document.querySelector('.spinner').style.display = 'none';
+        document.getElementById('wrapwrap').style.display = 'block';
         set_image_heights();
     }
 
-    if(!afe_loaded)
-    {
-        on_css_wait_time_out();
-    }
+    handle_css_loading();
+
 })()
