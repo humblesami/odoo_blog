@@ -22,8 +22,10 @@
     # any module necessary for this one to work correctly
     'depends': ['base','website'],
     'assets': {
-        'web._assets_common_scripts': [
-            ('replace', 'web/static/lib/jquery/jquery.js', 'odoo_base/static/libs/jquery.js'),
+        # 'web._assets_common_scripts': [
+        #     ('replace', 'web/static/lib/jquery/jquery.js', 'odoo_base/static/libs/jquery.js'),
+        # ],
+        'web.assets_common': [
             "odoo_base/static/js/after_dj.js"
         ],
         'web.assets_frontend': [
