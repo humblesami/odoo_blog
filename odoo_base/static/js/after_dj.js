@@ -36,28 +36,37 @@
     function check_user(){
         let user_class = 'o_connected_user';
         let org = window.location.origin + '';
-        $.get(org + '/auth/get_user_id').then(function(uid){
-            if(!isNaN(uid)){
-                let user_menu_bar = $('#oe_main_menu_navbar');
-                user_menu_bar.css('display', 'grid');
-                if(!$('body').hasClass(user_class))
-                {
-                    $('body').addClass(user_class);
+        let options = {
+            url: org + '/auth/get_user_id',
+            beforeSend: function(a, b){
+                console.log(b.url);
+            },
+            success: (function(uid){
+                console.log(uid, 1222);
+                if(!isNaN(uid)){
+                    let user_menu_bar = $('#oe_main_menu_navbar');
+                    user_menu_bar.css('display', 'grid');
+                    if(!$('body').hasClass(user_class))
+                    {
+                        $('body').addClass(user_class);
+                    }
+                    console.log('User available');
                 }
-                console.log('User available');
+                else{
+                    //console.log(uid,3);
+                    if($('body').hasClass(user_class))
+                    {
+                        $('body').removeClass(user_class);
+                    }
+                    console.log('User unavailable');
+                }
             }
-            else{
+            error:function(){
                 //console.log(uid,3);
-                if($('body').hasClass(user_class))
-                {
-                    $('body').removeClass(user_class);
-                }
-                console.log('User unavailable');
+                $('body').removeClass(user_class);
             }
-        }).fail(function(){
-            //console.log(uid,3);
-            $('body').removeClass(user_class);
-        });
+        }
+        $.ajax(options);
     }
 
     if($('#purge-menu a.purge').length)
