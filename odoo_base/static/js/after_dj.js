@@ -41,8 +41,7 @@
             beforeSend: function(a, b){
                 console.log(b.url);
             },
-            success: (function(uid){
-                console.log(uid, 1222);
+            success: function(uid){
                 if(!isNaN(uid)){
                     let user_menu_bar = $('#oe_main_menu_navbar');
                     user_menu_bar.css('display', 'grid');
@@ -50,7 +49,7 @@
                     {
                         $('body').addClass(user_class);
                     }
-                    console.log('User available');
+                    console.log('User available '+uid);
                 }
                 else{
                     //console.log(uid,3);
@@ -60,7 +59,7 @@
                     }
                     console.log('User unavailable');
                 }
-            }
+            },
             error:function(){
                 //console.log(uid,3);
                 $('body').removeClass(user_class);
