@@ -23,12 +23,12 @@ class NewsDisableCacheMiddleware(DisableCacheMiddleware):
         def start_wrapped(status, headers):
             req = werkzeug.wrappers.Request(environ)
             root.setup_session(req)
-            found_at = -1
+            found_at = 0
             for header in headers:
-                found_at += 1
                 if header[0].lower() == 'cache-control':
-                    headers[found_at] = ('cache-head-gone', 'yes')
+                    headers.pop(found_at)
                     break
+                found_at += 1
             start_response(status, headers)
         return self.app(environ, start_wrapped)
 
