@@ -76,5 +76,5 @@
 
     $('button[data-target="#top_menu_collapse"],#edit-page-menu').css('visibility', 'visible');
     check_user();
-    console.log('after dj 2');
+    console.log('after dj 3');
 })()
