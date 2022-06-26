@@ -67,7 +67,7 @@
             </xpath>
             <xpath expr="//div[@id='wrapwrap']" position="after">
                 <script async="async" type="text/javascript" src="/odoo_base/static/js/show_dom.js"/>
-                <script defer="defer" async="async" type="text/javascript" src="/odoo_base/static/js/after_dj.js"/>
+                <script defer="defer" type="text/javascript" src="/odoo_base/static/js/after_dj.js"/>
             </xpath>
         </template>
 
