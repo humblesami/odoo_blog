@@ -1,5 +1,7 @@
 (function(){
-
+    if(!window.is_website){
+        return;
+    }
     function activate_purge(){
         let loc_obj = window.location;
         let server_url = loc_obj.origin + '';

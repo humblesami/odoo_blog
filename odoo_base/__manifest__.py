@@ -25,6 +25,10 @@
         'web.assets_frontend': [
             ('replace', 'website/static/src/scss/website.scss', 'odoo_base/static/css/website.scss'),
         ],
+        'web.assets_common_minimal': [
+            'odoo_base/static/libs/jquery.js',
+            'odoo_base/static/js/after_dj.js',
+        ],
     },
     # always loaded
     'data': [
