@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <data>
-        <template id="news_website_layout2" name="Geo Website Layout" inherit_id="website.layout">
+        <template id="homepage" name="VON Website Layout" inherit_id="website.layout">
             <xpath expr="//div[@id='wrapwrap']" position="replace">
-
                 <div id="wrapwrap">
-
                     <div class="homebg">
-
                         <div id="leftOverlay" class="leftOverlay" onclick="closeNav()" style="display: none;">
                         </div>
-
                         <div class="loader-geonews hide">
                             <div class="loader-inner">
                                 <div class="logo-content">
@@ -227,21 +223,19 @@
                             </div>
                         </header>
 
-                        <section class="home_s_top">
-                            <div class="container">
-                                <div class="ads lb">
-                                    <div id="div-gpt-ad-1523347432315-4" style="height:auto; width:auto;"
-                                        data-google-query-id="CJz02eiom_gCFYWFhQodWmsMpg">
-                                        <div id="google_ads_iframe_/1063725/geo_eng_home_billboard_atf_0__container__"
-                                            style="border: 0pt none;">
-                                            <img
-                                                src="https://tpc.googlesyndication.com/simgad/8575719920860005263" border="0"
-                                                width="320" height="101" alt="" class="img_ad"/>
-                                        </div>
+                        <div class="container" style="margin-top: 30px;margin-bottom: 10px;">
+                            <div class="ads lb">
+                                <div id="div-gpt-ad-1523347432315-4" style="height:auto; width:auto;"
+                                    data-google-query-id="CJz02eiom_gCFYWFhQodWmsMpg">
+                                    <div id="google_ads_iframe_/1063725/geo_eng_home_billboard_atf_0__container__"
+                                        style="border: 0pt none;">
+                                        <img
+                                            src="https://tpc.googlesyndication.com/simgad/8575719920860005263" border="0"
+                                            width="320" height="101" alt="" class="img_ad"/>
                                     </div>
                                 </div>
                             </div>
-                        </section>
+                        </div>
 
                         <section class="home_s_top">
                             <div class="container">
@@ -309,118 +303,36 @@
 
                                             </div>
 
-                                            <li>
-                                                <div class="heading">
-                                                    <a data-event_action="featured" data-position="2"
-                                                        data-article_name="Rupee plummets to all-time low of 202.83 against US dollar in interbank market"
-                                                        data-vr-contentbox="Home Featured 2"
-                                                        data-vr-contentbox-url="https://voiceofnews.com/latest/421111-rupee-dives-more-as-import-payments-push-demand-crosses-201-threshold"
-                                                        class="open-section"
-                                                        href="https://voiceofnews.com/latest/421111-rupee-dives-more-as-import-payments-push-demand-crosses-201-threshold"
-                                                        title="Rupee plummets to all-time low of 202.83 against US dollar in interbank market">
-                                                        <h2 data-vr-headline="">Rupee plummets to all-time low of 202.83 against US
-                                                            dollar in interbank market</h2>
-                                                    </a>
-                                                </div>
-                                                <div class="m_pic">
-                                                    <a data-event_action="featured" data-position="2"
-                                                        data-article_name="Rupee plummets to all-time low of 202.83 against US dollar in interbank market"
-                                                        data-vr-contentbox="Home Featured 2"
-                                                        data-vr-contentbox-url="https://voiceofnews.com/latest/421111-rupee-dives-more-as-import-payments-push-demand-crosses-201-threshold"
-                                                        class="open-section"
-                                                        href="https://voiceofnews.com/latest/421111-rupee-dives-more-as-import-payments-push-demand-crosses-201-threshold"
-                                                        title="Rupee plummets to all-time low of 202.83 against US dollar in interbank market">
-                                                        <img class=" lazyloaded"
-                                                            data-cfsrc="https://www.geo.tv/assets/front/images/placeholders/100x75.png"
-                                                            data-src="https://www.geo.tv/assets/uploads/updates/2022-06-07/s_421111_114101_updates.jpg"
-                                                            title="Rupee plummets to all-time low of 202.83 against US dollar in interbank market"
-                                                            alt="Rupee plummets to all-time low of 202.83 against US dollar in interbank market"
-                                                            src="https://www.geo.tv/assets/uploads/updates/2022-06-07/s_421111_114101_updates.jpg"/>
-                                                    </a>
-                                                    <div class="hover_share">
-                                                        <a target="_blank"
-                                                            href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fvoiceofnews.com%2Flatest%2F421111-rupee-dives-more-as-import-payments-push-demand-crosses-201-threshold"><img
-                                                                data-cfsrc="https://www.geo.tv/assets/front/images/facebook_hover.png"
-                                                                alt="facebook"
-                                                                src="https://www.geo.tv/assets/front/images/facebook_hover.png"/>
-                                                        </a>
-                                                        <a target="_blank"
-                                                            href="https://twitter.com/share?text=Rupee plummets to all-time low of 202.83 against US dollar in interbank market&amp;url=https://voiceofnews.com/latest/421111-rupee-dives-more-as-import-payments-push-demand-crosses-201-threshold"><img
-                                                                data-cfsrc="https://www.geo.tv/assets/front/images/twitter_hover.png"
-                                                                alt="facebook"
-                                                                src="https://www.geo.tv/assets/front/images/twitter_hover.png"/>
-                                                        </a>
-                                                        <a target="_blank"
-                                                            href="https://api.whatsapp.com/send?text=https://voiceofnews.com/latest/421111-rupee-dives-more-as-import-payments-push-demand-crosses-201-threshold"><img
-                                                                data-cfsrc="https://www.geo.tv/assets/front/images/whatsapp_hover.png"
-                                                                alt="facebook"
-                                                                src="https://www.geo.tv/assets/front/images/whatsapp_hover.png"/>
+                                            <t t-foreach="blogs1" t-as="blog_post">
+                                                <li>
+                                                    <div class="heading">
+                                                        <a data-event_action="featured"
+                                                            class="open-section"
+                                                            t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}"
+                                                            t-att-title="blog_post.name">
+                                                            <h2 data-vr-headline="">
+                                                                <t t-esc="blog_post.name"/>
+                                                            </h2>
                                                         </a>
                                                     </div>
-                                                </div>
 
-                                                <div class="m_except">
-                                                    <p>Rupee breaks all previous records in both interbank and open market surpassed
-                                                        204 mark during intra-day trade</p>
-                                                </div>
-
-                                            </li>
-                                            <li>
-                                                <div class="heading">
-                                                    <a data-event_action="featured" data-position="3"
-                                                        data-article_name="'Pakistan should not be dragged into any conflict,' says FM Bilawal Bhutto"
-                                                        data-vr-contentbox="Home Featured 3"
-                                                        data-vr-contentbox-url="https://voiceofnews.com/latest/421135-our-focus-is-on-trade-not-aid-says-foreign-minister-bilawal"
-                                                        class="open-section"
-                                                        href="https://voiceofnews.com/latest/421135-our-focus-is-on-trade-not-aid-says-foreign-minister-bilawal"
-                                                        title="'Pakistan should not be dragged into any conflict,' says FM Bilawal Bhutto">
-                                                        <h2 data-vr-headline="">'Pakistan should not be dragged into any conflict,'
-                                                            says FM Bilawal Bhutto</h2>
-                                                    </a>
-                                                </div>
-                                                <div class="m_pic">
-                                                    <a data-event_action="featured" data-position="3"
-                                                        data-article_name="'Pakistan should not be dragged into any conflict,' says FM Bilawal Bhutto"
-                                                        data-vr-contentbox="Home Featured 3"
-                                                        data-vr-contentbox-url="https://voiceofnews.com/latest/421135-our-focus-is-on-trade-not-aid-says-foreign-minister-bilawal"
-                                                        class="open-section"
-                                                        href="https://voiceofnews.com/latest/421135-our-focus-is-on-trade-not-aid-says-foreign-minister-bilawal"
-                                                        title="'Pakistan should not be dragged into any conflict,' says FM Bilawal Bhutto">
-                                                        <img class=" lazyloaded"
-                                                            data-cfsrc="https://www.geo.tv/assets/front/images/placeholders/100x75.png"
-                                                            data-src="https://www.geo.tv/assets/uploads/updates/2022-06-07/s_421135_034700_updates.jpg"
-                                                            title="'Pakistan should not be dragged into any conflict,' says FM Bilawal Bhutto"
-                                                            alt="'Pakistan should not be dragged into any conflict,' says FM Bilawal Bhutto"
-                                                            src="https://www.geo.tv/assets/uploads/updates/2022-06-07/s_421135_034700_updates.jpg"/>
-                                                    </a>
-                                                    <div class="hover_share">
-                                                        <a target="_blank"
-                                                            href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fvoiceofnews.com%2Flatest%2F421135-our-focus-is-on-trade-not-aid-says-foreign-minister-bilawal"><img
-                                                                data-cfsrc="https://www.geo.tv/assets/front/images/facebook_hover.png"
-                                                                alt="facebook"
-                                                                src="https://www.geo.tv/assets/front/images/facebook_hover.png"/>
-                                                        </a>
-                                                        <a target="_blank"
-                                                            href="https://twitter.com/share?text='Pakistan should not be dragged into any conflict,' says FM Bilawal Bhutto&amp;url=https://voiceofnews.com/latest/421135-our-focus-is-on-trade-not-aid-says-foreign-minister-bilawal"><img
-                                                                data-cfsrc="https://www.geo.tv/assets/front/images/twitter_hover.png"
-                                                                alt="facebook"
-                                                                src="https://www.geo.tv/assets/front/images/twitter_hover.png"/>
-                                                        </a>
-                                                        <a target="_blank"
-                                                            href="https://api.whatsapp.com/send?text=https://voiceofnews.com/latest/421135-our-focus-is-on-trade-not-aid-says-foreign-minister-bilawal"><img
-                                                                data-cfsrc="https://www.geo.tv/assets/front/images/whatsapp_hover.png"
-                                                                alt="facebook"
-                                                                src="https://www.geo.tv/assets/front/images/whatsapp_hover.png"/>
+                                                    <div class="m_pic">
+                                                        <a data-event_action="featured"
+                                                            t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}"
+                                                            t-att-title="blog_post.name">
+                                                            <img class=" lazyloaded"
+                                                                 t-att-src="https://www.geo.tv/assets/uploads/updates/2022-06-07/s_421111_114101_updates.jpg"
+                                                                 t-att-title="blog_post.name"
+                                                                 t-att-alt="blog_post.name"/>
                                                         </a>
                                                     </div>
-                                                </div>
 
-                                                <div class="m_except">
-                                                    <p>Pakistan aims to maintain good ties with the rest of the world and to advance
-                                                        Pakistan's economic diplomacy, says FM Bilawal</p>
-                                                </div>
+                                                    <div class="m_except">
+                                                        <p><t t-esc="blog_post.name"/></p>
+                                                    </div>
+                                                </li>
+                                            </t>
 
-                                            </li>
                                             <li>
                                                 <div class="heading">
                                                     <a data-event_action="featured" data-position="4"
@@ -475,10 +387,6 @@
                                                 </div>
 
                                             </li>
-
-
-
-
 
                                         </ul>
                                     </div>
@@ -1786,7 +1694,7 @@
                     </div>
 
                     <span>
-                        <script type="text/javascript" src="/von/static/libs/jquery.js" />
+                        <script type="text/javascript" src="/odoo_base/static/libs/jquery.js" />
                         <link rel="stylesheet" href="/von/static/geo/header.css"/>
                         <link rel="stylesheet" href="https://www.geo.tv/assets/front/ui/css/footer.css?css=5555"/>
                         <link rel="stylesheet" href="/von/static/geo/home.css"/>
@@ -1797,5 +1705,15 @@
                 </div>
             </xpath>
         </template>
+
+        <record id="home_page" model="website.page">
+            <field name="name">VONHome</field>
+            <field name="url">/</field>
+            <field name="is_published">True</field>
+            <field name="view_id" ref="homepage"/>
+            <field name="website_id" ref="website.default_website"/>
+            <field name="track">True</field>
+        </record>
+
     </data>
 </odoo>

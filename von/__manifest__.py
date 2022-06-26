@@ -26,7 +26,7 @@
     'assets': {
     },
     'data': [
-        'views/views.xml',
+        'views/home.xml',
     ],
     'application': True,
 }
