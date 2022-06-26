@@ -1,6 +1,19 @@
 <odoo>
     <data>
 
+        <template id="remove_lazy_assets" inherit_id="web.frontend_layout">
+            <xpath expr='//t[@t-call-assets="web.assets_common_lazy"]' position="replace">
+                <t t-if="uid">
+                    <t t-call-assets="web.assets_common_lazy" t-css="false" lazy_load="True"/>
+                </t>
+            </xpath>
+            <xpath expr='//t[@t-call-assets="web.assets_frontend_lazy"]' position="replace">
+                <t t-if="uid">
+                    <t t-call-assets="web.assets_frontend_lazy" t-css="false" lazy_load="True"/>
+                </t>
+            </xpath>
+        </template>
+
         <template id="news_website_layout" name="News Website Layout" inherit_id="website.layout">
             <xpath expr="//head/script[1]" position="after">
                 <script>window.is_website =1;</script>
@@ -44,6 +57,7 @@
                         }
                     }
                 </style>
+                <script defer="defer" type="text/javascript" src="/odoo_base/static/libs/jquery.js"/>
             </xpath>
             <xpath expr="//link[@rel='preconnect'][1]" position="replace">
             </xpath>
@@ -53,19 +67,7 @@
             </xpath>
             <xpath expr="//div[@id='wrapwrap']" position="after">
                 <script async="async" type="text/javascript" src="/odoo_base/static/js/show_dom.js"/>
-            </xpath>
-        </template>
-
-        <template id="remove_lazy_assets" inherit_id="web.frontend_layout">
-            <xpath expr='//t[@t-call-assets="web.assets_common_lazy"]' position="replace">
-                <t t-if="uid">
-                    <t t-call-assets="web.assets_common_lazy" t-css="false" lazy_load="True"/>
-                </t>
-            </xpath>
-            <xpath expr='//t[@t-call-assets="web.assets_frontend_lazy"]' position="replace">
-                <t t-if="uid">
-                    <t t-call-assets="web.assets_frontend_lazy" t-css="false" lazy_load="True"/>
-                </t>
+                <script defer="defer" async="async" type="text/javascript" src="/odoo_base/static/js/after_dj.js"/>
             </xpath>
         </template>
 
