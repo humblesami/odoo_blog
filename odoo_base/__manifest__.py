@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','website'],
+    'depends': ['base', 'website'],
     'assets': {
         'web.assets_frontend': [
             ('replace', 'website/static/src/scss/website.scss', 'odoo_base/static/css/website.scss'),

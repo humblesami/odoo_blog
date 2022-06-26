@@ -52,6 +52,7 @@
                         $('body').addClass(user_class);
                     }
                     console.log('User available '+uid);
+                    $('button[data-target="#top_menu_collapse"],#edit-page-menu').css('visibility', 'visible');
                 }
                 else{
                     //console.log(uid,3);
@@ -75,7 +76,6 @@
         activate_purge();
     }
 
-    $('button[data-target="#top_menu_collapse"],#edit-page-menu').css('visibility', 'visible');
     check_user();
     console.log('after dj 3');
 })()
