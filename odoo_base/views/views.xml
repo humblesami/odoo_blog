@@ -57,7 +57,6 @@
                         }
                     }
                 </style>
-<!--                <script defer="defer" type="text/javascript" src="/odoo_base/static/libs/jquery.js"/>-->
             </xpath>
             <xpath expr="//link[@rel='preconnect'][1]" position="replace">
             </xpath>
@@ -66,8 +65,7 @@
                 </div>
             </xpath>
             <xpath expr="//div[@id='wrapwrap']" position="after">
-                <script async="async" type="text/javascript" src="/odoo_base/static/js/show_dom.js"/>
-<!--                <script defer="defer" type="text/javascript" src="/odoo_base/static/js/after_dj.js"/>-->
+                <script async="async" type="text/javascript" src="/odoo_base/static/js/show_dom.min.js"/>
             </xpath>
         </template>
 
