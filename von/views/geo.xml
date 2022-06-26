@@ -1786,11 +1786,11 @@
                     </div>
 
                     <span>
-                        <script type="text/javascript" src="/odoo_base/static/libs/jquery.js" />
-                        <link rel="stylesheet" href="/odoo_base/static/geo/header.css"/>
+                        <script type="text/javascript" src="/von/static/libs/jquery.js" />
+                        <link rel="stylesheet" href="/von/static/geo/header.css"/>
                         <link rel="stylesheet" href="https://www.geo.tv/assets/front/ui/css/footer.css?css=5555"/>
-                        <link rel="stylesheet" href="/odoo_base/static/geo/home.css"/>
-                        <script type="text/javascript" src="/odoo_base/static/geo/geo.js" />
+                        <link rel="stylesheet" href="/von/static/geo/home.css"/>
+                        <script type="text/javascript" src="/von/static/geo/geo.js" />
                         <script type="text/javascript" src="https://www.geo.tv/assets/front/js/lazysizes.min.js"/>
                         <script type="text/javascript" src="https://www.geo.tv/assets/front/ui/js/thirdparty.js?ver=1"/>
                     </span>
