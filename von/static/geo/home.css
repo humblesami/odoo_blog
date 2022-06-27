@@ -582,14 +582,7 @@ button.close {
     background-color: #fff !important;
   }
 }
-header {
-  background-color: #fff;
-  padding: 5px 0 0;
-  -webkit-transition: background-color 1s;
-  transition: background-color 1s;
-  width: 100%;
-  float: left;
-}
+
 .search-inline {
   width: 100%;
   left: 0;

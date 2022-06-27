@@ -17,7 +17,7 @@ class VonWebsite(Controller):
 
         search = ''
         qcontext = {}
-        qcontext['top_blog'] = top_blog
+        qcontext['top_post'] = top_blog
         qcontext['blogs1'] = blogs1
         qcontext['blogs2'] = blogs2
         qcontext['blogs3'] = blogs3

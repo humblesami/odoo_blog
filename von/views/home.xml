@@ -1,8 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <data>
-        <template id="homepage" name="VON Website Layout" inherit_id="website.layout">
-            <xpath expr="//div[@id='wrapwrap']" position="replace">
+
+        <template id="von.layout" name="VON layout">
+            &lt;!DOCTYPE html&gt;
+            <html t-att="html_data or {}">
+                <head>
+                    <meta charset="utf-8"/>
+                    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+
+                    <title t-esc="title or 'Odoo'"/>
+                    <link type="image/x-icon" rel="shortcut icon" t-att-href="x_icon or '/web/static/img/favicon.ico'"/>
+
+                    <script id="web.layout.odooscript" type="text/javascript">
+                        var odoo = {
+                            csrf_token: "<t t-esc="request.csrf_token(None)"/>",
+                            debug: "<t t-esc="debug"/>",
+                        };
+                    </script>
+
+                    <t t-out="head or ''"/>
+                </head>
+                <body t-att-class="body_classname">
+                    <t t-out="0"/>
+                </body>
+            </html>
+        </template>
+
+        <template id="von.homepage" name="VON Home Page">
+            <t t-call="von.layout">
                 <div id="wrapwrap">
                     <div class="homebg">
                         <div id="leftOverlay" class="leftOverlay" onclick="closeNav()" style="display: none;">
@@ -244,58 +270,42 @@
                                     <div class="m_c_left" data-vr-zone="Home Featured Section">
                                         <ul>
                                             <li>
+                                                <t t-set="blog_post" t-value="top_post"/>
                                                 <div class="m_pic">
-                                                    <a data-event_action="featured" data-position="1"
-                                                        data-article_name="Cabinet gives green signal to restore weekly off on Saturdays, cuts petrol quota of govt officials"
-                                                        data-vr-contentbox="Home Featured 1"
-                                                        data-vr-contentbox-url="https://voiceofnews.com/latest/421101-cabinet-gives-green-signal-to-restore-weekly-off-on-saturdays"
-                                                        class="open-section"
-                                                        href="https://voiceofnews.com/latest/421101-cabinet-gives-green-signal-to-restore-weekly-off-on-saturdays"
-                                                        title="Cabinet gives green signal to restore weekly off on Saturdays, cuts petrol quota of govt officials">
-                                                        <img class=" lazyloaded"
-                                                            data-cfsrc="https://www.geo.tv/assets/front/images/placeholders/700x390.png"
-                                                            data-src="https://www.geo.tv/assets/uploads/updates/2022-06-07/l_421101_034737_updates.jpg"
-                                                            title="Cabinet gives green signal to restore weekly off on Saturdays, cuts petrol quota of govt officials"
-                                                            alt="Cabinet gives green signal to restore weekly off on Saturdays, cuts petrol quota of govt officials"
-                                                            src="https://www.geo.tv/assets/uploads/updates/2022-06-07/l_421101_034737_updates.jpg"/>
+                                                    <a data-event_action="featured" data-position="1" data-article_name="LHC directs ECP to notify lawmakers on reserved seats of Punjab Assembly"
+                                                       data-vr-contentbox="Home Featured 1"
+                                                       data-vr-contentbox-url="https://www.geo.tv/latest/424724-lhc-directs-ecp-to-notify-reserves-seats-of-punjab-assembly"
+                                                       class="open-section"
+                                                       t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}"
+                                                       title="LHC directs ECP to notify lawmakers on reserved seats of Punjab Assembly">
+                                                        <img class=" lazyloaded" src="https://www.geo.tv/assets/uploads/updates/2022-06-27/l_424724_114937_updates.jpg" data-src="https://www.geo.tv/assets/uploads/updates/2022-06-27/l_424724_114937_updates.jpg" title="LHC directs ECP to notify lawmakers on reserved seats of Punjab Assembly" alt="LHC directs ECP to notify lawmakers on reserved seats of Punjab Assembly"/>
                                                     </a>
                                                     <div class="hover_share">
-                                                        <a target="_blank"
-                                                            href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fvoiceofnews.com%2Flatest%2F421101-cabinet-gives-green-signal-to-restore-weekly-off-on-saturdays"><img
-                                                                data-cfsrc="https://www.geo.tv/assets/front/images/facebook_hover.png"
-                                                                alt="facebook"
-                                                                src="https://www.geo.tv/assets/front/images/facebook_hover.png"/>
+                                                        <a target="_blank" href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fwww.geo.tv%2Flatest%2F424724-lhc-directs-ecp-to-notify-reserves-seats-of-punjab-assembly">
+                                                            <img src="https://www.geo.tv/assets/front/images/facebook_hover.png" alt="facebook"/>
                                                         </a>
-                                                        <a target="_blank"
-                                                            href="https://twitter.com/share?text=Cabinet gives green signal to restore weekly off on Saturdays, cuts petrol quota of govt officials&amp;url=https://voiceofnews.com/latest/421101-cabinet-gives-green-signal-to-restore-weekly-off-on-saturdays"><img
-                                                                data-cfsrc="https://www.geo.tv/assets/front/images/twitter_hover.png"
-                                                                alt="facebook"
-                                                                src="https://www.geo.tv/assets/front/images/twitter_hover.png"/>
+                                                        <a target="_blank" href="https://twitter.com/share?text=LHC directs ECP to notify lawmakers on reserved seats of Punjab Assembly&amp;url=https://www.geo.tv/latest/424724-lhc-directs-ecp-to-notify-reserves-seats-of-punjab-assembly">
+                                                            <img src="https://www.geo.tv/assets/front/images/twitter_hover.png" alt="facebook"/>
                                                         </a>
-                                                        <a target="_blank"
-                                                            href="https://api.whatsapp.com/send?text=https://voiceofnews.com/latest/421101-cabinet-gives-green-signal-to-restore-weekly-off-on-saturdays"><img
-                                                                data-cfsrc="https://www.geo.tv/assets/front/images/whatsapp_hover.png"
-                                                                alt="facebook"
-                                                                src="https://www.geo.tv/assets/front/images/whatsapp_hover.png"/>
+                                                        <a target="_blank" href="https://api.whatsapp.com/send?text=https://www.geo.tv/latest/424724-lhc-directs-ecp-to-notify-reserves-seats-of-punjab-assembly">
+                                                            <img src="https://www.geo.tv/assets/front/images/whatsapp_hover.png" alt="facebook"/>
                                                         </a>
                                                     </div>
                                                 </div>
 
                                                 <div class="heading">
                                                     <a data-event_action="featured" data-position="1"
-                                                        data-article_name="Cabinet gives green signal to restore weekly off on Saturdays, cuts petrol quota of govt officials"
-                                                        data-vr-contentbox="Home Featured 1"
-                                                        data-vr-contentbox-url="https://voiceofnews.com/latest/421101-cabinet-gives-green-signal-to-restore-weekly-off-on-saturdays"
-                                                        class="open-section"
-                                                        href="https://voiceofnews.com/latest/421101-cabinet-gives-green-signal-to-restore-weekly-off-on-saturdays"
-                                                        title="Cabinet gives green signal to restore weekly off on Saturdays, cuts petrol quota of govt officials">
-                                                        <h1 data-vr-headline="">Cabinet gives green signal to restore weekly off on
-                                                            Saturdays, cuts petrol quota of govt officials</h1>
+                                                       data-article_name="LHC directs ECP to notify lawmakers on reserved seats of Punjab Assembly"
+                                                       data-vr-contentbox="Home Featured 1"
+                                                       data-vr-contentbox-url="https://www.geo.tv/latest/424724-lhc-directs-ecp-to-notify-reserves-seats-of-punjab-assembly"
+                                                       class="open-section"
+                                                       t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}"
+                                                       title="LHC directs ECP to notify lawmakers on reserved seats of Punjab Assembly">
+                                                        <h1 data-vr-headline=""><t t-esc="blog_post.name"/></h1>
                                                     </a>
                                                 </div>
                                                 <div class="m_except">
-                                                    <p>No decision on closing markets by 7pm yet; two-hour load-shedding after June
-                                                        30, announces Information Minister Marriyum Aurangzeb</p>
+                                                    <p><t t-esc="blog_post.subtitle"/></p>
                                                 </div>
                                             </li>
 
@@ -321,14 +331,14 @@
                                                             t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}"
                                                             t-att-title="blog_post.name">
                                                             <img class=" lazyloaded"
-                                                                 t-att-src="https://www.geo.tv/assets/uploads/updates/2022-06-07/s_421111_114101_updates.jpg"
+                                                                 src="https://www.geo.tv/assets/uploads/updates/2022-06-07/s_421111_114101_updates.jpg"
                                                                  t-att-title="blog_post.name"
                                                                  t-att-alt="blog_post.name"/>
                                                         </a>
                                                     </div>
 
                                                     <div class="m_except">
-                                                        <p><t t-esc="blog_post.name"/></p>
+                                                        <p><t t-esc="blog_post.subtitle"/></p>
                                                     </div>
                                                 </li>
                                             </t>
@@ -1690,9 +1700,7 @@
                                 <p>Copyright © 2022. Geo Television Network. All Rights Reserved.</p>
                             </div>
                         </footer>
-
                     </div>
-
                     <span>
                         <script type="text/javascript" src="/odoo_base/static/libs/jquery.js" />
                         <link rel="stylesheet" href="/von/static/geo/header.css"/>
@@ -1703,7 +1711,7 @@
                         <script type="text/javascript" src="https://www.geo.tv/assets/front/ui/js/thirdparty.js?ver=1"/>
                     </span>
                 </div>
-            </xpath>
+            </t>
         </template>
 
         <record id="home_page" model="website.page">

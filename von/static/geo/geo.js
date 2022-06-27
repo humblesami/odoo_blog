@@ -229,5 +229,4 @@ $(document).ready(function() {
 });
 
 $('#oe_main_menu_navbar').css('display', 'grid');
-$('header .desktop-header .header_bottom.green').css('top', '46px');
 console.log('geo 1');

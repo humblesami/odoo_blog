@@ -1099,7 +1099,6 @@ header {
   margin-bottom: 20px;
   box-shadow: 5px 5px 5px rgba(80, 80, 80, 0.14);
   width: 100%;
-  float: left;
 }
 header #close-nav {
   display: none;
@@ -1317,8 +1316,6 @@ header .desktop-header .header_top .h_top_center .logo-blck img {
 }
 header .desktop-header .header_bottom {
   width: 100%;
-  float: left;
-  height: 44px;
   text-align: center;
   position: relative;
 }
