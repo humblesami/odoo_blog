@@ -1,5 +1,17 @@
+from odoo import models, fields
 from odoo.addons.base.models.ir_qweb import IrQWeb
 
+
+# class Website(models.Model):
+#     _inherit = "website"
+#     hp_title = fields.Char(default='Sam Website')
+#
+#     def get_title(self):
+#         try:
+#             return self.hp_title
+#         except:
+#             return 'Website Needs Title'
+    
 
 class CustomIrQWeb(IrQWeb):
     _inherit = 'ir.qweb'

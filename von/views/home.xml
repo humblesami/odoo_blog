@@ -10,7 +10,7 @@
                     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
                     <meta property="fb:app_id" content="806127442825208"/>
                     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-                    <title>Voice Of News</title>
+                    <title><t t-esc="website_title or 'Voice Of News'"/></title>
                     <link rel="canonical" href="https://voiceofnews.com"/>
                     <script src="https://code.jquery.com/jquery-3.6.0.min.js"/>
                     <link type="image/x-icon" rel="shortcut icon" t-att-href="x_icon or '/von/static/logo.jpg'"/>
