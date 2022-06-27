@@ -13,10 +13,7 @@
                     <link type="image/x-icon" rel="shortcut icon" t-att-href="x_icon or '/web/static/img/favicon.ico'"/>
 
                     <script id="web.layout.odooscript" type="text/javascript">
-                        var odoo = {
-                            csrf_token: "<t t-esc="request.csrf_token(None)"/>",
-                            debug: "<t t-esc="debug"/>",
-                        };
+                        var odoo = {};
                     </script>
 
                     <t t-out="head or ''"/>
@@ -59,31 +56,29 @@
                                 <div class="column-left">
                                     <div class="left-stick" id="leftstickmenu">
                                         <div class="logo-section">
-                                            <a onclick="analyticsFunc(this)" data-event="tvc_top_navigation" data-event_action="GeoLogo_click" data-page_type="Homepage" href="https://voiceofnews.com/" class="logo open-section">
-                                                <img class="responsive-logo-white" src="https://www.geo.tv/assets/front/images/geo-logo.svg"/>
-                                                <img class="responsive-logo-green" src="https://www.geo.tv/assets/front/images/logo-green-white.svg"/>
+                                            <a onclick="analyticsFunc(this)" href="https://voiceofnews.com/" class="logo open-section">
+                                                <img class="responsive-logo-white" src="/web/image/website/1/logo"/>
+                                                <img class="responsive-logo-green" src="/web/image/website/1/logo"/>
                                             </a>
                                         </div>
                                         <div class="menu-area" id="style-1">
                                             <ul>
                                                 <li>
-                                                    <a onclick="analyticsFunc(this)" data-event="tvc_top_navigation" data-event_action="GeoLogo_click" data-page_type="Homepage" class="open-section" href="https://voiceofnews.com/">Home
+                                                    <a onclick="analyticsFunc(this)" class="open-section" href="https://voiceofnews.com/">Home</a>
+                                                </li>
+                                                <li>
+                                                    <a onclick="analyticsFunc(this)" href="http://urdu.geo.tv" title="GEO Urdu" target="_blank" style="font-weight:900;color:#f7941e;">Geo Urdu</a>
+                                                </li>
+                                                <li>
+                                                    <a onclick="analyticsFunc(this)" class="open-section" href="https://voiceofnews.com/latest-news">latest
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a onclick="analyticsFunc(this)" data-event="tvc_top_navigation" data-event_action="GeoUrdu_click" data-page_type="Homepage" href="http://urdu.geo.tv" title="GEO Urdu" target="_blank" style="font-weight:900;color:#f7941e;">Geo Urdu
+                                                    <a onclick="analyticsFunc(this)" class="open-section" href="https://voiceofnews.com/category/pakistan">pakistan
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a onclick="analyticsFunc(this)" data-event="tvc_top_navigation" data-event_action="Latest News" data-page_type="Listing Page" class="open-section" href="https://voiceofnews.com/latest-news">latest
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a onclick="analyticsFunc(this)" data-event="tvc_top_navigation" data-event_action="Pakistan" data-page_type="Listing Page" class="open-section" href="https://voiceofnews.com/category/pakistan">pakistan
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a onclick="analyticsFunc(this)" data-event="tvc_top_navigation" data-event_action="TV Shows" data-page_type="Listing Page" class="open-section" href="https://voiceofnews.com/tv-shows">shows
+                                                    <a onclick="analyticsFunc(this)" class="open-section" href="https://voiceofnews.com/tv-shows">shows
                                                     </a>
                                                 </li>
                                                 <li>
@@ -118,7 +113,8 @@
                                     <div class="mobile-header-left">
                                         <div class="logo">
                                             <a class="open-section" href="https://voiceofnews.com/">
-                                                <div class="logo-white"><img src="https://www.geo.tv/assets/front/images/logo.svg"/>
+                                                <div class="logo-white">
+                                                    <img src="/web/image/website/1/logo"/>
                                                 </div>
                                             </a>
                                         </div>
@@ -145,7 +141,7 @@
                                     <div class="container">
                                         <div class="h_b_logo">
                                             <a onclick="analyticsFunc(this)" data-event="tvc_top_navigation" data-event_action="GeoLogo_click" data-page_type="Homepage" href="https://voiceofnews.com/">
-                                                <img src="https://www.geo.tv/assets/front/images/geo-logo.svg"/>
+                                                <img src="/web/image/website/1/logo"/>
                                             </a>
                                         </div>
                                         <nav>
