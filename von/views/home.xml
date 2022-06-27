@@ -2,21 +2,23 @@
 <odoo>
     <data>
 
-        <template id="von.layout" name="VON layout">
+        <template id="layout" name="VON layout">
             &lt;!DOCTYPE html&gt;
             <html t-att="html_data or {}">
                 <head>
-                    <meta charset="utf-8"/>
-                    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-
-                    <title t-esc="title or 'Odoo'"/>
+                    <meta charset="UTF-8"/>
+                    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+                    <meta property="fb:app_id" content="806127442825208"/>
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                    <title>Geo.tv: Latest News Breaking Pakistan, World, Live Videos</title>
+                    <link rel="canonical" href="https://voiceofnews.com"/>
+                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"/>
+                    <link rel="shortcut icon" href="https://www.geo.tv/assets/front/images/gn-icons/geo-favicon.jpg"/>
+                    <link rel="manifest" href="https://voiceofnews.com/manifest.json"/>
                     <link type="image/x-icon" rel="shortcut icon" t-att-href="x_icon or '/web/static/img/favicon.ico'"/>
-
                     <script id="web.layout.odooscript" type="text/javascript">
                         var odoo = {};
                     </script>
-
-                    <t t-out="head or ''"/>
                 </head>
                 <body t-att-class="body_classname">
                     <t t-out="0"/>
@@ -38,7 +40,7 @@
             </div>
         </template>
 
-        <template id="von.homepage" name="VON Home Page">
+        <template id="homepage" name="VON Home Page">
             <t t-call="von.layout">
                 <div id="wrapwrap">
                     <div class="homebg">
@@ -461,7 +463,7 @@
             <field name="name">VONHome</field>
             <field name="url">/</field>
             <field name="is_published">True</field>
-            <field name="view_id" ref="homepage"/>
+            <field name="view_id" ref="von.homepage"/>
             <field name="website_id" ref="website.default_website"/>
             <field name="track">True</field>
         </record>
