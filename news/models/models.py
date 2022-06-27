@@ -1,19 +1,6 @@
 # -*- coding: utf-8 -*-
-from odoo.addons.website_blog.models.website_blog import BlogPost
 from odoo import models, fields, api
-
-
-class CoverProperties(models.AbstractModel):
-    _inherit = 'website.cover_properties.mixin'
-
-    def _get_background_src(self, height=None, width=None):
-        super_ob = super()
-        res = super_ob._get_background(height, width)
-        if not res or res == 'none':
-            res = ''
-        else:
-            res = res.replace('url(', '').replace(')', '').replace("'", "")
-        return res
+from odoo.tools.json import scriptsafe as json_scriptsafe
 
 
 class WebsitePostPublishedButton(models.AbstractModel):
@@ -39,6 +26,18 @@ class NewsPost(models.Model):
         res = super(NewsPost, self).write(vals)
         return res
     
+    def get_image_path(self):
+        res = json_scriptsafe.loads(self.cover_properties).get('background-image', 'none')[4:-1].strip("'")
+        # res = json_scriptsafe.loads(self.cover_properties)
+        # res = res.get('background-image', 'none')
+        # res = res[4:-1]
+        # res = res.strip("'")
+        return res
+    
+    def get_author_image_path(self):
+        res = f'/web/image/blog.post/{self.author_id.id}/author_avatar'
+        return res
+    
     @api.onchange('name')
     def _on_name_changed(self):
         if self.name:
@@ -49,4 +48,20 @@ class NewsPost(models.Model):
         if self.name:
             self.website_meta_description = self.subtitle
 
-        
+
+class NewsBlog(models.Model):
+    _inherit = 'blog.blog'
+    
+    def get_top_post_id(self):
+        return self.blog_post_ids.filtered(lambda x: x.is_published)[0].id
+    
+    def top_post(self):
+        res = self.blog_post_ids.filtered(lambda x: x.is_published)[0]
+        return res
+    
+    def hp_posts(self):
+        id = self.id
+        top_post_id = self.get_top_post_id()
+        res = self.blog_post_ids
+        res = res.filtered(lambda x:x.is_published==True and x.id != top_post_id)[:4]
+        return res

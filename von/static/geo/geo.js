@@ -228,5 +228,29 @@ $(document).ready(function() {
     $(window).resize(punchout), punchout()
 });
 
+function set_image_heights(){
+    els = document.querySelectorAll('article img.lazyloaded:not(.adjusted)');
+    console.log(els.length+' images');
+    for(let el of els){
+        let el_width = el.getBoundingClientRect().width;
+        if(!el_width){
+            el_width = el.parentNode.getBoundingClientRect().width;
+        }
+        if(!el_width){
+            console.log(el.parentNode.outerHTML, 'has no width');
+        }
+        else{
+            el_width = parseFloat(el_width);
+        }
+        //console.log(el_width, 111);
+        //let height = el_width * 0.587;
+        let height = el_width * 0.75;
+        let height_to_apply = height + 'px';
+        el.style.height = height_to_apply;
+        el.classList.add("adjusted");
+    }
+    //console.log('Setting heights of => '+els.length+' images');
+}
+set_image_heights();
 $('#oe_main_menu_navbar').css('display', 'grid');
-console.log('geo 1');
+console.log('geo 3');
