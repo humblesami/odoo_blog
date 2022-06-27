@@ -10,12 +10,9 @@
                     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
                     <meta property="fb:app_id" content="806127442825208"/>
                     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-                    <title>Geo.tv: Latest News Breaking Pakistan, World, Live Videos</title>
                     <link rel="canonical" href="https://voiceofnews.com"/>
                     <script src="https://code.jquery.com/jquery-3.6.0.min.js"/>
-                    <link rel="shortcut icon" href="https://www.geo.tv/assets/front/images/gn-icons/geo-favicon.jpg"/>
-                    <link rel="manifest" href="https://voiceofnews.com/manifest.json"/>
-                    <link type="image/x-icon" rel="shortcut icon" t-att-href="x_icon or '/web/static/img/favicon.ico'"/>
+                    <link type="image/x-icon" rel="shortcut icon" t-att-href="x_icon or '/von/static/logo.jpg'"/>
                     <script id="web.layout.odooscript" type="text/javascript">
                         var odoo = {};
                     </script>
