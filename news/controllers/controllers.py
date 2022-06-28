@@ -25,9 +25,12 @@ class NewsWebsite(Website):
         # '''/blog/author/<model("res.users"):author>''',
     ], type='http', auth="public", website=True, sitemap=True)
     def blog(self, page=1, uid=None, search=None, **opt):
-        domain = [('write_uid', '=', uid)]
-        articles = request.env['blog.post'].search(domain)
-        values = {'records': articles}
+        domain = [('author_id.id', '=', uid)]
+        author = request.env['res.partner'].search([('id', '=', uid)])
+        values = {'error': 'Author Not Found'}
+        if author:
+            articles = request.env['blog.post'].search(domain)
+            values = {'records': articles, 'author': author}
         return request.render("von.author_posts", values)
 
 # from odoo.addons.website.models.ir_qweb import QWeb

@@ -3,7 +3,6 @@
         document.getElementById('page_wait_spinner').style.display = 'none';
         document.getElementById('wrapwrap').style.display = 'block';
         document.body.style.backgroundColor = '#fff';
-
         els = document.querySelectorAll('article img.lazyloaded:not(.adjusted)');
         console.log(els.length+' images');
         for(let el of els){
@@ -27,7 +26,7 @@
         //console.log('Setting heights of => '+els.length+' images');
     }
     let el = document.querySelector("link[as='style']");
-    console.log(el.href, 1111);
+    //console.log(el.href, 1111);
     if(el.rel == 'stylesheet'){
         console.log('already loaded '+new Date().getMilliseconds());
         el.rel = 'stylesheet';

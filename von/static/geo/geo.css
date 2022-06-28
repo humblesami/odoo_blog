@@ -1,3 +1,10 @@
+header nav ul.menu {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 header nav ul.menu li.election-links,
 .sidenav .inner-scroller ul li.election-links {
     display: none;
@@ -1201,11 +1208,6 @@ header .logo-white {
 
 header .logo-white img {
     width: 41px;
-}
-
-header nav ul.menu {
-    width: 100%;
-    margin: 0;
 }
 
 header nav ul.menu li {
@@ -4657,4 +4659,16 @@ header nav ul.menu li a{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.latest-page-new article a:first-child{
+    display: flex;
+}
+.latest-page-new .list .pic{
+    width: 100px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+.latest-page-new .list .pic img{
+    width: 100%;
 }
