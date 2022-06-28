@@ -7,14 +7,13 @@
                 <head>
                     <meta charset="UTF-8"/>
                     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-                    <meta property="fb:app_id" content="806127442825208"/>
                     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
                     <title><t t-esc="website_title or 'Voice Of News'"/></title>
-                    <link rel="canonical" href="/"/>
                     <link type="image/x-icon" rel="shortcut icon" t-att-href="x_icon or '/web/image/website/1/logo'"/>
                     <script id="web.layout.odooscript" type="text/javascript">
                         var odoo = {};
                     </script>
+                    <script defer="defer" src="https://code.jquery.com/jquery-3.6.0.min.js"/>
                 </head>
                 <body t-att-class="body_classname">
                     <t t-out="0"/>

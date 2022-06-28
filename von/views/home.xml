@@ -245,7 +245,6 @@
 
                 <div>
                     <script async="async" src="/von/static/geo/show_dom.js"/>
-                    <script defer="defer" src="https://code.jquery.com/jquery-3.6.0.min.js"/>
                     <script defer="defer" src="/von/static/geo/geo.js"/>
                 </div>
 
