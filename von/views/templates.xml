@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <template id="layout" name="VON layout">
+            &lt;!DOCTYPE html&gt;
+            <html t-att="html_data or {}">
+                <head>
+                    <meta charset="UTF-8"/>
+                    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+                    <meta property="fb:app_id" content="806127442825208"/>
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                    <title><t t-esc="website_title or 'Voice Of News'"/></title>
+                    <link rel="canonical" href="/"/>
+                    <link type="image/x-icon" rel="shortcut icon" t-att-href="x_icon or '/web/image/website/1/logo'"/>
+                    <script id="web.layout.odooscript" type="text/javascript">
+                        var odoo = {};
+                    </script>
+                </head>
+                <body t-att-class="body_classname">
+                    <t t-out="0"/>
+                </body>
+            </html>
+        </template>
+
+        <template id="hover_social_share" name="hover_social_share">
+            <div class="hover_share">
+                <a target="_blank" href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fwww.geo.tv%2Flatest%2F424724-lhc-directs-ecp-to-notify-reserves-seats-of-punjab-assembly">
+                    <img src="https://www.geo.tv/assets/front/images/facebook_hover.png" alt="facebook"/>
+                </a>
+                <a target="_blank" href="https://twitter.com/share?text=LHC directs ECP to notify lawmakers on reserved seats of Punjab Assembly&amp;url=https://www.geo.tv/latest/424724-lhc-directs-ecp-to-notify-reserves-seats-of-punjab-assembly">
+                    <img src="https://www.geo.tv/assets/front/images/twitter_hover.png" alt="facebook"/>
+                </a>
+                <a target="_blank" href="https://api.whatsapp.com/send?text=https://www.geo.tv/latest/424724-lhc-directs-ecp-to-notify-reserves-seats-of-punjab-assembly">
+                    <img src="https://www.geo.tv/assets/front/images/whatsapp_hover.png" alt="facebook"/>
+                </a>
+            </div>
+        </template>
+
+        <template id="header">
+            <header>
+                <div class="mobile-header">
+                    <div class="container">
+                        <div class="mobile-left">
+                            <div class="mobile-nav">
+                                <span class="mob-menu-icon" onclick="openNav()">
+                                    <img src="/web/image/website/1/logo"/>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="mobile-header-left">
+                            <div class="logo">
+                                <a class="open-section" href="/">
+                                    <div class="logo-white">
+                                        <img src="/web/image/website/1/logo"/>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="header-right">
+                            <ul>
+<!--                                            <li>-->
+<!--                                                <div class="live-btn">-->
+<!--                                                    <a data-event="tvc_top_navigation" data-event_action="live_tv" data-page_type="Homepage" href="https://live.von.com/" target="_blank">-->
+<!--                                                        <div class="icon" style="display: block">-->
+<!--                                                            <img data-cfsrc="https://von.com/assets/front/images/GEO-TV-ICONS2.png" src="https://von.com/assets/front/images/GEO-TV-ICONS2.png"/>-->
+<!--                                                        </div>-->
+<!--                                                    </a>-->
+<!--                                                </div>-->
+<!--                                            </li>-->
+                            </ul>
+                        </div>
+                        <div class="clearfix">
+                        </div>
+                    </div>
+                </div>
+                <div class="desktop-header">
+                    <div class="header_bottom green">
+                        <div class="container">
+                            <div class="h_b_logo">
+                                <a data-event="tvc_top_navigation" data-event_action="GeoLogo_click" data-page_type="Homepage" href="/">
+                                    <img src="/web/image/website/1/logo"/>
+                                </a>
+                            </div>
+                            <nav>
+                                <a href="#" id="close-nav">X</a>
+                                <ul class="menu">
+<!--                                                <li class="active">-->
+<!--                                                    <a class="open-section" href="https://live.von.com/" title="Live TV" target="_blank">-->
+<!--                                                        <img data-cfsrc="https://von.com/assets/front/images/GEO-TV-ICONS2.png" src="https://von.com/assets/front/images/GEO-TV-ICONS2.png"/>-->
+<!--                                                    </a>-->
+<!--                                                </li>-->
+                                    <li class="active"><a data-event="tvc_top_navigation" data-event_action="Home" data-page_type="Homepage" class="open-section" href="/" title="Home">Home</a></li>
+                                    <li class=""><a data-event="tvc_top_navigation" data-event_action="Latest" data-page_type="Listing Page" class="open-section" href="/latest-news" title="Latest News">Latest</a></li>
+
+                                    <t t-foreach="hp_blog_types" t-as="blog">
+                                        <li><a t-attf-href="/blog/#{slug(blog)}" t-att-title="blog.name"><t t-esc="blog.name"/></a></li>
+                                    </t>
+
+                                    <li class="">
+                                        <a data-event="tvc_top_navigation" data-event_action="Videos" data-page_type="Listing Page" class="open-section" href="/videos" title="Videos">Videos</a>
+                                    </li>
+                                    <li class="">
+                                        <div class="dropdown">
+                                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                ...
+                                            </button>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                                <t t-foreach="hp_blog_types" t-as="blog">
+                                                    <li><a t-attf-href="/blog/#{slug(blog)}" t-att-title="blog.name"><t t-esc="blog.name"/></a></li>
+                                                </t>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="urdu_pic active">
+                                        <a data-page_type="Homepage" class="open-section" href="https://urdu.voiceofnews.com" title="Urdu News" target="_blank">
+                                            <img src="/web/image/website/1/logo"/>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </template>
+
+        <template id="side_nav">
+            <div id="mySidenav" class="sidenav" style="">
+                <div class="inner-scroller xss" style="height: 3199px;">
+                    <div class="column-left">
+                        <div class="left-stick" id="leftstickmenu">
+                            <div class="logo-section">
+                                <a href="/" class="logo open-section">
+                                    <img class="responsive-logo-white" src="/web/image/website/1/logo"/>
+                                    <img class="responsive-logo-green" src="/web/image/website/1/logo"/>
+                                </a>
+                            </div>
+                            <div class="menu-area" id="style-1">
+                                <ul>
+                                    <li>
+                                        <a class="open-section" href="/">Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://urdu.voiceofnews.com"
+                                           title="Urdu" target="_blank" style="font-weight:900;color:#f7941e;">
+                                            Urdu
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="open-section" href="/blog">latest
+                                        </a>
+                                    </li>
+                                    <t t-foreach="hp_blog_types" t-as="blog">
+                                        <li>
+                                            <a class="open-section" t-attf-href="/blog/#{slug(blog)}">
+                                                <t t-esc="blog.name"/>
+                                            </a>
+                                        </li>
+                                    </t>
+
+                                    <li>
+                                        <a href="/about-us" class="open-section">Contact us</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </data>
+</odoo>
