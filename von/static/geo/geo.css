@@ -2,6 +2,11 @@ header nav ul.menu li.election-links,
 .sidenav .inner-scroller ul li.election-links {
     display: none;
 }
+#mySidenav.sidenav .logo-section{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+}
 
 header nav ul.menu li.election-links,
 .sidenav .inner-scroller ul li.election-links {
@@ -1198,17 +1203,9 @@ header .logo-white img {
     width: 41px;
 }
 
-header nav {
-    float: left;
-    width: 100%;
-}
-
 header nav ul.menu {
-    padding: 0;
     width: 100%;
-    display: inline-block;
     margin: 0;
-    line-height: 0;
 }
 
 header nav ul.menu li {
@@ -1228,7 +1225,7 @@ header nav ul.menu li a {
 header nav ul.menu li a{
     font-weight: bold;
 }
-header nav ul.menu li a:hover {
+header nav ul.menu li:not(.sp-link) a:hover {
     background-color: #f7941e;
     color: white;
     text-decoration: none;
@@ -1376,11 +1373,6 @@ header .desktop-header .header_bottom.green .h_b_logo {
     width: 38px;
     float: left;
     margin: 5px;
-}
-
-header .desktop-header .header_bottom.green nav {
-    float: left;
-    width: 95%;
 }
 
 .block {
@@ -2516,7 +2508,7 @@ button.close {
 .mobile-header.flex a{
     display: block;
 }
-.mobile-header.flex img{
+.mobile-header img, .desktop-header img{
     height: 26px;
 }
 .mobile-header.flex .mobile-nav img{
@@ -3244,11 +3236,6 @@ hr {
     float: left;
 }
 
-.abcd {
-    width: 100%;
-    float: left;
-}
-
 .border-top {
     background-color: #21409a;
     width: 100%;
@@ -3841,7 +3828,7 @@ hr {
 }
 
 .homebg section {
-    margin: 0 0 40px;
+    margin-bottom: 20px;
 }
 
 .m-content.breakingDiv {
@@ -4665,4 +4652,9 @@ h1 {
 }
 header nav ul.menu li a{
     padding: 10px 15px;
+}
+.desktop-header nav:first-child{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

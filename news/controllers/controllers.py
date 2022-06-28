@@ -1,3 +1,4 @@
+import werkzeug
 from odoo import http
 from odoo.http import request
 from odoo.addons.website.controllers.main import Website
@@ -18,6 +19,16 @@ class NewsWebsite(Website):
         res.qcontext['search'] = search
 
         return res
+
+    @http.route([
+        '/blog/author/<int:uid>',
+        # '''/blog/author/<model("res.users"):author>''',
+    ], type='http', auth="public", website=True, sitemap=True)
+    def blog(self, page=1, uid=None, search=None, **opt):
+        domain = [('write_uid', '=', uid)]
+        articles = request.env['blog.post'].search(domain)
+        values = {'records': articles}
+        return request.render("von.author_posts", values)
 
 # from odoo.addons.website.models.ir_qweb import QWeb
 #

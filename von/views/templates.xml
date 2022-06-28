@@ -23,9 +23,73 @@
                     <script defer="defer" src="https://code.jquery.com/jquery-3.6.0.min.js"/>
                 </head>
                 <body t-att-class="body_classname">
-                    <t t-out="0"/>
+                    <link rel="preload" as="style" href="/von/static/geo/geo.css" onload="this.rel='stylesheet'"/>
+                    <link rel="preload" as="style" href="/von/static/geo/footer.css" onload="this.rel='stylesheet'"/>
+                    <style>
+                        @keyframes spinner {
+                          to {transform: rotate(360deg);}
+                        }
+                        body{
+                            background-color: #eee;
+                        }
+                        #page_wait_spinner:before {
+                          content: '';
+                          box-sizing: border-box;
+                          position: absolute;
+                          top: 50%;
+                          left: 50%;
+                          width: 20px;
+                          height: 20px;
+                          margin-top: -10px;
+                          margin-left: -10px;
+                          border-radius: 50%;
+                          border: 2px solid #ddd;
+                          border-top-color: #000;
+                          animation: spinner .6s linear infinite;
+                        }
+                        #wrapwrap{display:none;}
+                    </style>
+                    <div class="spinner" id="page_wait_spinner">
+                    </div>
+                    <t t-call="von.header"/>
+                    <t t-call="von.side_nav"/>
+                    <div id="wrapwrap">
+                        <t t-out="0"/>
+                    </div>
+                    <t t-call="von.footer"/>
+                    <script async="async" src="/von/static/geo/show_dom.js"/>
+                    <script defer="defer" src="/von/static/geo/geo.js"/>
                 </body>
             </html>
+        </template>
+
+        <template id="footer">
+            <footer>
+                <div class="container">
+                    <div class="ftr_inr">
+                        <div class="ftr_col">
+                            <h1>Sections</h1>
+                            <ul>
+                                <li><a data-event_action="Home" data-page_type="Homepage" href="/">Home</a> </li>
+                                <li><a data-event_action="Latest" href="/blog">LATEST</a> </li>
+                                <t t-foreach="hp_blog_types" t-as="blog">
+                                    <li><a t-attf-href="/blog/#{slug(blog)}"><t t-esc="blog.name"/></a></li>
+                                </t>
+                            </ul>
+                        </div>
+                        <div class="ftr_col">
+                            <ul style="margin-top: 32px;">
+                                <li><a data-event_action="TV SHOWS" href="/tv-shows">TV SHOWS</a> </li>
+                                <li><a data-event_action="VIDEOS" href="/videos">VIDEOS</a> </li>
+                                <li><a data-page_type="Homepage" href="https://urdu.voiceofnews.com" target="_blank">URDU</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>Copyright © 2022. Geo Television Network. All Rights Reserved.</p>
+                </div>
+            </footer>
         </template>
 
         <template id="hover_social_share" name="hover_social_share">
@@ -45,11 +109,11 @@
         <template id="header">
             <header>
                 <div class="mobile-header flex">
-                    <div class="mobile-nav"  onclick="openNav()">
+                    <div class="mobile-nav" onclick="odoo.openNav()">
                         <img src="/von/static/images/Menu-blue.svg" class="mob-blue-icon"/>
                     </div>
                     <div class="">
-                        <a href="https://live.von.com/" target="_blank">
+                        <a href="/" target="_blank">
                             <img src="/von/static/images/live-tv.webp"/>
                         </a>
                     </div>
@@ -63,21 +127,20 @@
                 <div class="desktop-header">
                     <div class="header_bottom green">
                         <div class="container">
-                            <div class="h_b_logo">
-                                <a data-page_type="Homepage" href="/">
-                                    <img src="/web/image/website/1/logo"/>
-                                </a>
-                            </div>
                             <nav>
-                                <a href="#" id="close-nav">X</a>
+                                <div class="h_b_logo">
+                                    <a data-page_type="Homepage" href="/">
+                                        <img src="/web/image/website/1/logo"/>
+                                    </a>
+                                </div>
+
                                 <ul class="menu">
-                                    <!--
-                                    <li class="active">
-                                        <a class="open-section" href="https://live.von.com/" title="Live TV" target="_blank">
-                                            <img data-cfsrc="https://von.com/assets/front/images/GEO-TV-ICONS2.png" src="https://von.com/assets/front/images/GEO-TV-ICONS2.png"/>
+                                    <li class="active sp-link">
+                                        <a href="/" target="_blank">
+                                            <img src="/von/static/images/live-tv.webp"/>
                                         </a>
                                     </li>
-                                    -->
+
                                     <li class=""><a class="open-section" href="/" title="Home">Home</a></li>
                                     <li class=""><a class="open-section" href="/blog" title="Latest News">Latest</a></li>
 
@@ -101,8 +164,8 @@
                                             </ul>
                                         </div>
                                     </li>
-                                    <li class="urdu_pic active">
-                                        <a data-page_type="Homepage" class="open-section" href="https://urdu.voiceofnews.com" title="Urdu News" target="_blank">
+                                    <li class="urdu_pic sp-link">
+                                        <a class="open-section" href="https://urdu.voiceofnews.com" title="Urdu News" target="_blank">
                                             <img src="/web/image/website/1/logo"/>
                                         </a>
                                     </li>
@@ -115,7 +178,7 @@
         </template>
 
         <template id="side_nav">
-            <div id="leftOverlay" class="leftOverlay" onclick="closeNav()" style="display: none;">
+            <div id="leftOverlay" class="leftOverlay" onclick="odoo.closeNav()" style="display: none;">
             </div>
             <div id="mySidenav" class="sidenav" style="">
                 <div class="inner-scroller xss" style="height: 3199px;">
@@ -124,35 +187,20 @@
                             <div class="logo-section">
                                 <a href="/" class="logo open-section">
                                     <img class="responsive-logo-white" src="/web/image/website/1/logo"/>
-                                    <img class="responsive-logo-green" src="/web/image/website/1/logo"/>
                                 </a>
+                                <a id="close-mobile-nav">X</a>
                             </div>
                             <div class="menu-area" id="style-1">
                                 <ul>
+                                    <li><a class="open-section" href="/">Home</a></li>
                                     <li>
-                                        <a class="open-section" href="/">Home</a>
+                                        <a href="http://urdu.voiceofnews.com" title="Urdu" target="_blank" style="font-weight:900;color:#f7941e;">Urdu</a>
                                     </li>
-                                    <li>
-                                        <a href="http://urdu.voiceofnews.com"
-                                           title="Urdu" target="_blank" style="font-weight:900;color:#f7941e;">
-                                            Urdu
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="open-section" href="/blog">latest
-                                        </a>
-                                    </li>
+                                    <li><a class="open-section" href="/blog">latest</a></li>
                                     <t t-foreach="hp_blog_types" t-as="blog">
-                                        <li>
-                                            <a class="open-section" t-attf-href="/blog/#{slug(blog)}">
-                                                <t t-esc="blog.name"/>
-                                            </a>
-                                        </li>
+                                        <li><a class="open-section" t-attf-href="/blog/#{slug(blog)}"><t t-esc="blog.name"/></a></li>
                                     </t>
-
-                                    <li>
-                                        <a href="/about-us" class="open-section">Contact us</a>
-                                    </li>
+                                    <li><a href="/about-us" class="open-section">Contact us</a></li>
                                 </ul>
                             </div>
                         </div>

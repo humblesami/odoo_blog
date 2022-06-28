@@ -1,108 +1,26 @@
-function openNav() {
-    $("#mySidenav").addClass("openNavLeft");
-    $("body").css("overflow", "hidden");
-    document.getElementById("leftOverlay").style.display = "block";
-    $(".install-tuts-icon").addClass("hide");
-}
-
-function closeNav() {
-    $("#mySidenav").removeClass("openNavLeft");
-    $("body").css("overflow", "auto");
-    document.getElementById("leftOverlay").style.display = "none";
-    $(".install-tuts-icon").removeClass("hide");
-}
-
-var mainEl = ".main", mainElWi = $(mainEl).outerWidth();
-$(window).resize(function() {
-    mainElWi = $(mainEl).outerWidth();
-});
-var fxdEl = ".jtaSidebar",
-    sbContElCl = ".story-detail",
-    posRelCl = "pos-rel",
-    posAbsCl = "pos-abs",
-    posFixCl = "pos-fix",
-    responsive = false;
-
-function jtaFixedSidebarEl() {
-    var sbContEl = sbContElCl;
-    var obj = {
-        sbContElHe: $(sbContEl).outerHeight()
-    }
-    $(sbContEl).css({
-        "height": obj.sbContElHe
-    });
-    if (responsive) {
-        $(window).resize(function() {
-            if (mainElWi == 960) {
-                $(sbContEl).css({
-                    "height": "auto"
-                });
-                obj.sbContElHe = $(sbContEl).outerHeight();
-                $(sbContEl).css({
-                    "height": obj.sbContElHe
-                });
-            }
-            if (mainElWi == 1280) {
-                $(sbContEl).css({
-                    "height": "auto"
-                });
-                obj.sbContElHe = $(sbContEl).outerHeight();
-                $(sbContEl).css({
-                    "height": obj.sbContElHe
-                });
-            }
-        });
-    }
-    var pgeLay = sbContEl,
-        posRel = posRelCl,
-        posAbs = posAbsCl,
-        posFix = posFixCl,
-        top = "top",
-        winHe = $(window).outerHeight(),
-        fxdElHe = $(fxdEl).outerHeight(),
-        fxdElWi = $(fxdEl).outerWidth(),
-        pgeLayTopPos = $(pgeLay).offset().top,
-        pgeLayBotPos = $(pgeLay).offset().top + obj.sbContElHe,
-        pgeLayBotPosMinusFixedElHe = pgeLayBotPos - fxdElHe,
-        topOfSidebar = $(fxdEl).offset().top;
-    if (responsive) {
-        $(window).resize(function() {
-            if (mainElWi == 960) {
-                pgeLayBotPos = $(pgeLay).offset().top + obj.sbContElHe;
-            }
-            if (mainElWi == 1280) {
-                pgeLayBotPos = $(pgeLay).offset().top + obj.sbContElHe;
-            }
-        });
-    }
-    $(fxdEl).parent().addClass(posRel);
-    $(fxdEl).children().css({
-        "width": fxdElWi
-    });
-
-    function fixEl() {
-        var topOfWin = $(window).scrollTop(),
-            botOfWin = $(window).scrollTop() + winHe,
-            fxdElTopPos = $(fxdEl).offset().top,
-            fxdElBotPos = $(fxdEl).offset().top +
-            fxdElHe;
-        if (topOfWin < pgeLayTopPos) {
-            $(fxdEl).removeClass(posFix).removeClass(posAbs);
-        } else {
-            if (topOfWin >= pgeLayTopPos && topOfWin <= pgeLayBotPosMinusFixedElHe) {
-                $(fxdEl).removeClass(posAbs).addClass(posFix);
-            } else {
-                $(fxdEl).removeClass(posFix).addClass(posAbs);
-            }
-        }
-    }
-    fixEl();
-    $(window).scroll(function() {
-        fixEl();
-    });
-}
-
 (function(){
+    function openNav() {
+        $("#mySidenav").addClass("openNavLeft");
+        $("body").css("overflow", "hidden");
+        document.getElementById("leftOverlay").style.display = "block";
+        $(".install-tuts-icon").addClass("hide");
+    }
+
+    function closeNav() {
+        $("#mySidenav").removeClass("openNavLeft");
+        $("body").css("overflow", "auto");
+        document.getElementById("leftOverlay").style.display = "none";
+        $(".install-tuts-icon").removeClass("hide");
+    }
+
+    $('#close-mobile-nav').click(closeNav);
+
+    var mainEl = ".main", mainElWi = $(mainEl).outerWidth();
+    $(window).resize(function() {
+        mainElWi = $(mainEl).outerWidth();
+    });
+    odoo.openNav = openNav;
+    odoo.closeNav = closeNav;
     jQuery(document).ready(function(e) {
         function t(t) {
             e(t).bind("click", function(t) {
