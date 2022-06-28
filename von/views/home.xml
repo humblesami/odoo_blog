@@ -4,58 +4,45 @@
 
         <template id="homepage" name="VON Home Page">
             <t t-call="von.layout">
-                <link rel="preload" as="style" href="/von/static/geo/geo.css" onload="this.rel='stylesheet'"/>
-                <link rel="preload" as="style" href="/von/static/geo/footer.css" onload="this.rel='stylesheet'"/>
+                <div>
+                    <link rel="preload" as="style" href="/von/static/geo/geo.css" onload="this.rel='stylesheet'"/>
+                    <link rel="preload" as="style" href="/von/static/geo/footer.css" onload="this.rel='stylesheet'"/>
 
-                <style>
-                    @keyframes spinner {
-                      to {transform: rotate(360deg);}
-                    }
-                    body{
-                        background-color: #eee;
-                    }
-                    #page_wait_spinner:before {
-                      content: '';
-                      box-sizing: border-box;
-                      position: absolute;
-                      top: 50%;
-                      left: 50%;
-                      width: 20px;
-                      height: 20px;
-                      margin-top: -10px;
-                      margin-left: -10px;
-                      border-radius: 50%;
-                      border: 2px solid #ddd;
-                      border-top-color: #000;
-                      animation: spinner .6s linear infinite;
-                    }
-                    #wrapwrap{display:none;}
-                </style>
-                <div class="spinner" id="page_wait_spinner">
+                    <style>
+                        @keyframes spinner {
+                          to {transform: rotate(360deg);}
+                        }
+                        body{
+                            background-color: #eee;
+                        }
+                        #page_wait_spinner:before {
+                          content: '';
+                          box-sizing: border-box;
+                          position: absolute;
+                          top: 50%;
+                          left: 50%;
+                          width: 20px;
+                          height: 20px;
+                          margin-top: -10px;
+                          margin-left: -10px;
+                          border-radius: 50%;
+                          border: 2px solid #ddd;
+                          border-top-color: #000;
+                          animation: spinner .6s linear infinite;
+                        }
+                        #wrapwrap{display:none;}
+                    </style>
+                    <div class="spinner" id="page_wait_spinner">
+                    </div>
                 </div>
 
                 <div id="wrapwrap">
                     <t t-call="von.header"/>
+                    <t t-call="von.side_nav"/>
                     <div class="homebg">
-                        <div id="leftOverlay" class="leftOverlay" onclick="closeNav()" style="display: none;">
-                        </div>
-                        <div class="loader-geonews hide">
-                            <div class="loader-inner">
-                                <div class="logo-content">
-                                </div>
-                            </div>
-                        </div>
 
-                        <t t-call="von.side_nav"/>
+                        <section class="home_page home_s_top">
 
-                        <script type="text/javascript">
-                            setTimeout(function () {
-                                var element = document.getElementById("mySidenav");
-                                element.style.removeProperty("display");
-                            }, 4000);
-                        </script>
-
-                        <section class="home_s_top">
                             <div class="ad container">
                                 <div class="ads lb">
                                     <div id="div-gpt-ad-1523347432315-4" style="height:auto; width:auto;" data-google-query-id="CJz02eiom_gCFYWFhQodWmsMpg">
@@ -66,7 +53,7 @@
                                 </div>
                             </div>
 
-                            <div class="container">
+                            <div class="page-content container">
 
                                 <div class="home_main_content">
                                     <div class="m_c_left" data-vr-zone="Home Featured Section">
@@ -179,7 +166,7 @@
                             </div>
                         </section>
 
-                        <section class="abcd">
+                        <section class="abcd categories">
                             <div class="container">
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-12">
@@ -244,19 +231,7 @@
                                         <ul style="margin-top: 32px;">
                                             <li><a data-event_action="TV SHOWS" href="/tv-shows">TV SHOWS</a> </li>
                                             <li><a data-event_action="VIDEOS" href="/videos">VIDEOS</a> </li>
-                                            <li><a onclick="analyticsFunc(this)" data-page_type="Homepage" href="https://urdu.voiceofnews.com" target="_blank">URDU</a></li>
-<!--                                            <h1>LIVE</h1>-->
-<!--                                            <li><a data-event_action="live_tv" data-page_type="Homepage" href="https://live.von.com/" target="_blank">TV</a> </li>-->
-<!--                                            <li><a data-event_action="radio" data-page_type="Homepage" href="https://live.von.com/radio.php" target="_blank">RADIO</a> </li>-->
-                                            <li>
-                                                <div class="fb-bot-btn">
-                                                    <div class="fb-messengermessageus" id="fb-messengermessageus" messenger_app_id="1678638095724206" page_id="101059326616167" color="blue" size="large" style="height: 27px;">
-                                                    </div>
-                                                    <script> window.fbAsyncInit = function () {
-                                                            FB.init({ appId: '1678638095724206', xfbml: true, version: 'v2.6' });
-                                                        }</script>
-                                                </div>
-                                            </li>
+                                            <li><a data-page_type="Homepage" href="https://urdu.voiceofnews.com" target="_blank">URDU</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -266,12 +241,14 @@
                             </div>
                         </footer>
                     </div>
-                    <span>
-                        <script async="async" src="/von/static/geo/show_dom.js"/>
-                        <script defer="defer" src="https://code.jquery.com/jquery-3.6.0.min.js"/>
-                        <script defer="defer" src="/von/static/geo/geo.js"/>
-                    </span>
                 </div>
+
+                <div>
+                    <script async="async" src="/von/static/geo/show_dom.js"/>
+                    <script defer="defer" src="https://code.jquery.com/jquery-3.6.0.min.js"/>
+                    <script defer="defer" src="/von/static/geo/geo.js"/>
+                </div>
+
             </t>
         </template>
 

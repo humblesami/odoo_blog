@@ -38,67 +38,51 @@
 
         <template id="header">
             <header>
-                <div class="mobile-header">
-                    <div class="container">
-                        <div class="mobile-left">
-                            <div class="mobile-nav">
-                                <span class="mob-menu-icon" onclick="openNav()">
-                                    <img src="/web/image/website/1/logo"/>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="mobile-header-left">
-                            <div class="logo">
-                                <a class="open-section" href="/">
-                                    <div class="logo-white">
-                                        <img src="/web/image/website/1/logo"/>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="header-right">
-                            <ul>
-<!--                                            <li>-->
-<!--                                                <div class="live-btn">-->
-<!--                                                    <a data-event="tvc_top_navigation" data-event_action="live_tv" data-page_type="Homepage" href="https://live.von.com/" target="_blank">-->
-<!--                                                        <div class="icon" style="display: block">-->
-<!--                                                            <img data-cfsrc="https://von.com/assets/front/images/GEO-TV-ICONS2.png" src="https://von.com/assets/front/images/GEO-TV-ICONS2.png"/>-->
-<!--                                                        </div>-->
-<!--                                                    </a>-->
-<!--                                                </div>-->
-<!--                                            </li>-->
-                            </ul>
-                        </div>
-                        <div class="clearfix">
-                        </div>
+                <div class="mobile-header flex">
+                    <div class="mobile-nav"  onclick="openNav()">
+                        <img src="/von/static/images/Menu-blue.svg" class="mob-blue-icon"/>
+                    </div>
+                    <div class="">
+                        <a href="https://live.von.com/" target="_blank">
+                            <img src="/von/static/images/live-tv.webp"/>
+                        </a>
+                    </div>
+                    <div class="logo">
+                        <a class="open-section" href="/">
+                            <img src="/web/image/website/1/logo"/>
+                        </a>
                     </div>
                 </div>
+
                 <div class="desktop-header">
                     <div class="header_bottom green">
                         <div class="container">
                             <div class="h_b_logo">
-                                <a data-event="tvc_top_navigation" data-event_action="GeoLogo_click" data-page_type="Homepage" href="/">
+                                <a data-page_type="Homepage" href="/">
                                     <img src="/web/image/website/1/logo"/>
                                 </a>
                             </div>
                             <nav>
                                 <a href="#" id="close-nav">X</a>
                                 <ul class="menu">
-<!--                                                <li class="active">-->
-<!--                                                    <a class="open-section" href="https://live.von.com/" title="Live TV" target="_blank">-->
-<!--                                                        <img data-cfsrc="https://von.com/assets/front/images/GEO-TV-ICONS2.png" src="https://von.com/assets/front/images/GEO-TV-ICONS2.png"/>-->
-<!--                                                    </a>-->
-<!--                                                </li>-->
-                                    <li class="active"><a data-event="tvc_top_navigation" data-event_action="Home" data-page_type="Homepage" class="open-section" href="/" title="Home">Home</a></li>
-                                    <li class=""><a data-event="tvc_top_navigation" data-event_action="Latest" data-page_type="Listing Page" class="open-section" href="/latest-news" title="Latest News">Latest</a></li>
+                                    <!--
+                                    <li class="active">
+                                        <a class="open-section" href="https://live.von.com/" title="Live TV" target="_blank">
+                                            <img data-cfsrc="https://von.com/assets/front/images/GEO-TV-ICONS2.png" src="https://von.com/assets/front/images/GEO-TV-ICONS2.png"/>
+                                        </a>
+                                    </li>
+                                    -->
+                                    <li class=""><a class="open-section" href="/" title="Home">Home</a></li>
+                                    <li class=""><a class="open-section" href="/latest-news" title="Latest News">Latest</a></li>
 
                                     <t t-foreach="hp_blog_types" t-as="blog">
-                                        <li><a t-attf-href="/blog/#{slug(blog)}" t-att-title="blog.name"><t t-esc="blog.name"/></a></li>
+                                        <li class=""><a class="open-section" t-attf-href="/blog/#{slug(blog)}" t-att-title="blog.name"><t t-esc="blog.name"/></a></li>
                                     </t>
 
                                     <li class="">
-                                        <a data-event="tvc_top_navigation" data-event_action="Videos" data-page_type="Listing Page" class="open-section" href="/videos" title="Videos">Videos</a>
+                                        <a class="open-section" href="/videos" title="Videos">Videos</a>
                                     </li>
+
                                     <li class="">
                                         <div class="dropdown">
                                             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -125,6 +109,8 @@
         </template>
 
         <template id="side_nav">
+            <div id="leftOverlay" class="leftOverlay" onclick="closeNav()" style="display: none;">
+            </div>
             <div id="mySidenav" class="sidenav" style="">
                 <div class="inner-scroller xss" style="height: 3199px;">
                     <div class="column-left">
