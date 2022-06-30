@@ -5,176 +5,177 @@
         <template id="homepage" name="VON Home Page">
             <t t-call="von.layout">
                 <div class="homebg">
-                    <section class="home_page home_s_top">
-                        <div class="ad container">
-                            <div class="ads lb">
-                                <div id="div-gpt-ad-1523347432315-4" style="height:auto; width:auto;" data-google-query-id="CJz02eiom_gCFYWFhQodWmsMpg">
-                                    <div id="google_ads_iframe_/1063725/geo_eng_home_billboard_atf_0__container__" style="border: 0pt none;">
-                                        <img src="https://tpc.googlesyndication.com/simgad/8575719920860005263" border="0" width="320" height="101" alt="" class="img_ad"/>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <h1>Home</h1>
+<!--                    <section class="home_page home_s_top">-->
+<!--                        <div class="ad container">-->
+<!--                            <div class="ads lb">-->
+<!--                                <div id="div-gpt-ad-1523347432315-4" style="height:auto; width:auto;" data-google-query-id="CJz02eiom_gCFYWFhQodWmsMpg">-->
+<!--                                    <div id="google_ads_iframe_/1063725/geo_eng_home_billboard_atf_0__container__" style="border: 0pt none;">-->
+<!--                                        <img src="https://tpc.googlesyndication.com/simgad/8575719920860005263" border="0" width="320" height="101" alt="" class="img_ad"/>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
 
-                        <div class="page-content container">
+<!--                        <div class="page-content container">-->
 
-                            <div class="home_main_content">
-                                <div class="m_c_left" data-vr-zone="Home Featured Section">
-                                    <ul>
-                                        <li>
-                                            <article>
-                                                <t t-set="blog_post" t-value="top_post"/>
-                                                <div class="m_pic bg_image_div">
-                                                    <a data-event_action="featured" class="open-section" t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">
-                                                        <img class="lazyloaded" t-att-title="blog_post.name" t-att-alt="blog_post.name" t-att-src="blog_post.get_image_path()"/>
-                                                    </a>
-                                                    <t t-call="von.hover_social_share"/>
-                                                </div>
+<!--                            <div class="home_main_content">-->
+<!--                                <div class="m_c_left" data-vr-zone="Home Featured Section">-->
+<!--                                    <ul>-->
+<!--                                        <li>-->
+<!--                                            <article>-->
+<!--                                                <t t-set="blog_post" t-value="top_post"/>-->
+<!--                                                <div class="m_pic bg_image_div">-->
+<!--                                                    <a data-event_action="featured" class="open-section" t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">-->
+<!--                                                        <img class="lazyloaded" t-att-title="blog_post.name" t-att-alt="blog_post.name" t-att-src="blog_post.get_image_path()"/>-->
+<!--                                                    </a>-->
+<!--                                                    <t t-call="von.hover_social_share"/>-->
+<!--                                                </div>-->
 
-                                                <div class="heading">
-                                                    <a data-event_action="featured" class="open-section" t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">
-                                                        <h1 data-vr-headline=""><t t-esc="blog_post.name"/></h1>
-                                                    </a>
-                                                </div>
-                                                <div class="m_except">
-                                                    <p><t t-esc="blog_post.subtitle"/></p>
-                                                </div>
-                                            </article>
-                                        </li>
+<!--                                                <div class="heading">-->
+<!--                                                    <a data-event_action="featured" class="open-section" t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">-->
+<!--                                                        <h1 data-vr-headline=""><t t-esc="blog_post.name"/></h1>-->
+<!--                                                    </a>-->
+<!--                                                </div>-->
+<!--                                                <div class="m_except">-->
+<!--                                                    <p><t t-esc="blog_post.subtitle"/></p>-->
+<!--                                                </div>-->
+<!--                                            </article>-->
+<!--                                        </li>-->
 
-                                        <div class="top-ads-mob">
+<!--                                        <div class="top-ads-mob">-->
 
-                                        </div>
+<!--                                        </div>-->
 
-                                        <t t-foreach="blogs1" t-as="blog_post">
-                                            <li>
-                                                <article>
-                                                    <div class="heading">
-                                                        <a data-event_action="featured" class="open-section" t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">
-                                                            <h2 data-vr-headline=""><t t-esc="blog_post.name"/></h2>
-                                                        </a>
-                                                    </div>
-                                                    <div class="m_pic bg_image_div">
-                                                        <a data-event_action="featured" class="open-section" t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">
-                                                            <img class=" lazyloaded" t-att-title="blog_post.name" t-att-alt="blog_post.name" t-att-src="blog_post.get_image_path()"/>
-                                                        </a>
-                                                        <t t-call="von.hover_social_share"/>
-                                                    </div>
+<!--                                        <t t-foreach="blogs1" t-as="blog_post">-->
+<!--                                            <li>-->
+<!--                                                <article>-->
+<!--                                                    <div class="heading">-->
+<!--                                                        <a data-event_action="featured" class="open-section" t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">-->
+<!--                                                            <h2 data-vr-headline=""><t t-esc="blog_post.name"/></h2>-->
+<!--                                                        </a>-->
+<!--                                                    </div>-->
+<!--                                                    <div class="m_pic bg_image_div">-->
+<!--                                                        <a data-event_action="featured" class="open-section" t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">-->
+<!--                                                            <img class=" lazyloaded" t-att-title="blog_post.name" t-att-alt="blog_post.name" t-att-src="blog_post.get_image_path()"/>-->
+<!--                                                        </a>-->
+<!--                                                        <t t-call="von.hover_social_share"/>-->
+<!--                                                    </div>-->
 
-                                                    <div class="m_except">
-                                                        <p><t t-esc="blog_post.subtitle"/></p>
-                                                    </div>
-                                                </article>
-                                            </li>
-                                        </t>
-                                    </ul>
-                                </div>
+<!--                                                    <div class="m_except">-->
+<!--                                                        <p><t t-esc="blog_post.subtitle"/></p>-->
+<!--                                                    </div>-->
+<!--                                                </article>-->
+<!--                                            </li>-->
+<!--                                        </t>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
 
-                                <div class="m_c_right">
-                                    <div class="home_title">Top Stories</div>
-                                    <ul data-vr-zone="Home Top Stories Section">
-                                        <t t-foreach="blogs2" t-as="blog_post">
-                                            <li>
-                                                <article>
-                                                    <a data-event_action="Top Story" t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">
-                                                    </a>
-                                                    <div class="m_pic bg_image_div">
-                                                        <a data-event_action="Top Story" t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">
-                                                            <picture>
-                                                                <source media="(max-width: 480px)" t-att-title="blog_post.name" t-att-alt="blog_post.name" t-att-srcset="blog_post.get_image_path()"/>
-                                                                <img class="lazyloaded" t-att-title="blog_post.name" t-att-alt="blog_post.name" t-att-src="blog_post.get_image_path()"/>
-                                                            </picture>
-                                                        </a>
-                                                        <t t-call="von.hover_social_share"/>
-                                                    </div>
-                                                    <div class="heading">
-                                                        <a data-event_action="Top Story" t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">
-                                                            <h2 data-vr-headline=""><t t-esc="blog_post.name"/></h2>
-                                                        </a>
-                                                    </div>
-                                                </article>
-                                            </li>
-                                        </t>
-                                    </ul>
-                                </div>
-                            </div>
+<!--                                <div class="m_c_right">-->
+<!--                                    <div class="home_title">Top Stories</div>-->
+<!--                                    <ul data-vr-zone="Home Top Stories Section">-->
+<!--                                        <t t-foreach="blogs2" t-as="blog_post">-->
+<!--                                            <li>-->
+<!--                                                <article>-->
+<!--                                                    <a data-event_action="Top Story" t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">-->
+<!--                                                    </a>-->
+<!--                                                    <div class="m_pic bg_image_div">-->
+<!--                                                        <a data-event_action="Top Story" t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">-->
+<!--                                                            <picture>-->
+<!--                                                                <source media="(max-width: 480px)" t-att-title="blog_post.name" t-att-alt="blog_post.name" t-att-srcset="blog_post.get_image_path()"/>-->
+<!--                                                                <img class="lazyloaded" t-att-title="blog_post.name" t-att-alt="blog_post.name" t-att-src="blog_post.get_image_path()"/>-->
+<!--                                                            </picture>-->
+<!--                                                        </a>-->
+<!--                                                        <t t-call="von.hover_social_share"/>-->
+<!--                                                    </div>-->
+<!--                                                    <div class="heading">-->
+<!--                                                        <a data-event_action="Top Story" t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">-->
+<!--                                                            <h2 data-vr-headline=""><t t-esc="blog_post.name"/></h2>-->
+<!--                                                        </a>-->
+<!--                                                    </div>-->
+<!--                                                </article>-->
+<!--                                            </li>-->
+<!--                                        </t>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
+<!--                            </div>-->
 
-                            <div class="home_sidebar">
+<!--                            <div class="home_sidebar">-->
 
-                                <div class="editors_pick" data-vr-zone="Home Editor's Pick Section">
-                                    <div class="home_title">Editor's Picks</div>
-                                    <ul>
-                                        <t t-foreach="editor_blogs" t-as="blog_post">
-                                            <li>
-                                                <div class="e_p_txt">
-                                                    <h2 data-vr-headline="">
-                                                        <a data-event_action="Editor's Pick" t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">
-                                                            <t t-esc="blog_post.name"/>
-                                                        </a>
-                                                    </h2>
-                                                    <h3>
-                                                        <a class="open-section" t-att-href="'/blog/author/'+str(blog_post.author_id.id)">
-                                                            <t t-esc="blog_post.author_id.name"/>
-                                                        </a>
-                                                    </h3>
-                                                </div>
-                                                <div class="e_p_img">
-                                                    <img class="lazyloaded" t-att-title="blog_post.author_id.name" t-att-alt="blog_post.author_id.name" t-att-src="blog_post.get_author_image_path()"/>
-                                                </div>
-                                            </li>
-                                        </t>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <section class="abcd categories">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-12">
-                                    <div class="border-top">
-                                    </div>
-                                </div>
-                                <t t-foreach="hp_blog_types" t-as="blog">
-                                    <div class="col-md-3 col-sm-6 col-ms-12">
-                                        <div class="catPostHome" data-vr-zone="Home Category Pakistan Section">
-                                            <div class="tittle-top">
-                                                <h2><a t-attf-href="/blog/#{slug(blog)}"><t t-esc="blog.name"/></a></h2>
-                                            </div>
+<!--                                <div class="editors_pick" data-vr-zone="Home Editor's Pick Section">-->
+<!--                                    <div class="home_title">Editor's Picks</div>-->
+<!--                                    <ul>-->
+<!--                                        <t t-foreach="editor_blogs" t-as="blog_post">-->
+<!--                                            <li>-->
+<!--                                                <div class="e_p_txt">-->
+<!--                                                    <h2 data-vr-headline="">-->
+<!--                                                        <a data-event_action="Editor's Pick" t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">-->
+<!--                                                            <t t-esc="blog_post.name"/>-->
+<!--                                                        </a>-->
+<!--                                                    </h2>-->
+<!--                                                    <h3>-->
+<!--                                                        <a class="open-section" t-att-href="'/blog/author/'+str(blog_post.author_id.id)">-->
+<!--                                                            <t t-esc="blog_post.author_id.name"/>-->
+<!--                                                        </a>-->
+<!--                                                    </h3>-->
+<!--                                                </div>-->
+<!--                                                <div class="e_p_img">-->
+<!--                                                    <img class="lazyloaded" t-att-title="blog_post.author_id.name" t-att-alt="blog_post.author_id.name" t-att-src="blog_post.get_author_image_path()"/>-->
+<!--                                                </div>-->
+<!--                                            </li>-->
+<!--                                        </t>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </section>-->
+<!--                    <section class="abcd categories">-->
+<!--                        <div class="container">-->
+<!--                            <div class="row">-->
+<!--                                <div class="col-xs-12 col-sm-12">-->
+<!--                                    <div class="border-top">-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <t t-foreach="hp_blog_types" t-as="blog">-->
+<!--                                    <div class="col-md-3 col-sm-6 col-ms-12">-->
+<!--                                        <div class="catPostHome" data-vr-zone="Home Category Pakistan Section">-->
+<!--                                            <div class="tittle-top">-->
+<!--                                                <h2><a t-attf-href="/blog/#{slug(blog)}"><t t-esc="blog.name"/></a></h2>-->
+<!--                                            </div>-->
 
-                                            <ul class="list">
-                                                <t t-set="blog_post" t-value="blog.top_post()"/>
-                                                <li class="border-box">
-                                                    <div class="top-story-first">
-                                                        <a data-event_action="Pakistan"
-                                                           style="display: block;" class="open-section cat-open"
-                                                           t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">
-                                                            <img class=" lazyloaded" t-att-title="blog_post.name" t-att-alt="blog_post.name" t-att-src="blog_post.get_image_path()"/>
-                                                        </a>
-                                                        <div class="main-heading-top">
-                                                            <h2 data-vr-headline="">
-                                                                <a data-event_action="Pakistan" t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">
-                                                                    <t t-esc="blog_post.name"/>
-                                                                </a>
-                                                            </h2>
-                                                        </div>
-                                                    </div>
-                                                </li>
+<!--                                            <ul class="list">-->
+<!--                                                <t t-set="blog_post" t-value="blog.top_post()"/>-->
+<!--                                                <li class="border-box">-->
+<!--                                                    <div class="top-story-first">-->
+<!--                                                        <a data-event_action="Pakistan"-->
+<!--                                                           style="display: block;" class="open-section cat-open"-->
+<!--                                                           t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">-->
+<!--                                                            <img class=" lazyloaded" t-att-title="blog_post.name" t-att-alt="blog_post.name" t-att-src="blog_post.get_image_path()"/>-->
+<!--                                                        </a>-->
+<!--                                                        <div class="main-heading-top">-->
+<!--                                                            <h2 data-vr-headline="">-->
+<!--                                                                <a data-event_action="Pakistan" t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">-->
+<!--                                                                    <t t-esc="blog_post.name"/>-->
+<!--                                                                </a>-->
+<!--                                                            </h2>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                </li>-->
 
-                                                <t t-foreach="blog.hp_posts()" t-as="blog_post">
-                                                    <li class="border-box">
-                                                        <a data-event_action="Pakistan" t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">
-                                                            <t t-esc="blog_post.name"/>
-                                                        </a>
-                                                    </li>
-                                                </t>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </t>
-                            </div>
-                        </div>
-                    </section>
+<!--                                                <t t-foreach="blog.hp_posts()" t-as="blog_post">-->
+<!--                                                    <li class="border-box">-->
+<!--                                                        <a data-event_action="Pakistan" t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">-->
+<!--                                                            <t t-esc="blog_post.name"/>-->
+<!--                                                        </a>-->
+<!--                                                    </li>-->
+<!--                                                </t>-->
+<!--                                            </ul>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </t>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </section>-->
                 </div>
             </t>
         </template>
