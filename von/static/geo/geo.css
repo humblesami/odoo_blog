@@ -651,8 +651,6 @@ button.close {
 
 .clearfix:after,
 .clearfix:before,
-.container:after,
-.container:before,
 .nav:after,
 .nav:before {
     display: table;
