@@ -32,6 +32,9 @@
                         body{
                             background-color: #eee;
                         }
+                        #page_wait_spinner{
+                            z-index:999999;
+                        }
                         #page_wait_spinner:before {
                           content: '';
                           box-sizing: border-box;
