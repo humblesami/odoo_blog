@@ -26,24 +26,39 @@
         //console.log('Setting heights of => '+els.length+' images');
     }
     let el = document.querySelector("link[as='style']");
-    //console.log(el.href, 1111);
-    if(el.rel == 'stylesheet'){
-        console.log('already loaded '+new Date().getMilliseconds());
-        el.rel = 'stylesheet';
-        set_image_heights();
-    }
-    else{
-        console.log('will load '+new Date().getMilliseconds());
-        el.onload = null;
-        el.onload = function(){
-            console.log('now loaded '+new Date().getMilliseconds());
+    let css_loaded = 0;
+    if(el.href.endsWith('geo.css')){
+        console.log(el.href, 1111);
+        if(el.rel == 'stylesheet'){
+            console.log('already loaded '+new Date().getMilliseconds());
             el.rel = 'stylesheet';
+            el.onload = null;
+            css_loaded = 1;
             set_image_heights();
-        };
+        }
+        else{
+            if(css_loaded){
+                console.log('On load getting registered second time');
+                return;
+            }
+            console.log('will load '+new Date().getMilliseconds());
+            el.onload = null;
+            el.onload = function(){
+                if(css_loaded){
+                    console.log('On load called second time now');
+                    return;
+                }
+                css_loaded = 1;
+                console.log('now loaded '+new Date().getMilliseconds());
+                el.rel = 'stylesheet';
+                set_image_heights();
+            };
+        }
+        let user_nav = document.getElementById('oe_main_menu_navbar');
+        if(user_nav)
+        {
+            user_nav.style.display = 'grid';
+        }
     }
-    let user_nav = document.getElementById('oe_main_menu_navbar');
-    if(user_nav)
-    {
-        user_nav.style.display = 'grid';
-    }
+
 })()

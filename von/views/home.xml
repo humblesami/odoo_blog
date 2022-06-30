@@ -17,9 +17,9 @@
                             </div>
                         </div>
 
-<!--                        <div class="page-content container">-->
+                        <div class="page-content container">
 
-<!--                            <div class="home_main_content">-->
+                            <div class="home_main_content">
 <!--                                <div class="m_c_left" data-vr-zone="Home Featured Section">-->
 <!--                                    <ul>-->
 <!--                                        <li>-->
@@ -71,34 +71,34 @@
 <!--                                    </ul>-->
 <!--                                </div>-->
 
-<!--                                <div class="m_c_right">-->
-<!--                                    <div class="home_title">Top Stories</div>-->
-<!--                                    <ul data-vr-zone="Home Top Stories Section">-->
-<!--                                        <t t-foreach="blogs2" t-as="blog_post">-->
-<!--                                            <li>-->
-<!--                                                <article>-->
-<!--                                                    <a data-event_action="Top Story" t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">-->
-<!--                                                    </a>-->
-<!--                                                    <div class="m_pic bg_image_div">-->
-<!--                                                        <a data-event_action="Top Story" t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">-->
-<!--                                                            <picture>-->
-<!--                                                                <source media="(max-width: 480px)" t-att-title="blog_post.name" t-att-alt="blog_post.name" t-att-srcset="blog_post.get_image_path()"/>-->
-<!--                                                                <img class="lazyloaded" t-att-title="blog_post.name" t-att-alt="blog_post.name" t-att-src="blog_post.get_image_path()"/>-->
-<!--                                                            </picture>-->
-<!--                                                        </a>-->
-<!--                                                        <t t-call="von.hover_social_share"/>-->
-<!--                                                    </div>-->
-<!--                                                    <div class="heading">-->
-<!--                                                        <a data-event_action="Top Story" t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">-->
-<!--                                                            <h2 data-vr-headline=""><t t-esc="blog_post.name"/></h2>-->
-<!--                                                        </a>-->
-<!--                                                    </div>-->
-<!--                                                </article>-->
-<!--                                            </li>-->
-<!--                                        </t>-->
-<!--                                    </ul>-->
-<!--                                </div>-->
-<!--                            </div>-->
+                                <div class="m_c_right">
+                                    <div class="home_title">Top Stories</div>
+                                    <ul data-vr-zone="Home Top Stories Section">
+                                        <t t-foreach="blogs2" t-as="blog_post">
+                                            <li>
+                                                <article>
+                                                    <a data-event_action="Top Story" t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">
+                                                    </a>
+                                                    <div class="m_pic bg_image_div">
+                                                        <a data-event_action="Top Story" t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">
+                                                            <picture>
+                                                                <source media="(max-width: 480px)" t-att-title="blog_post.name" t-att-alt="blog_post.name" t-att-srcset="blog_post.get_image_path()"/>
+                                                                <img class="lazyloaded" t-att-title="blog_post.name" t-att-alt="blog_post.name" t-att-src="blog_post.get_image_path()"/>
+                                                            </picture>
+                                                        </a>
+                                                        <t t-call="von.hover_social_share"/>
+                                                    </div>
+                                                    <div class="heading">
+                                                        <a data-event_action="Top Story" t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">
+                                                            <h2 data-vr-headline=""><t t-esc="blog_post.name"/></h2>
+                                                        </a>
+                                                    </div>
+                                                </article>
+                                            </li>
+                                        </t>
+                                    </ul>
+                                </div>
+                            </div>
 
 <!--                            <div class="home_sidebar">-->
 
@@ -127,7 +127,7 @@
 <!--                                    </ul>-->
 <!--                                </div>-->
 <!--                            </div>-->
-<!--                        </div>-->
+                        </div>
                     </section>
                     <section class="abcd categories">
                         <div class="container">

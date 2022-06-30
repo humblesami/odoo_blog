@@ -23,45 +23,54 @@
                     <script defer="defer" src="https://code.jquery.com/jquery-3.6.0.min.js"/>
                 </head>
                 <body t-att-class="body_classname">
-                    <link rel="preload" as="style" href="/von/static/geo/geo.css" onload="this.rel='stylesheet'"/>
-                    <link rel="preload" as="style" href="/von/static/geo/footer.css" onload="this.rel='stylesheet'"/>
-                    <style>
-                        @keyframes spinner {
-                          to {transform: rotate(360deg);}
-                        }
-                        body{
-                            background-color: #eee;
-                        }
-                        #page_wait_spinner{
-                            z-index:999999;
-                        }
-                        #page_wait_spinner:before {
-                          content: '';
-                          box-sizing: border-box;
-                          position: absolute;
-                          top: 50%;
-                          left: 50%;
-                          width: 20px;
-                          height: 20px;
-                          margin-top: -10px;
-                          margin-left: -10px;
-                          border-radius: 50%;
-                          border: 2px solid #ddd;
-                          border-top-color: #000;
-                          animation: spinner .6s linear infinite;
-                        }
-                        #wrapwrap{display:none;}
-                    </style>
-                    <div class="spinner" id="page_wait_spinner">
+                    <div class="dom-prefix">
+                        <style>
+                            @keyframes spinner {
+                              to {transform: rotate(360deg);}
+                            }
+                            #page_wait_spinner{
+                                z-index:999999;
+                                background-color: #eee;
+                                position: fixed;
+                                top: 0;
+                                left: 0;
+                                width: 100vw;
+                                height: 100vh;
+                            }
+
+                            #page_wait_spinner:before {
+                              content: '';
+                              box-sizing: border-box;
+                              position: absolute;
+                              top: 50%;
+                              left: 50%;
+                              width: 20px;
+                              height: 20px;
+                              margin-top: -10px;
+                              margin-left: -10px;
+                              border-radius: 50%;
+                              border: 2px solid #ddd;
+                              border-top-color: #000;
+                              animation: spinner .6s linear infinite;
+                            }
+                            #wrapwrap{display:none;}
+                        </style>
+                        <link rel="preload" as="style" href="/von/static/geo/geo.css" onload="this.rel='stylesheet'"/>
+                        <link rel="preload" as="style" href="/von/static/geo/footer.css" onload="this.rel='stylesheet'"/>
                     </div>
-                    <t t-call="von.header"/>
-                    <t t-call="von.side_nav"/>
-                    <div id="wrapwrap">
-                        <t t-out="0"/>
+                    <div class="spinner" id="page_wait_spinner"/>
+                    <div>
+                        <t t-call="von.header"/>
+                        <t t-call="von.side_nav"/>
+                        <div id="wrapwrap">
+                            <t t-out="0"/>
+                        </div>
+                        <t t-call="von.footer"/>
                     </div>
-                    <t t-call="von.footer"/>
-                    <script async="async" src="/von/static/geo/show_dom.js"/>
-                    <script defer="defer" src="/von/static/geo/geo.js"/>
+                    <div class="dom-postfix">
+                        <script async="async" src="/von/static/geo/show_dom.js"/>
+                        <script defer="defer" src="/von/static/geo/geo.js"/>
+                    </div>
                 </body>
             </html>
         </template>
