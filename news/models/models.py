@@ -3,6 +3,22 @@ from odoo import models, fields, api
 from odoo.tools.json import scriptsafe as json_scriptsafe
 
 
+class FakeEmptyClass(object):
+    pass
+
+
+def dict2obj(d):
+    if isinstance(d, list):
+        d = [dict2obj(x) for x in d]
+    if not isinstance(d, dict):
+        return d
+    
+    o = FakeEmptyClass()
+    for k in d:
+        o.__dict__[k] = dict2obj(d[k])
+    return o
+
+
 class WebsitePostPublishedButton(models.AbstractModel):
     _inherit = "website.published.mixin"
     
@@ -13,7 +29,7 @@ class WebsitePostPublishedButton(models.AbstractModel):
             'target': 'new',
         }
         return res
-    
+
 
 class NewsPost(models.Model):
     _inherit = 'blog.post'
@@ -47,6 +63,12 @@ class NewsPost(models.Model):
     def _on_subtitle_changed(self):
         if self.name:
             self.website_meta_description = self.subtitle
+            
+    def get_blog_author(self):
+        author = self.author_id
+        dictionary = {'id': author.id, 'name': author.name, 'picture': self.get_author_image_path()}
+        res = dict2obj(dictionary)
+        return res
 
 
 class NewsBlog(models.Model):
@@ -60,7 +82,6 @@ class NewsBlog(models.Model):
         return res
     
     def hp_posts(self):
-        id = self.id
         top_post_id = self.get_top_post_id()
         res = self.blog_post_ids
         res = res.filtered(lambda x:x.is_published==True and x.id != top_post_id)[:4]

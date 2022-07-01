@@ -24,15 +24,15 @@
                                             <article>
                                                 <t t-set="blog_post" t-value="top_post"/>
                                                 <div class="m_pic bg_image_div">
-                                                    <a data-event_action="featured" class="open-section" t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">
+                                                    <a class="open-section" t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">
                                                         <img class="lazyloaded" t-att-title="blog_post.name" t-att-alt="blog_post.name" t-att-src="blog_post.get_image_path()"/>
                                                     </a>
                                                     <t t-call="von.hover_social_share"/>
                                                 </div>
 
                                                 <div class="heading">
-                                                    <a data-event_action="featured" class="open-section" t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">
-                                                        <h1 data-vr-headline=""><t t-esc="blog_post.name"/></h1>
+                                                    <a class="open-section" t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">
+                                                        <h1><t t-esc="blog_post.name"/></h1>
                                                     </a>
                                                 </div>
                                                 <div class="m_except">
@@ -42,19 +42,18 @@
                                         </li>
 
                                         <div class="top-ads-mob">
-
                                         </div>
 
                                         <t t-foreach="blogs1" t-as="blog_post">
                                             <li>
                                                 <article>
                                                     <div class="heading">
-                                                        <a data-event_action="featured" class="open-section" t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">
-                                                            <h2 data-vr-headline=""><t t-esc="blog_post.name"/></h2>
+                                                        <a class="open-section" t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">
+                                                            <h2><t t-esc="blog_post.name"/></h2>
                                                         </a>
                                                     </div>
                                                     <div class="m_pic bg_image_div">
-                                                        <a data-event_action="featured" class="open-section" t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">
+                                                        <a class="open-section" t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">
                                                             <img class=" lazyloaded" t-att-title="blog_post.name" t-att-alt="blog_post.name" t-att-src="blog_post.get_image_path()"/>
                                                         </a>
                                                         <t t-call="von.hover_social_share"/>
@@ -75,10 +74,10 @@
                                         <t t-foreach="blogs2" t-as="blog_post">
                                             <li>
                                                 <article>
-                                                    <a data-event_action="Top Story" t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">
+                                                    <a t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">
                                                     </a>
                                                     <div class="m_pic bg_image_div">
-                                                        <a data-event_action="Top Story" t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">
+                                                        <a t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">
                                                             <picture>
                                                                 <source media="(max-width: 480px)" t-att-title="blog_post.name" t-att-alt="blog_post.name" t-att-srcset="blog_post.get_image_path()"/>
                                                                 <img class="lazyloaded" t-att-title="blog_post.name" t-att-alt="blog_post.name" t-att-src="blog_post.get_image_path()"/>
@@ -87,8 +86,8 @@
                                                         <t t-call="von.hover_social_share"/>
                                                     </div>
                                                     <div class="heading">
-                                                        <a data-event_action="Top Story" t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">
-                                                            <h2 data-vr-headline=""><t t-esc="blog_post.name"/></h2>
+                                                        <a t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">
+                                                            <h2><t t-esc="blog_post.name"/></h2>
                                                         </a>
                                                     </div>
                                                 </article>
@@ -97,27 +96,29 @@
                                     </ul>
                                 </div>
                             </div>
+
                             <div class="home_sidebar">
                                 <div class="editors_pick" data-vr-zone="Home Editor's Pick Section">
                                     <div class="home_title">Editor's Picks</div>
                                     <ul>
                                         <t t-foreach="editor_blogs" t-as="blog_post">
                                             <li>
+                                                <t t-set="blog_author" t-value="blog_post.get_blog_author()"/>
                                                 <div class="e_p_txt">
                                                     <h2>
                                                         <a t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">
                                                             <t t-esc="blog_post.name"/>
                                                         </a>
                                                     </h2>
-                                                    <!--<h3>-->
-                                                    <!--    <a class="open-section" t-att-href="'/blog/author/'+str(blog_post.author_id.id)">-->
-                                                    <!--        <t t-esc="blog_post.author_id.name"/>-->
-                                                    <!--    </a>-->
-                                                    <!--</h3>-->
+                                                    <h3>
+                                                        <a class="open-section" t-att-href="'/blog/author/'+str(blog_author.id)">
+                                                            <t t-esc="blog_author.name"/>
+                                                        </a>
+                                                    </h3>
                                                 </div>
-                                                <!--<div class="e_p_img">-->
-                                                <!--    <img class="lazyloaded" t-att-title="blog_post.author_id.name" t-att-alt="blog_post.author_id.name" t-att-src="blog_post.get_author_image_path()"/>-->
-                                                <!--</div>-->
+                                                <div class="e_p_img">
+                                                    <img class="lazyloaded" t-att-title="blog_author.name" t-att-alt="blog_author.name" t-att-src="blog_author.picture"/>
+                                                </div>
                                             </li>
                                         </t>
                                     </ul>
@@ -143,14 +144,12 @@
                                                 <t t-set="blog_post" t-value="blog.top_post()"/>
                                                 <li class="border-box">
                                                     <div class="top-story-first">
-                                                        <a data-event_action="Pakistan"
-                                                           style="display: block;" class="open-section cat-open"
-                                                           t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">
+                                                        <a style="display: block;" class="open-section cat-open" t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">
                                                             <img class=" lazyloaded" t-att-title="blog_post.name" t-att-alt="blog_post.name" t-att-src="blog_post.get_image_path()"/>
                                                         </a>
                                                         <div class="main-heading-top">
-                                                            <h2 data-vr-headline="">
-                                                                <a data-event_action="Pakistan" t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">
+                                                            <h2>
+                                                                <a t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">
                                                                     <t t-esc="blog_post.name"/>
                                                                 </a>
                                                             </h2>
@@ -160,7 +159,7 @@
 
                                                 <t t-foreach="blog.hp_posts()" t-as="blog_post">
                                                     <li class="border-box">
-                                                        <a data-event_action="Pakistan" t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">
+                                                        <a t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">
                                                             <t t-esc="blog_post.name"/>
                                                         </a>
                                                     </li>
@@ -190,14 +189,13 @@
                                 <t t-foreach="records" t-as="blog_post">
                                     <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6 singleBlock">
                                         <article>
-                                            <a class="open-section"
-                                               t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">
+                                            <a class="open-section" t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">
                                                 <div class="pic bg_image_div">
                                                     <img class="lazyloaded" t-att-title="blog_post.author_id.name" t-att-alt="blog_post.author_id.name" t-att-src="blog_post.get_image_path()"/>
                                                 </div>
                                                 <div class="entry-content-heading">
                                                     <div class="entry-title">
-                                                        <h2 data-vr-headline=""><t t-esc="blog_post.name"/></h2>
+                                                        <h2><t t-esc="blog_post.name"/></h2>
                                                         <span class="date">Updated 33 minutes ago</span>
                                                     </div>
                                                 </div>
