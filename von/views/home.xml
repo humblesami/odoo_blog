@@ -8,8 +8,8 @@
                     <section class="home_page home_s_top">
                         <div class="ad container">
                             <div class="ads lb">
-                                <div id="div-gpt-ad-1523347432315-4" style="height:auto; width:auto;" data-google-query-id="CJz02eiom_gCFYWFhQodWmsMpg">
-                                    <div id="google_ads_iframe_/1063725/geo_eng_home_billboard_atf_0__container__" style="border: 0pt none;">
+                                <div style="height:auto; width:auto;">
+                                    <div style="border: 0pt none;">
                                         <img loadin="lazy" src="https://tpc.googlesyndication.com/simgad/8575719920860005263" border="0"
                                              width="320" height="101" alt="" class="img_ad"/>
                                     </div>
@@ -18,7 +18,7 @@
                         </div>
                         <div class="page-content container">
                             <div class="home_main_content">
-                                <div class="m_c_left" data-vr-zone="Home Featured Section">
+                                <div class="m_c_left">
                                     <ul>
                                         <li>
                                             <article>
@@ -70,7 +70,7 @@
 
                                 <div class="m_c_right">
                                     <div class="home_title">Top Stories</div>
-                                    <ul data-vr-zone="Home Top Stories Section">
+                                    <ul>
                                         <t t-foreach="blogs2" t-as="blog_post">
                                             <li>
                                                 <article>
@@ -98,12 +98,12 @@
                             </div>
 
                             <div class="home_sidebar">
-                                <div class="editors_pick" data-vr-zone="Home Editor's Pick Section">
+                                <div class="editors_pick">
                                     <div class="home_title">Editor's Picks</div>
                                     <ul>
                                         <t t-foreach="editor_blogs" t-as="blog_post">
                                             <li>
-                                                <t t-set="blog_author" t-value="blog_post.get_blog_author()"/>
+                                                <t t-set="blog_author" t-value="blog_post.author_id"/>
                                                 <div class="e_p_txt">
                                                     <h2>
                                                         <a t-attf-href="/blog/#{slug(blog_post.blog_id)}/#{slug(blog_post)}" t-att-title="blog_post.name">
@@ -117,7 +117,7 @@
                                                     </h3>
                                                 </div>
                                                 <div class="e_p_img">
-                                                    <img class="lazyloaded" t-att-title="blog_author.name" t-att-alt="blog_author.name" t-att-src="blog_author.picture"/>
+                                                    <img class="lazyloaded" t-att-title="blog_author.name" t-att-alt="blog_author.name" t-att-src="blog_author.get_author_image_path()"/>
                                                 </div>
                                             </li>
                                         </t>
@@ -135,7 +135,7 @@
                                 </div>
                                 <t t-foreach="hp_blog_types" t-as="blog">
                                     <div class="col-md-3 col-sm-6 col-ms-12">
-                                        <div class="catPostHome" data-vr-zone="Home Category Pakistan Section">
+                                        <div class="catPostHome">
                                             <div class="tittle-top">
                                                 <h2><a t-attf-href="/blog/#{slug(blog)}"><t t-esc="blog.name"/></a></h2>
                                             </div>
